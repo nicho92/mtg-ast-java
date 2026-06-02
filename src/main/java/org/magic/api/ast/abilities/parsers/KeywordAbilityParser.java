@@ -1,6 +1,7 @@
 package org.magic.api.ast.abilities.parsers;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -15,24 +16,8 @@ public class KeywordAbilityParser implements AbilityParser {
 	private final KeywordRegistry registry;
 
 	public KeywordAbilityParser() {
-
-		this.registry = new KeywordRegistry() {
-			
-			@Override
-			public Set<String> getKeywords() {
-		    	return Set.of(
-		    	        "Flying",
-		    	        "Trample",
-		    	        "First strike",
-		    	        "Double strike",
-		    	        "Deathtouch",
-		    	        "Hexproof",
-		    	        "Ward",
-		    	        "Cycling",
-		    	        "Equip"
-		    	);
-			}
-		};
+		
+		registry = new KeywordRegistry();
 	}
 
 	@Override
@@ -77,13 +62,13 @@ public class KeywordAbilityParser implements AbilityParser {
 	}
 	private boolean isKeyword(String text) {
 
-		return registry.getKeywords().stream().anyMatch(keyword -> text.equalsIgnoreCase(keyword)
+		return registry.orderedKeywords().stream().anyMatch(keyword -> text.equalsIgnoreCase(keyword)
 				|| text.toLowerCase().startsWith(keyword.toLowerCase() + " "));
 	}
 
 	private String extractKeyword(String text) {
 
-		return registry.getKeywords().stream().filter(
+		return registry.orderedKeywords().stream().filter(
 				keyword -> text.equalsIgnoreCase(keyword) || text.toLowerCase().startsWith(keyword.toLowerCase() + " "))
 				.findFirst().orElseThrow();
 	}
