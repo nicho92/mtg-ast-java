@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.nicho92</groupId>
+	<artifactId>mtg-ast-java</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+	<name>MTG Card Analyzer</name>
+	<description>Java implementation for manapool API</description>
+	<url>https://github.com/nicho92/manapool-api-java</url>
+	<properties>
+		<maven.compiler.release>25</maven.compiler.release>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/nicho92/mtg-ast-java/issues</url>
+	</issueManagement>
+	<organization>
+		<name>Nicolas Pihen</name>
+		<url>https://github.com/nicho92/</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>nicho</id>
+			<name>Nicolas Pihen</name>
+			<email>nicolas.pihen@gmail.com</email>
+			<organizationUrl>https://www.mtgcompanion.org</organizationUrl>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:https://github.com/nicho92/mtg-ast-java.git</connection>
+		<developerConnection>scm:git:https://github.com/nicho92/mtg-ast-java.git</developerConnection>
+		<url>https://github.com/nicho92/mtg-ast-java</url>
+		<tag>HEAD</tag>
+	</scm>
+
+</project>
