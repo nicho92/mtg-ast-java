@@ -1,4 +1,4 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.costs.parsers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,7 @@ import org.magic.api.ast.parser.interfaces.CostParser;
 
 public class ManaCostParser implements CostParser {
 
-    private static final Pattern MANA_SYMBOL =
-            Pattern.compile("\\{([^}]+)}");
+    private static final Pattern MANA_SYMBOL = Pattern.compile("\\{([^}]+)}");
 
     @Override
     public boolean supports(String text) {

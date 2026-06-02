@@ -1,4 +1,4 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.effects.parsers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

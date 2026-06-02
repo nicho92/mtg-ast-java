@@ -1,4 +1,4 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.costs.parsers;
 
 import java.util.List;
 import java.util.regex.Pattern;

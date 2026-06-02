@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.StaticAbility;
-import org.magic.api.ast.parser.ActivatedAbilityParser;
-import org.magic.api.ast.parser.TriggeredAbilityParser;
+import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
+import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
 import org.magic.api.ast.parser.interfaces.AbilityParser;
 
 public class OracleParser {

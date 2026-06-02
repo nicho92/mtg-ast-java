@@ -10,7 +10,7 @@ public class Test {
 			
 			Whenever another creature dies, draw a card.
 			
-			{T}: Add {G}.""";
+			{B},{T}: Add {G}.""";
 		
 		
 		var test = new OracleParser().parse("Test", oracle);

@@ -1,18 +1,18 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.effects.parsers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.effects.DrawCardsEffect;
+import org.magic.api.ast.effects.DealDamageEffect;
 import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.parser.interfaces.EffectParser;
 
-public class DrawEffectParser
+public class DamageEffectParser
 implements EffectParser {
 
 private static final Pattern PATTERN =
     Pattern.compile(
-            "^Draw\\s+(a|\\d+)\\s+card",
+            "deal\\s+(\\d+)\\s+damage\\s+to\\s+(.+)",
             Pattern.CASE_INSENSITIVE);
 
 @Override
@@ -28,13 +28,10 @@ Matcher matcher =
 
 matcher.find();
 
-String amount =
-        matcher.group(1);
-
-return new DrawCardsEffect(
-        "a".equalsIgnoreCase(amount)
-                ? 1
-                : Integer.parseInt(amount)
+return new DealDamageEffect(
+        Integer.parseInt(
+                matcher.group(1)),
+        matcher.group(2)
 );
 }
 }

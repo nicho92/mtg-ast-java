@@ -1,18 +1,18 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.effects.parsers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.effects.DestroyTargetEffect;
+import org.magic.api.ast.effects.CreateTokenEffect;
 import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.parser.interfaces.EffectParser;
 
-public class DestroyEffectParser
+public class CreateTokenEffectParser
 implements EffectParser {
 
 private static final Pattern PATTERN =
     Pattern.compile(
-            "^Destroy\\s+(.+)",
+            "^Create\\s+(.*?)\\s+token",
             Pattern.CASE_INSENSITIVE);
 
 @Override
@@ -28,8 +28,9 @@ Matcher matcher =
 
 matcher.find();
 
-return new DestroyTargetEffect(
-        matcher.group(1)
+return new CreateTokenEffect(
+        matcher.group(1),
+        1
 );
 }
 }

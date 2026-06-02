@@ -4,6 +4,12 @@ import java.util.List;
 
 import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.effects.UnknownEffect;
+import org.magic.api.ast.effects.parsers.AddManaEffectParser;
+import org.magic.api.ast.effects.parsers.CreateTokenEffectParser;
+import org.magic.api.ast.effects.parsers.DamageEffectParser;
+import org.magic.api.ast.effects.parsers.DestroyEffectParser;
+import org.magic.api.ast.effects.parsers.DrawEffectParser;
+import org.magic.api.ast.effects.parsers.GainLifeEffectParser;
 import org.magic.api.ast.parser.*;
 import org.magic.api.ast.parser.interfaces.EffectParser;
 

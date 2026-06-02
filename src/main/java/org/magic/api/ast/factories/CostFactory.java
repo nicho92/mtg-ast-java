@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.magic.api.ast.costs.CostNode;
-import org.magic.api.ast.parser.ManaCostParser;
-import org.magic.api.ast.parser.TapCostParser;
+import org.magic.api.ast.costs.parsers.ManaCostParser;
+import org.magic.api.ast.costs.parsers.TapCostParser;
 import org.magic.api.ast.parser.interfaces.CostParser;
 
 public class CostFactory {

@@ -1,4 +1,4 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.abilities.parsers;
 
 import java.util.List;
 import java.util.regex.Matcher;

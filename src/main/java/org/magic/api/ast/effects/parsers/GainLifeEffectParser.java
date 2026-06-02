@@ -1,18 +1,18 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.effects.parsers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.effects.CreateTokenEffect;
 import org.magic.api.ast.effects.EffectNode;
+import org.magic.api.ast.effects.GainLifeEffect;
 import org.magic.api.ast.parser.interfaces.EffectParser;
 
-public class CreateTokenEffectParser
+public class GainLifeEffectParser
 implements EffectParser {
 
 private static final Pattern PATTERN =
     Pattern.compile(
-            "^Create\\s+(.*?)\\s+token",
+            "^Gain\\s+(\\d+)\\s+life",
             Pattern.CASE_INSENSITIVE);
 
 @Override
@@ -28,9 +28,9 @@ Matcher matcher =
 
 matcher.find();
 
-return new CreateTokenEffect(
-        matcher.group(1),
-        1
+return new GainLifeEffect(
+        Integer.parseInt(
+                matcher.group(1))
 );
 }
 }
