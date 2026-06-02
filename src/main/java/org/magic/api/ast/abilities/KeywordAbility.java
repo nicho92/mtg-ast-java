@@ -1,6 +1,6 @@
 package org.magic.api.ast.abilities;
 
-public record KeywordAbility(String keyword) implements AbilityNode 
+public record KeywordAbility(String keyword, String parameter) implements AbilityNode 
 {
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
+import org.magic.api.ast.abilities.parsers.KeywordAbilityParser;
 import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
 import org.magic.api.ast.parser.interfaces.AbilityParser;
 
@@ -15,40 +16,30 @@ public class OracleParser {
     public OracleParser() {
 
         parsers = List.of(
-             //   new KeywordAbilityParser(),
+        		new KeywordAbilityParser(),
                 new TriggeredAbilityParser(),
                 new ActivatedAbilityParser()
         );
     }
 
-    public CardAst parse(
-            String cardName,
-            String oracleText) {
+    public CardAst parse( String cardName, String oracleText) {
 
-        CardAst card = new CardAst(cardName);
+        var ast = new CardAst(cardName);
 
-        String[] lines =
-                oracleText.split("\\R");
-
-        for (String line : lines) {
-
+        for (var line : oracleText.split("\\R")) {
             line = line.trim();
-
             if (line.isBlank()) {
                 continue;
             }
-
-            AbilityNode ability = parseLine(line);
-
-            card.addAbility(ability);
+            ast.addAbility(parseLine(line));
         }
 
-        return card;
+        return ast;
     }
 
     private AbilityNode parseLine(String line) {
 
-        for (AbilityParser parser : parsers) {
+        for (var parser : parsers) {
 
             if (parser.supports(line)) {
                 return parser.parse(line);

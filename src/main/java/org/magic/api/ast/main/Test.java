@@ -6,11 +6,13 @@ public class Test {
 
 	public static void main(String[] args) {
 		var oracle=	"""
-			Flying
-			
+			Flying, Ward {2}
+
 			Whenever another creature dies, draw a card.
 			
-			{B},{T}: Add {G}.""";
+			{T}: Add {G}.
+			
+			""";
 		
 		
 		var test = new OracleParser().parse("Test", oracle);
