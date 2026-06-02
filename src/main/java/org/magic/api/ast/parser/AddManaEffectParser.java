@@ -1,0 +1,35 @@
+package org.magic.api.ast.parser;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.magic.api.ast.effects.AddManaEffect;
+import org.magic.api.ast.effects.EffectNode;
+import org.magic.api.ast.parser.interfaces.EffectParser;
+
+public class AddManaEffectParser
+implements EffectParser {
+
+private static final Pattern PATTERN =
+    Pattern.compile(
+            "^Add\\s+(.+)$",
+            Pattern.CASE_INSENSITIVE);
+
+@Override
+public boolean supports(String text) {
+return PATTERN.matcher(text).find();
+}
+
+@Override
+public EffectNode parse(String text) {
+
+Matcher matcher =
+        PATTERN.matcher(text);
+
+matcher.find();
+
+return new AddManaEffect(
+        matcher.group(1)
+);
+}
+}

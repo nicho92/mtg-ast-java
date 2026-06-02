@@ -1,4 +1,4 @@
-package org.magic.api.ast.parser;
+package org.magic.api.ast.parser.interfaces;
 
 import java.util.List;
 

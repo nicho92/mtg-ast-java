@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.ManaCost;
+import org.magic.api.ast.parser.interfaces.CostParser;
 
 public class ManaCostParser implements CostParser {
 

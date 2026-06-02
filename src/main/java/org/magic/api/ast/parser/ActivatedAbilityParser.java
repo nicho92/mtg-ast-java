@@ -8,43 +8,34 @@ import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.effects.EffectNode;
+import org.magic.api.ast.factories.CostFactory;
 import org.magic.api.ast.factories.EffectFactory;
+import org.magic.api.ast.parser.interfaces.AbilityParser;
 
-public class ActivatedAbilityParser
-implements AbilityParser {
+public class ActivatedAbilityParser implements AbilityParser {
 
-private static final Pattern PATTERN =
-    Pattern.compile(
-            "^(.*?):\\s*(.*)$");
+	private static final Pattern PATTERN = Pattern.compile("^(.*?):\\s*(.*)$");
 
-@Override
-public boolean supports(String text) {
-return PATTERN.matcher(text).matches();
-}
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).matches();
+	}
 
-@Override
-public AbilityNode parse(String text) {
+	@Override
+	public AbilityNode parse(String text) {
 
-Matcher matcher =
-        PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-matcher.find();
+		matcher.find();
 
-String costPart =
-        matcher.group(1);
+		String costPart = matcher.group(1);
 
-String effectPart =
-        matcher.group(2);
+		String effectPart = matcher.group(2);
 
-List<CostNode> costs =
-        new CostFactory().parse(costPart);
+		List<CostNode> costs = new CostFactory().parse(costPart);
 
-EffectNode effect =
-        EffectFactory.parse(effectPart);
+		EffectNode effect = new EffectFactory().parse(effectPart);
 
-return new ActivatedAbility(
-        costs,
-        List.of(effect)
-);
-}
+		return new ActivatedAbility(costs, List.of(effect));
+	}
 }

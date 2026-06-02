@@ -9,6 +9,7 @@ import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.factories.EffectFactory;
 import org.magic.api.ast.factories.TriggerFactory;
+import org.magic.api.ast.parser.interfaces.AbilityParser;
 import org.magic.api.ast.triggers.TriggerNode;
 
 public class TriggeredAbilityParser
@@ -41,8 +42,7 @@ String effectText =
 TriggerNode trigger =
         TriggerFactory.parse(triggerText);
 
-EffectNode effect =
-        EffectFactory.parse(effectText);
+EffectNode effect = new EffectFactory().parse(effectText);
 
 return new TriggeredAbility(
         trigger,

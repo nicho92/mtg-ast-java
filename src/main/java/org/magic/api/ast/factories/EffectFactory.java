@@ -1,67 +1,35 @@
 package org.magic.api.ast.factories;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.List;
 
-import org.magic.api.ast.effects.AddManaEffect;
-import org.magic.api.ast.effects.DrawCardsEffect;
 import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.effects.GainLifeEffect;
 import org.magic.api.ast.effects.UnknownEffect;
+import org.magic.api.ast.parser.*;
+import org.magic.api.ast.parser.interfaces.EffectParser;
 
-public final class EffectFactory {
+public class EffectFactory {
 
-    private static final Pattern DRAW =
-            Pattern.compile(
-                    "draw (a|\\d+) card",
-                    Pattern.CASE_INSENSITIVE);
+    private final List<EffectParser> parsers;
 
-    private static final Pattern GAIN_LIFE =
-            Pattern.compile(
-                    "gain (\\d+) life",
-                    Pattern.CASE_INSENSITIVE);
+    public EffectFactory() {
 
-    private static final Pattern ADD_MANA =
-            Pattern.compile(
-                    "add \\{([WUBRG])}",
-                    Pattern.CASE_INSENSITIVE);
+        parsers = List.of(
+                new DrawEffectParser(),
+                new GainLifeEffectParser(),
+                new AddManaEffectParser(),
+                new DamageEffectParser(),
+                new DestroyEffectParser(),
+                new CreateTokenEffectParser()
+        );
+    }
 
-    private EffectFactory() {}
+    public EffectNode parse(String text) {
 
-    public static EffectNode parse(
-            String text) {
+        for (var parser : parsers) {
 
-        Matcher draw =
-                DRAW.matcher(text);
-
-        if (draw.find()) {
-
-            String amount =
-                    draw.group(1);
-
-            return new DrawCardsEffect(
-                    "a".equalsIgnoreCase(amount)
-                            ? 1
-                            : Integer.parseInt(amount));
-        }
-
-        Matcher life =
-                GAIN_LIFE.matcher(text);
-
-        if (life.find()) {
-
-            return new GainLifeEffect(
-                    Integer.parseInt(
-                            life.group(1)));
-        }
-
-        Matcher mana =
-                ADD_MANA.matcher(text);
-
-        if (mana.find()) {
-
-            return new AddManaEffect(
-                    mana.group(1));
+            if (parser.supports(text)) {
+                return parser.parse(text);
+            }
         }
 
         return new UnknownEffect(text);

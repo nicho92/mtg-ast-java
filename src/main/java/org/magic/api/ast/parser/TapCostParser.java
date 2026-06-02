@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.TapCost;
+import org.magic.api.ast.parser.interfaces.CostParser;
 
 public class TapCostParser implements CostParser {
 
