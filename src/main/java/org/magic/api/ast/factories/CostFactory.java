@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.parsers.ManaCostParser;
+import org.magic.api.ast.costs.parsers.SacrificeCostParser;
 import org.magic.api.ast.costs.parsers.TapCostParser;
 import org.magic.api.ast.parser.interfaces.CostParser;
 
@@ -16,8 +17,8 @@ public class CostFactory {
 
         this.parsers = List.of(
                 new TapCostParser(),
-                new ManaCostParser()
-        //        new SacrificeCostParser()
+                new ManaCostParser(),
+                new SacrificeCostParser()
         );
     }
 
