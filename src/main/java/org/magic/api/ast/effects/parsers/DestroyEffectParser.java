@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.DestroyTargetEffect;
 import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.parser.interfaces.EffectParser;
+import org.magic.api.ast.factories.TargetSelectorFactory;
+import org.magic.api.ast.interfaces.EffectParser;
 
 public class DestroyEffectParser
 implements EffectParser {
@@ -28,8 +29,6 @@ Matcher matcher =
 
 matcher.find();
 
-return new DestroyTargetEffect(
-        matcher.group(1)
-);
+return new DestroyTargetEffect(TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
 }
 }

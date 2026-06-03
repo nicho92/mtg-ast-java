@@ -1,4 +1,4 @@
-package org.magic.api.ast.parser.interfaces;
+package org.magic.api.ast.interfaces;
 
 import org.magic.api.ast.effects.EffectNode;
 

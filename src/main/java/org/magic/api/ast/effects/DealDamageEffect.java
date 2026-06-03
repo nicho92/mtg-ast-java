@@ -1,3 +1,5 @@
 package org.magic.api.ast.effects;
 
-public record DealDamageEffect(int amount,String target) implements EffectNode {}
+import org.magic.api.ast.selectors.TargetSelectorNode;
+
+public record DealDamageEffect(int amount,TargetSelectorNode target) implements EffectNode {}

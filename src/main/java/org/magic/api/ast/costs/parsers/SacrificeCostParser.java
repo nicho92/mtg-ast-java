@@ -6,11 +6,12 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.SacrificeCost;
-import org.magic.api.ast.parser.interfaces.CostParser;
+import org.magic.api.ast.factories.TargetSelectorFactory;
+import org.magic.api.ast.interfaces.CostParser;
 
 public class SacrificeCostParser implements CostParser{
 
-	private static final Pattern PATTERN = Pattern.compile("^Sacrifice\\s+(.+)$",Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("^Sacrifice\\s+(a|an|one|two|three)\\s+(.+)$",Pattern.CASE_INSENSITIVE);
 	
 	
 	@Override
@@ -21,21 +22,30 @@ public class SacrificeCostParser implements CostParser{
 	@Override
 	public List<CostNode> parse(String text) {
 
-	    Matcher matcher =
-	            PATTERN.matcher(text);
+	    Matcher matcher =PATTERN.matcher(text);
 
 	    if (!matcher.matches()) {
 	        return List.of();
 	    }
 
-	    String targetText =
-	            matcher.group(1).trim();
-
 	    return List.of(
 	            new SacrificeCost(
-	            		targetText
+	            		TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim()),
+	            		parseQuantity(matcher.group(1).trim())
 	            )
 	    );
+	}
+	
+	private int parseQuantity(String quantity) {
+
+	    return switch (quantity.toLowerCase()) {
+
+	        case "a", "an", "one" -> 1;
+	        case "two" -> 2;
+	        case "three" -> 3;
+
+	        default -> 1;
+	    };
 	}
 
 }

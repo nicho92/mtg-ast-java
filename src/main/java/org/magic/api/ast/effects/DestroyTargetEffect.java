@@ -1,4 +1,6 @@
 package org.magic.api.ast.effects;
 
-public record DestroyTargetEffect(String target) implements EffectNode {
+import org.magic.api.ast.selectors.TargetSelectorNode;
+
+public record DestroyTargetEffect(TargetSelectorNode target) implements EffectNode {
 }

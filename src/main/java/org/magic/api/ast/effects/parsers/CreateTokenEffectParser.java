@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.CreateTokenEffect;
 import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.parser.interfaces.EffectParser;
+import org.magic.api.ast.interfaces.EffectParser;
 
 public class CreateTokenEffectParser
 implements EffectParser {

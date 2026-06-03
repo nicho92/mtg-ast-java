@@ -8,32 +8,25 @@ import org.magic.api.ast.triggers.UpkeepTrigger;
 
 public final class TriggerFactory {
 
-    private TriggerFactory() {}
+	private TriggerFactory() {
+	}
 
-    public static TriggerNode parse(
-            String text) {
+	public static TriggerNode parse(String text) {
 
-        String lower =
-                text.toLowerCase();
+		var lower = text.toLowerCase();
 
-        if (lower.contains(
-                "enters the battlefield")) {
+		if (lower.contains("enters the battlefield")) 
+			return new EntersBattlefieldTrigger(text);
+		
 
-            return new EntersBattlefieldTrigger(
-                    text);
-        }
+		if (lower.contains("dies")) 
+			return new DiesTrigger(TargetSelectorFactory.INSTANCE.parse(text));
+		
 
-        if (lower.contains("dies")) {
+		if (lower.contains("beginning of your upkeep")) 
+			return new UpkeepTrigger();
+		
 
-            return new DiesTrigger(text);
-        }
-
-        if (lower.contains(
-                "beginning of your upkeep")) {
-
-            return new UpkeepTrigger();
-        }
-
-        return new UnknownTrigger(text);
-    }
+		return new UnknownTrigger(text);
+	}
 }

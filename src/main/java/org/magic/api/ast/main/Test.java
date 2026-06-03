@@ -10,7 +10,7 @@ public class Test {
 
 			Whenever another creature dies, draw a card.
 			
-			{T}: Add {G}.
+			Sacrifice three artifacts : add {W}.
 			
 			""";
 		
@@ -18,7 +18,11 @@ public class Test {
 		var test = new OracleParser().parse("Test", oracle);
 		
 		
-		System.out.println(test.getAbilities());
+		test.getAbilities().forEach(e->{
+			
+			System.out.println(e.toString());
+			
+		});
 	}
 
 }

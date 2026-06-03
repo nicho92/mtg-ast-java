@@ -7,7 +7,7 @@ import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.parsers.ManaCostParser;
 import org.magic.api.ast.costs.parsers.SacrificeCostParser;
 import org.magic.api.ast.costs.parsers.TapCostParser;
-import org.magic.api.ast.parser.interfaces.CostParser;
+import org.magic.api.ast.interfaces.CostParser;
 
 public class CostFactory {
 

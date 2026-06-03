@@ -1,4 +1,6 @@
 package org.magic.api.ast.costs;
 
-public record SacrificeCost(String target) implements CostNode {
+import org.magic.api.ast.selectors.TargetSelectorNode;
+
+public record SacrificeCost(TargetSelectorNode target, int qty) implements CostNode {
 }

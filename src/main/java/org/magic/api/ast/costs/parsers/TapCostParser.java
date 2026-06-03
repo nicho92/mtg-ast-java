@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.TapCost;
-import org.magic.api.ast.parser.interfaces.CostParser;
+import org.magic.api.ast.costs.UntapCost;
+import org.magic.api.ast.interfaces.CostParser;
 
 public class TapCostParser implements CostParser {
 
@@ -28,10 +29,9 @@ public class TapCostParser implements CostParser {
             return List.of(TapCost.INSTANCE);
         }
 
-//        // extension future possible
-//        if (UNTAP.matcher(text).find()) {
-//            return List.of(new UntapCost());
-//        }
+        if (UNTAP.matcher(text).find()) {
+            return List.of(UntapCost.INSTANCE);
+        }
 
         return List.of();
     }

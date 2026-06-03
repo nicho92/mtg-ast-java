@@ -10,8 +10,7 @@ import org.magic.api.ast.effects.parsers.DamageEffectParser;
 import org.magic.api.ast.effects.parsers.DestroyEffectParser;
 import org.magic.api.ast.effects.parsers.DrawEffectParser;
 import org.magic.api.ast.effects.parsers.GainLifeEffectParser;
-import org.magic.api.ast.parser.*;
-import org.magic.api.ast.parser.interfaces.EffectParser;
+import org.magic.api.ast.interfaces.EffectParser;
 
 public class EffectFactory {
 

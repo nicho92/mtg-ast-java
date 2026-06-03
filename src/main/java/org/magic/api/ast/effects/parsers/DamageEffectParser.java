@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.DealDamageEffect;
 import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.parser.interfaces.EffectParser;
+import org.magic.api.ast.factories.TargetSelectorFactory;
+import org.magic.api.ast.interfaces.EffectParser;
 
 public class DamageEffectParser
 implements EffectParser {
@@ -29,9 +30,8 @@ Matcher matcher =
 matcher.find();
 
 return new DealDamageEffect(
-        Integer.parseInt(
-                matcher.group(1)),
-        matcher.group(2)
+        Integer.parseInt(matcher.group(1)),
+        TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim())
 );
 }
 }
