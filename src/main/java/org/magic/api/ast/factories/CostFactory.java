@@ -25,8 +25,6 @@ public class CostFactory {
     public List<CostNode> parse(String costText) {
 
         List<CostNode> result = new ArrayList<>();
-
-        // split on comma (important for MTG syntax)
         String[] parts = costText.split(",");
 
         for (String part : parts) {

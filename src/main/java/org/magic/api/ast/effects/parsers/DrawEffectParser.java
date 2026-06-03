@@ -12,7 +12,7 @@ implements EffectParser {
 
 private static final Pattern PATTERN =
     Pattern.compile(
-            "^Draw\\s+(a|\\d+)\\s+card",
+            "^Draw\\s+(a|two|three|\\d+)\\s+card",
             Pattern.CASE_INSENSITIVE);
 
 @Override
@@ -32,9 +32,14 @@ String amount =
         matcher.group(1);
 
 return new DrawCardsEffect(
-        "a".equalsIgnoreCase(amount)
-                ? 1
-                : Integer.parseInt(amount)
+		
+		switch (amount) {
+		case "a" ->1;
+		case "two" ->2;
+		case "three" -> 3;
+		default -> Integer.parseInt(amount);
+		}
+		
 );
 }
 }

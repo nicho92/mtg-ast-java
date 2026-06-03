@@ -1,0 +1,19 @@
+Flying, Ward {2}, Trample
+
+Whenever another creature dies, draw a card.
+
+Sacrifice three artifacts : add {W}.
+
+===
+
+Flying
+
+{1}{U}, {T}, Sacrifice another creature: Draw two cards.
+
+Madness {2}
+
+===
+
+{T}: Add {W}
+
+===

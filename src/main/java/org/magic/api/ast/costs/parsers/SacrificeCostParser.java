@@ -11,7 +11,7 @@ import org.magic.api.ast.interfaces.CostParser;
 
 public class SacrificeCostParser implements CostParser{
 
-	private static final Pattern PATTERN = Pattern.compile("^Sacrifice\\s+(a|an|one|two|three)\\s+(.+)$",Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("^Sacrifice\\s+(a|an|another|one|two|three)\\s+(.+)$",Pattern.CASE_INSENSITIVE);
 	
 	
 	@Override
@@ -40,7 +40,7 @@ public class SacrificeCostParser implements CostParser{
 
 	    return switch (quantity.toLowerCase()) {
 
-	        case "a", "an", "one" -> 1;
+	        case "a", "an", "one","another" -> 1;
 	        case "two" -> 2;
 	        case "three" -> 3;
 
