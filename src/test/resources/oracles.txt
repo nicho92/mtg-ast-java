@@ -17,3 +17,7 @@ Madness {2}
 {T}: Add {W}
 
 ===
+
+I — Each opponent sacrifices a creature or planeswalker.
+II — Each opponent discards a card.
+III — Put target creature or planeswalker card from a graveyard onto the battlefield under your control.
