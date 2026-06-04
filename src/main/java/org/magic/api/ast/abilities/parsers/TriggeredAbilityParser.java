@@ -1,13 +1,11 @@
 package org.magic.api.ast.abilities.parsers;
 
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.TriggeredAbility;
-import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.factories.EffectFactory;
+import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 import org.magic.api.ast.factories.TriggerFactory;
 import org.magic.api.ast.interfaces.AbilityParser;
 import org.magic.api.ast.triggers.TriggerNode;
@@ -42,11 +40,9 @@ String effectText =
 TriggerNode trigger =
         TriggerFactory.parse(triggerText);
 
-EffectNode effect = new EffectFactory().parse(effectText);
-
 return new TriggeredAbility(
         trigger,
-        List.of(effect)
+        new EffectSequenceParser().parse(effectText)
 );
 }
 }

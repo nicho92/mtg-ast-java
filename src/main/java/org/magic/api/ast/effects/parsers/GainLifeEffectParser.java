@@ -12,7 +12,7 @@ implements EffectParser {
 
 private static final Pattern PATTERN =
     Pattern.compile(
-            "^Gain\\s+(\\d+)\\s+life",
+            "^(?:You\\s+)?Gain\\s+(\\d+)\\s+life",
             Pattern.CASE_INSENSITIVE);
 
 @Override
