@@ -15,9 +15,18 @@ Madness {2}
 ===
 
 {T}: Add {W}
+If a creature would die, exile it instead.
 
 ===
 
 I — Each opponent sacrifices a creature or planeswalker.
 II — Each opponent discards a card.
-III — Put target creature or planeswalker card from a graveyard onto the battlefield under your control.
+III — Exile target creature. Return target creature card from your graveyard to the battlefield under your control.
+
+===
+
+ Choose one —
+        • Destroy target creature.
+        • Draw a card.
+        • Creatures you control get +1/+1.
+        
