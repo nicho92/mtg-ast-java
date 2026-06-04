@@ -6,6 +6,7 @@ import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
 import org.magic.api.ast.abilities.parsers.KeywordAbilityParser;
+import org.magic.api.ast.abilities.parsers.SagaAbilityParser;
 import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
 import org.magic.api.ast.interfaces.AbilityParser;
 
@@ -18,7 +19,8 @@ public class OracleParser {
         parsers = List.of(
         		new KeywordAbilityParser(),
                 new TriggeredAbilityParser(),
-                new ActivatedAbilityParser()
+                new ActivatedAbilityParser(),
+                new SagaAbilityParser()
         );
     }
 
