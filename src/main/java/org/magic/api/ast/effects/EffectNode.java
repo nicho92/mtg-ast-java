@@ -6,6 +6,11 @@ public sealed interface EffectNode permits DrawCardsEffect,
         DealDamageEffect,
         DestroyTargetEffect,
         CreateTokenEffect,
+        PutCountersEffect,
+        ExileEffect,
+        ReturnEffect,
+        DiscardCardsEffect,
+        SacrificeEffect,
         UnknownEffect 
         
         { }
