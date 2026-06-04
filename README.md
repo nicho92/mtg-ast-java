@@ -17,7 +17,7 @@
   - Static abilities as a fallback for unsupported text.
 - Model common game concepts with sealed interfaces and records:
   - Costs: mana costs, tap costs, sacrifice costs.
-  - Effects: draw cards, add mana, deal damage, gain life, destroy targets, create tokens, and unknown effects.
+  - Effects: draw cards, add mana, deal damage, gain life, destroy targets, create tokens, counters, exile, return, discard, sacrifice, and unknown effects.
   - Triggers: enters-the-battlefield, dies, upkeep, and unknown triggers.
 - Built with Maven as a reusable JAR.
 
@@ -117,8 +117,13 @@ Example Card
 | `CreateTokenEffect` | `Create a 1/1 white Soldier creature token.` |
 | `DealDamageEffect` | `Deal 3 damage to any target.` |
 | `DestroyTargetEffect` | `Destroy target creature.` |
+| `DiscardCardsEffect` | `Each opponent discards a card.` |
 | `DrawCardsEffect` | `Draw a card.` |
+| `ExileEffect` | `Exile target creature.` |
 | `GainLifeEffect` | `You gain 3 life.` |
+| `PutCountersEffect` | `Put two +1/+1 counters on target creature.` |
+| `ReturnEffect` | `Return target creature card from your graveyard to the battlefield.` |
+| `SacrificeEffect` | `Each opponent sacrifices a creature.` |
 | `UnknownEffect` | Fallback for unsupported effect text. |
 
 ### Triggers
