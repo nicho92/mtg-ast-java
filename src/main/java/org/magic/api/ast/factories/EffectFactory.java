@@ -6,6 +6,11 @@ import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.effects.UnknownEffect;
 import org.magic.api.ast.effects.parsers.AddManaEffectParser;
 import org.magic.api.ast.effects.parsers.CreateTokenEffectParser;
+import org.magic.api.ast.effects.parsers.DiscardEffectParser;
+import org.magic.api.ast.effects.parsers.ExileEffectParser;
+import org.magic.api.ast.effects.parsers.PutCountersEffectParser;
+import org.magic.api.ast.effects.parsers.ReturnEffectParser;
+import org.magic.api.ast.effects.parsers.SacrificeEffectParser;
 import org.magic.api.ast.effects.parsers.DamageEffectParser;
 import org.magic.api.ast.effects.parsers.DestroyEffectParser;
 import org.magic.api.ast.effects.parsers.DrawEffectParser;
@@ -24,7 +29,12 @@ public class EffectFactory {
                 new AddManaEffectParser(),
                 new DamageEffectParser(),
                 new DestroyEffectParser(),
-                new CreateTokenEffectParser()
+                new CreateTokenEffectParser(),
+                new PutCountersEffectParser(),
+                new ExileEffectParser(),
+                new ReturnEffectParser(),
+                new DiscardEffectParser(),
+                new SacrificeEffectParser()
         );
     }
 

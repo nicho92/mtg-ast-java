@@ -7,9 +7,8 @@ import java.util.regex.Pattern;
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.costs.CostNode;
-import org.magic.api.ast.effects.EffectNode;
+import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 import org.magic.api.ast.factories.CostFactory;
-import org.magic.api.ast.factories.EffectFactory;
 import org.magic.api.ast.interfaces.AbilityParser;
 
 public class ActivatedAbilityParser implements AbilityParser {
@@ -34,8 +33,9 @@ public class ActivatedAbilityParser implements AbilityParser {
 
 		List<CostNode> costs = new CostFactory().parse(costPart);
 
-		EffectNode effect = new EffectFactory().parse(effectPart);
-
-		return new ActivatedAbility(costs, List.of(effect));
+		return new ActivatedAbility(
+				costs,
+				new EffectSequenceParser().parse(effectPart)
+		);
 	}
 }

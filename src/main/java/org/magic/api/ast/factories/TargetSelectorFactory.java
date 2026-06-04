@@ -29,7 +29,7 @@ public class TargetSelectorFactory {
 	        return parseArtifact(text);
 	    }
 
-	    if (lower.contains("player")) {
+	    if (lower.contains("player") || lower.contains("opponent") || lower.equals("you")) {
 	        return parsePlayer(text);
 	    }
 
