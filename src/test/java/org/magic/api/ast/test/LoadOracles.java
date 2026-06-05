@@ -41,4 +41,20 @@ class LoadOracles {
 			System.out.println("=========");
 		}
 	}
+
+	@Test
+	void testAbilityWords() {
+		var parser = new OracleParser();
+		var oracleText = "Landfall — Whenever a land enters the battlefield under your control, you gain 2 life.";
+		var ast = parser.parse("Landfall Card", oracleText);
+		var abilities = ast.getAbilities();
+		
+		org.junit.jupiter.api.Assertions.assertEquals(1, abilities.size());
+		org.junit.jupiter.api.Assertions.assertInstanceOf(org.magic.api.ast.abilities.AbilityWordAbility.class, abilities.get(0));
+		
+		var abilityWordNode = (org.magic.api.ast.abilities.AbilityWordAbility) abilities.get(0);
+		org.junit.jupiter.api.Assertions.assertEquals("Landfall", abilityWordNode.abilityWord());
+		
+		org.junit.jupiter.api.Assertions.assertInstanceOf(org.magic.api.ast.abilities.TriggeredAbility.class, abilityWordNode.ability());
+	}
 }

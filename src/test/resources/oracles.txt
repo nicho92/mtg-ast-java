@@ -16,6 +16,7 @@ Madness {2}
 
 {T}: Add {W}
 If a creature would die, exile it instead.
+Sliver creatures you control get +2/+0.
 
 ===
 
@@ -38,3 +39,9 @@ You may activate the loyalty abilities of Urza twice each turn rather than only 
 0: Create two 1/1 colorless Soldier artifact creature tokens.
 −X: Exile X nonland permanent.
 −10: Artifacts and planeswalkers you control gain indestructible until end of turn. Destroy all nonland permanents.
+
+===
+
+Reach, trample
+
+Enrage — Whenever Red Hulk is dealt damage, put a +1/+1 counter on him. When you do, he deals damage equal to the number of +1/+1 counters on him to any other target.

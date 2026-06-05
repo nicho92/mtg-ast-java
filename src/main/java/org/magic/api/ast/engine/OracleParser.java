@@ -13,6 +13,7 @@ import org.magic.api.ast.abilities.parsers.ReplacementEffectParser;
 import org.magic.api.ast.abilities.parsers.SagaAbilityParser;
 import org.magic.api.ast.abilities.parsers.PlaneswalkerAbilityParser;
 import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
+import org.magic.api.ast.abilities.parsers.AbilityWordParser;
 import org.magic.api.ast.interfaces.AbilityParser;
 
 public class OracleParser {
@@ -29,7 +30,8 @@ public class OracleParser {
                 new TriggeredAbilityParser(),
                 new PlaneswalkerAbilityParser(),
                 new ActivatedAbilityParser(),
-                new SagaAbilityParser()
+                new SagaAbilityParser(),
+                new AbilityWordParser()
         );
     }
 
