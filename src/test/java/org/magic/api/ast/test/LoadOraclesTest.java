@@ -8,14 +8,14 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.magic.api.ast.engine.OracleParser;
 
-class LoadOracles {
+class LoadOraclesTest {
 
 	
 	
 	public List<String> loadOracle() throws Exception
 	{
 		
-		var content =  Files.readString(Path.of(LoadOracles.class.getResource("/oracles.txt").toURI()));
+		var content =  Files.readString(Path.of(LoadOraclesTest.class.getResource("/oracles.txt").toURI()));
 		
 		return Arrays.stream(content.split("(?m)^===\\s*$"))
 	                .map(String::trim)
@@ -34,9 +34,7 @@ class LoadOracles {
 			System.out.println(s);
 			System.out.println();
 			
-			parser.parse("card", s).getAbilities().forEach(a->{
-				System.out.println(a);
-			});
+			parser.parse("card", s).getAbilities().forEach(System.out::println);
 			
 			System.out.println("=========");
 		}
