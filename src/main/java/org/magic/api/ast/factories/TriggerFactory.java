@@ -11,7 +11,9 @@ public final class TriggerFactory {
 	private TriggerFactory() {
 	}
 
-	public static TriggerNode parse(String text) {
+	public static final TriggerFactory INSTANCE = new TriggerFactory();
+	
+	public TriggerNode parse(String text) {
 
 		var lower = text.toLowerCase();
 

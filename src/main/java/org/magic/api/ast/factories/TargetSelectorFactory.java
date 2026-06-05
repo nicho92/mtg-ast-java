@@ -12,6 +12,12 @@ public class TargetSelectorFactory {
 	
 	public static final TargetSelectorFactory INSTANCE = new TargetSelectorFactory();
 
+	private TargetSelectorFactory()
+	{
+		
+	}
+	
+	
 	public TargetSelectorNode parse(String text) {
 
 	    String lower =

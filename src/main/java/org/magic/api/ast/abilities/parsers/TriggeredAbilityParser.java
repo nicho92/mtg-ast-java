@@ -38,7 +38,7 @@ String effectText =
         matcher.group(3);
 
 TriggerNode trigger =
-        TriggerFactory.parse(triggerText);
+        TriggerFactory.INSTANCE.parse(triggerText);
 
 return new TriggeredAbility(
         trigger,

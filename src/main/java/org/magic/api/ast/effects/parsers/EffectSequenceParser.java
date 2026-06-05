@@ -8,20 +8,10 @@ import org.magic.api.ast.factories.EffectFactory;
 
 public class EffectSequenceParser {
 
-    private final EffectFactory effectFactory;
-
-    public EffectSequenceParser() {
-        this(new EffectFactory());
-    }
-
-    public EffectSequenceParser(EffectFactory effectFactory) {
-        this.effectFactory = effectFactory;
-    }
-
-    public List<EffectNode> parse(String text) {
+     public List<EffectNode> parse(String text) {
 
         return split(text).stream()
-                .map(effectFactory::parse)
+                .map(EffectFactory.INSTANCE::parse)
                 .toList();
     }
 

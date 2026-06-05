@@ -21,7 +21,10 @@ public class EffectFactory {
 
     private final List<EffectParser> parsers;
 
-    public EffectFactory() {
+    public static final EffectFactory INSTANCE = new EffectFactory();
+    
+    
+    private EffectFactory() {
 
         parsers = List.of(
                 new DrawEffectParser(),

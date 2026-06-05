@@ -12,8 +12,10 @@ import org.magic.api.ast.interfaces.CostParser;
 public class CostFactory {
 
     private final List<CostParser> parsers;
-
-    public CostFactory() {
+    public static final CostFactory INSTANCE = new CostFactory();
+    
+    
+    private CostFactory() {
 
         this.parsers = List.of(
                 new TapCostParser(),
