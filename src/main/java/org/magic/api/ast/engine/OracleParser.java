@@ -47,40 +47,33 @@ public class OracleParser {
     private List<String> parseBlocks(String oracleText) {
 
         List<String> blocks = new ArrayList<>();
-        String[] lines = oracleText.split("\\R");
+        StringBuilder currentModalBlock = null;
 
-        for (int index = 0; index < lines.length; index++) {
-
-            String line = lines[index].trim();
+        for (String rawLine : oracleText.lines().toList()) {
+            String line = rawLine.trim();
 
             if (line.isBlank()) {
                 continue;
             }
 
             if (isModalHeader(line)) {
-                StringBuilder modalBlock = new StringBuilder(line);
-
-                while (index + 1 < lines.length) {
-                    String nextLine = lines[index + 1].trim();
-
-                    if (nextLine.isBlank()) {
-                        index++;
-                        continue;
-                    }
-
-                    if (!isModeLine(nextLine)) {
-                        break;
-                    }
-
-                    modalBlock.append(System.lineSeparator()).append(nextLine);
-                    index++;
+                if (currentModalBlock != null) {
+                    blocks.add(currentModalBlock.toString());
                 }
-
-                blocks.add(modalBlock.toString());
-                continue;
+                currentModalBlock = new StringBuilder(line);
+            } else if (isModeLine(line) && currentModalBlock != null) {
+                currentModalBlock.append(System.lineSeparator()).append(line);
+            } else {
+                if (currentModalBlock != null) {
+                    blocks.add(currentModalBlock.toString());
+                    currentModalBlock = null;
+                }
+                blocks.add(line);
             }
+        }
 
-            blocks.add(line);
+        if (currentModalBlock != null) {
+            blocks.add(currentModalBlock.toString());
         }
 
         return blocks;
