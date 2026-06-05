@@ -12,7 +12,8 @@ import org.magic.api.ast.interfaces.CostParser;
 public class ManaCostParser implements CostParser {
 
     private static final Pattern MANA_SYMBOL = Pattern.compile("\\{([^}]+)}");
-
+	//private static final Pattern MANA_SYMBOL = Pattern.compile("([WUBRG])");
+	
     @Override
     public boolean supports(String text) {
         return text.contains("{") && text.contains("}");

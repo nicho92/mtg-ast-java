@@ -45,3 +45,8 @@ You may activate the loyalty abilities of Urza twice each turn rather than only 
 Reach, trample
 
 Landfall — Whenever a land enters the battlefield under your control, you gain 2 life.
+
+===
+
+At the beginning of your end step, if you control two or more tapped creatures, create a tapped 2/2 colorless Robot artifact creature token.
+
