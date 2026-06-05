@@ -6,6 +6,7 @@ import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 import org.magic.api.ast.interfaces.AbilityParser;
+import org.magic.api.ast.util.AmountParser;
 
 public class SagaAbilityParser implements AbilityParser {
 
@@ -26,25 +27,9 @@ public class SagaAbilityParser implements AbilityParser {
 		var triggerText = matcher.group(2);
 
 		return new SagaAbility(
-				romanToInt(matcher.group(1)),
+				AmountParser.parse(matcher.group(1)),
 				new EffectSequenceParser().parse(triggerText)
 		);
 	}
 	
-	private int romanToInt(String roman) {
-
-	    return switch (roman) {
-
-	        case "I" -> 1;
-	        case "II" -> 2;
-	        case "III" -> 3;
-	        case "IV" -> 4;
-	        case "V" -> 5;
-	        case "VI" -> 6;
-
-	        default ->
-	                throw new IllegalArgumentException(
-	                        roman);
-	    };
-	}
 }

@@ -2,6 +2,7 @@ package org.magic.api.ast.factories;
 
 import org.magic.api.ast.selectors.ArtifactSelector;
 import org.magic.api.ast.selectors.CreatureSelector;
+import org.magic.api.ast.selectors.LandSelector;
 import org.magic.api.ast.selectors.PlayerSelector;
 import org.magic.api.ast.selectors.SelfSelector;
 import org.magic.api.ast.selectors.TargetSelectorNode;
@@ -38,7 +39,11 @@ public class TargetSelectorFactory {
 	    if (lower.contains("player") || lower.contains("opponent") || lower.equals("you")) {
 	        return parsePlayer(text);
 	    }
-
+	    
+	    if (lower.contains("land")) {
+	        return parseLand(text);
+	    }
+	    
 	    return new TextSelector(text);
 	}
 	
@@ -49,6 +54,21 @@ public class TargetSelectorFactory {
 	            text.toLowerCase()
 	                    .contains("target")
 	    );
+	}
+	
+	private TargetSelectorNode parseLand(String text) {
+
+		 String lower =
+		            text.toLowerCase();
+
+		    return new LandSelector(
+
+		            lower.contains("target"),
+
+		            lower.contains("another"),
+
+		            lower.contains("you control") || lower.contains("under your control")
+		            );
 	}
 	
 	

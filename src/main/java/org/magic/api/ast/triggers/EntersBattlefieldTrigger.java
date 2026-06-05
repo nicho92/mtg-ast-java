@@ -1,6 +1,7 @@
 package org.magic.api.ast.triggers;
 
-public record EntersBattlefieldTrigger(
-        String subject
+import org.magic.api.ast.selectors.TargetSelectorNode;
+
+public record EntersBattlefieldTrigger(TargetSelectorNode subject
 ) implements TriggerNode {
 }
