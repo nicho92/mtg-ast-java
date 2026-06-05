@@ -25,7 +25,7 @@ public class TargetSelectorFactory {
 	            text.toLowerCase();
 
 	    if (lower.equals("cardname")) {
-	        return SelfSelector.INSTANCE;
+	        return new SelfSelector();
 	    }
 
 	    if (lower.contains("creature")) {
@@ -47,8 +47,7 @@ public class TargetSelectorFactory {
 	    return new TextSelector(text);
 	}
 	
-	private TargetSelectorNode parsePlayer(
-	        String text) {
+	private TargetSelectorNode parsePlayer(String text) {
 
 	    return new PlayerSelector(
 	            text.toLowerCase()

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.StaticAbility;
-import org.magic.api.ast.abilities.parsers.AbilityWordParser;
+import org.magic.api.ast.abilities.parsers.WordAbilityParser;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
 import org.magic.api.ast.abilities.parsers.ContinuousModifierAbilityParser;
 import org.magic.api.ast.abilities.parsers.KeywordAbilityParser;
@@ -31,7 +31,7 @@ public class OracleParser {
                 new PlaneswalkerAbilityParser(),
                 new ActivatedAbilityParser(),
                 new SagaAbilityParser(),
-                new AbilityWordParser()
+                new WordAbilityParser()
         );
     }
 

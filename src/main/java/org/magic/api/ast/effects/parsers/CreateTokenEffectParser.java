@@ -7,8 +7,7 @@ import org.magic.api.ast.effects.CreateTokenEffect;
 import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.interfaces.EffectParser;
 
-public class CreateTokenEffectParser
-implements EffectParser {
+public class CreateTokenEffectParser implements EffectParser {
 
 private static final Pattern PATTERN =
     Pattern.compile(
@@ -17,7 +16,7 @@ private static final Pattern PATTERN =
 
 @Override
 public boolean supports(String text) {
-return PATTERN.matcher(text).find();
+	return PATTERN.matcher(text).find();
 }
 
 @Override

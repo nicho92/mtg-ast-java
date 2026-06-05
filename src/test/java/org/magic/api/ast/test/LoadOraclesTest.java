@@ -48,9 +48,9 @@ class LoadOraclesTest {
 		var abilities = ast.getAbilities();
 		
 		org.junit.jupiter.api.Assertions.assertEquals(1, abilities.size());
-		org.junit.jupiter.api.Assertions.assertInstanceOf(org.magic.api.ast.abilities.AbilityWordAbility.class, abilities.get(0));
+		org.junit.jupiter.api.Assertions.assertInstanceOf(org.magic.api.ast.abilities.WordAbility.class, abilities.get(0));
 		
-		var abilityWordNode = (org.magic.api.ast.abilities.AbilityWordAbility) abilities.get(0);
+		var abilityWordNode = (org.magic.api.ast.abilities.WordAbility) abilities.get(0);
 		org.junit.jupiter.api.Assertions.assertNotNull(abilityWordNode);
 		org.junit.jupiter.api.Assertions.assertEquals("Landfall", abilityWordNode.abilityWord());
 		
