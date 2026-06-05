@@ -30,3 +30,11 @@ III — Exile target creature. Return target creature card from your graveyard t
         • Draw a card.
         • Creatures you control get +1/+1.
         
+===
+
+You may activate the loyalty abilities of Urza twice each turn rather than only once.
++2: Artifact, instant, and sorcery spells you cast this turn cost {2} less to cast. You gain 2 life.
++1: Draw two cards, then discard a card.
+0: Create two 1/1 colorless Soldier artifact creature tokens.
+−X: Exile X nonland permanent.
+−10: Artifacts and planeswalkers you control gain indestructible until end of turn. Destroy all nonland permanents.

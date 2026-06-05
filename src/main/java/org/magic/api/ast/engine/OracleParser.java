@@ -11,6 +11,7 @@ import org.magic.api.ast.abilities.parsers.KeywordAbilityParser;
 import org.magic.api.ast.abilities.parsers.ModalAbilityParser;
 import org.magic.api.ast.abilities.parsers.ReplacementEffectParser;
 import org.magic.api.ast.abilities.parsers.SagaAbilityParser;
+import org.magic.api.ast.abilities.parsers.PlaneswalkerAbilityParser;
 import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
 import org.magic.api.ast.interfaces.AbilityParser;
 
@@ -26,12 +27,13 @@ public class OracleParser {
         		new ContinuousModifierAbilityParser(),
         		new KeywordAbilityParser(),
                 new TriggeredAbilityParser(),
+                new PlaneswalkerAbilityParser(),
                 new ActivatedAbilityParser(),
                 new SagaAbilityParser()
         );
     }
 
-    public CardAst parse( String cardName, String oracleText) {
+    public CardAst parse(String cardName, String oracleText) {
 
         var ast = new CardAst(cardName);
 
