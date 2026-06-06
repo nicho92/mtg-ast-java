@@ -1,5 +1,7 @@
 package org.magic.api.ast.triggers.factory;
 
+import java.util.Set;
+
 import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 import org.magic.api.ast.triggers.AttacksTrigger;
 import org.magic.api.ast.triggers.BlocksTrigger;
@@ -48,7 +50,7 @@ public final class TriggerFactory {
 		if (lower.contains("gains life") || lower.contains("gain life"))
 			return new GainLifeTrigger(locator);
 
-		if (lower.contains("loses life") || lower.contains("lose life") || lower.contains("looses life") || lower.contains("loose life"))
+		if ( Set.of("lose life","loses life","loose life","looses life").stream().anyMatch(lower::contains))
 			return new LoseLifeTrigger(locator);
 
 		if (lower.contains("attacks") || lower.contains("attack"))
