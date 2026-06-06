@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.TriggeredAbility;
-import org.magic.api.ast.abilities.factory.AbilityParser;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 import org.magic.api.ast.triggers.TriggerNode;
 import org.magic.api.ast.triggers.factory.TriggerFactory;

@@ -4,7 +4,6 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.ReplacementEffectAbility;
-import org.magic.api.ast.abilities.factory.AbilityParser;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 
 public class ReplacementEffectParser implements AbilityParser {

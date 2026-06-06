@@ -2,7 +2,6 @@ package org.magic.api.ast.costs.parsers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.CostNode;
@@ -22,7 +21,7 @@ public class ManaCostParser implements CostParser {
     @Override
     public List<CostNode> parse(String text) {
 
-        Matcher matcher = MANA_SYMBOL.matcher(text);
+        var matcher = MANA_SYMBOL.matcher(text);
 
        var symbols = new ArrayList<String>();
 
