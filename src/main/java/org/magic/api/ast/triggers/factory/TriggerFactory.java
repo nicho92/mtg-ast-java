@@ -12,6 +12,7 @@ import org.magic.api.ast.triggers.EndStepTrigger;
 import org.magic.api.ast.triggers.EntersBattlefieldTrigger;
 import org.magic.api.ast.triggers.GainLifeTrigger;
 import org.magic.api.ast.triggers.LoseLifeTrigger;
+import org.magic.api.ast.triggers.PutIntoGraveyardTrigger;
 import org.magic.api.ast.triggers.TriggerNode;
 import org.magic.api.ast.triggers.UnknownTrigger;
 import org.magic.api.ast.triggers.UpkeepTrigger;
@@ -58,7 +59,12 @@ public final class TriggerFactory {
 
 		if (lower.contains("blocks") || lower.contains("block") || lower.contains("blocked"))
 			return new BlocksTrigger(locator);
-
+		
+		if (lower.contains("put into a graveyard") || lower.contains("destroy"))
+			return new PutIntoGraveyardTrigger(locator);
+		
+		
+		
 		return new UnknownTrigger(text);
 	}
 }

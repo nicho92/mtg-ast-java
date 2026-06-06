@@ -52,3 +52,9 @@ Landfall — Whenever a land enters the battlefield under your control, you gain
 
 At the beginning of your end step, if you control two or more tapped creatures, create a tapped 2/2 colorless Robot artifact creature token.
 
+===
+
+This spell can't be countered.
+When you cast this spell, take an extra turn after this one.
+Flying, protection from spells that are one or more colors, annihilator 6
+When Emrakul is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.
