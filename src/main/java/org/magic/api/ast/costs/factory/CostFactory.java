@@ -1,4 +1,4 @@
-package org.magic.api.ast.factories;
+package org.magic.api.ast.costs.factory;
 
 import java.util.ArrayList;
 import java.util.List;

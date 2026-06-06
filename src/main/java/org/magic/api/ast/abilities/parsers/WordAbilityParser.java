@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.WordAbility;
+import org.magic.api.ast.abilities.factory.AbilityParser;
 import org.magic.api.ast.engine.OracleParser;
-import org.magic.api.ast.interfaces.AbilityParser;
 
 public class WordAbilityParser implements AbilityParser {
 

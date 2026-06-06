@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.DiscardCardsEffect;
 import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.factories.TargetSelectorFactory;
 import org.magic.api.ast.interfaces.EffectParser;
+import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 import org.magic.api.ast.util.AmountParser;
 
 public class DiscardEffectParser implements EffectParser {

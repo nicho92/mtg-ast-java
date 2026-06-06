@@ -1,5 +1,6 @@
-package org.magic.api.ast.factories;
+package org.magic.api.ast.triggers.factory;
 
+import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 import org.magic.api.ast.triggers.AttacksTrigger;
 import org.magic.api.ast.triggers.BlocksTrigger;
 import org.magic.api.ast.triggers.DiesTrigger;

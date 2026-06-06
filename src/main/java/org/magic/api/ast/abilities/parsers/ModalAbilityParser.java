@@ -8,8 +8,8 @@ import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.ChoiceConstraint;
 import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.ModeNode;
+import org.magic.api.ast.abilities.factory.AbilityParser;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
-import org.magic.api.ast.interfaces.AbilityParser;
 
 public class ModalAbilityParser implements AbilityParser {
 

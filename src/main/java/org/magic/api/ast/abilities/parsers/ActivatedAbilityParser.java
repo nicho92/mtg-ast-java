@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.ActivatedAbility;
+import org.magic.api.ast.abilities.factory.AbilityParser;
 import org.magic.api.ast.costs.CostNode;
+import org.magic.api.ast.costs.factory.CostFactory;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
-import org.magic.api.ast.factories.CostFactory;
-import org.magic.api.ast.interfaces.AbilityParser;
 
 public class ActivatedAbilityParser implements AbilityParser {
 

@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.SacrificeCost;
-import org.magic.api.ast.factories.TargetSelectorFactory;
 import org.magic.api.ast.interfaces.CostParser;
+import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 
 public class SacrificeCostParser implements CostParser{
 

@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.DestroyTargetEffect;
 import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.factories.TargetSelectorFactory;
 import org.magic.api.ast.interfaces.EffectParser;
+import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 
 public class DestroyEffectParser
 implements EffectParser {

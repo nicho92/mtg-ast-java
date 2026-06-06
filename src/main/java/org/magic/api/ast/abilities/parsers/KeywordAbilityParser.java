@@ -6,7 +6,7 @@ import java.util.List;
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.KeywordAbility;
 import org.magic.api.ast.abilities.KeywordGroupAbility;
-import org.magic.api.ast.interfaces.AbilityParser;
+import org.magic.api.ast.abilities.factory.AbilityParser;
 import org.magic.api.ast.interfaces.KeywordRegistry;
 
 public class KeywordAbilityParser implements AbilityParser {

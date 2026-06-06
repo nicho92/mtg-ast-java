@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.magic.api.ast.effects.EffectNode;
-import org.magic.api.ast.factories.EffectFactory;
+import org.magic.api.ast.effects.factory.EffectFactory;
 
 public class EffectSequenceParser {
 

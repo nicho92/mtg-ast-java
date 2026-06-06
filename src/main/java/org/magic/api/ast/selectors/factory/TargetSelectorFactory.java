@@ -1,4 +1,4 @@
-package org.magic.api.ast.factories;
+package org.magic.api.ast.selectors.factory;
 
 import org.magic.api.ast.selectors.ArtifactSelector;
 import org.magic.api.ast.selectors.CreatureSelector;
