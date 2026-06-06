@@ -12,7 +12,7 @@ import org.magic.api.ast.interfaces.CostParser;
 public class ManaCostParser implements CostParser {
 
     private static final Pattern MANA_SYMBOL = Pattern.compile("\\{([^}]+)}");
-	//private static final Pattern MANA_SYMBOL = Pattern.compile("([WUBRG])");
+	//private static final Pattern MANA_SYMBOL = Pattern.compile("([WUBRG])")
 	
     @Override
     public boolean supports(String text) {
@@ -24,7 +24,7 @@ public class ManaCostParser implements CostParser {
 
         Matcher matcher = MANA_SYMBOL.matcher(text);
 
-        List<String> symbols = new ArrayList<>();
+       var symbols = new ArrayList<String>();
 
         while (matcher.find()) {
             symbols.add(matcher.group(1));
@@ -34,6 +34,6 @@ public class ManaCostParser implements CostParser {
             return List.of();
         }
 
-        return List.of(new ManaCost(String.join(",", symbols)));
+        return List.of(new ManaCost(symbols));
     }
 }

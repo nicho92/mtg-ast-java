@@ -1,4 +1,7 @@
 package org.magic.api.ast.costs;
 
-public record ManaCost(String manaCost) implements CostNode {
+import java.util.List;
+
+
+public record ManaCost(List<String> manaCost) implements CostNode {
 }
