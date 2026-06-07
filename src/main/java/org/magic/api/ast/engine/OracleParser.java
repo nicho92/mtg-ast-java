@@ -6,6 +6,7 @@ import java.util.List;
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.parsers.WordAbilityParser;
+import org.magic.api.ast.util.CardQueryFacade;
 import org.magic.api.ast.abilities.parsers.AbilityParser;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
 import org.magic.api.ast.abilities.parsers.ContinuousModifierAbilityParser;
@@ -35,6 +36,12 @@ public class OracleParser {
         );
     }
 
+    public CardQueryFacade toFacade(String cardName, String oracleText) 
+    {
+    	 	return new CardQueryFacade(parse(cardName, oracleText));
+    }
+    
+    
     public CardAst parse(String cardName, String oracleText) {
 
         var ast = new CardAst(cardName);

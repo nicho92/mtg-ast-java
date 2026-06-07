@@ -61,22 +61,27 @@ Then add it to another Maven project:
 import org.magic.api.ast.engine.CardAst;
 import org.magic.api.ast.engine.OracleParser;
 
-public class Example {
-    public static void main(String[] args) {
-        String oracleText = """
-            Flying, Ward {2}
+public class Exemple {
 
-            Whenever another creature dies, draw a card.
+	public static void main() {
+		
+			String oracleText = """
+		            Flying, Ward {2}
 
-            {T}: Add {G}.
-            """;
+		            Whenever another creature dies, draw a card.
 
-        CardAst ast = new OracleParser().parse("Example Card", oracleText);
+		            {T}: Add {G}.
+		            """;
 
-        System.out.println(ast.getName());
-        System.out.println(ast.getAbilities());
-    }
+		        var ast = new OracleParser().toFacade("Example Card", oracleText);
+		        
+		        ast.getAllAbilities().forEach(a->{
+		        	System.out.println(a);
+		        });
+	}
+	
 }
+
 ```
 
 Example output:
