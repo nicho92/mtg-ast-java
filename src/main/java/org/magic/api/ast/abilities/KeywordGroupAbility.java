@@ -2,7 +2,7 @@ package org.magic.api.ast.abilities;
 
 import java.util.List;
 
-import org.magic.api.ast.abilities.visitor.AbilityVisitor;
+import org.magic.api.ast.interfaces.AbilityVisitor;
 
 public record KeywordGroupAbility(List<KeywordAbility> keywords) implements AbilityNode {
 	

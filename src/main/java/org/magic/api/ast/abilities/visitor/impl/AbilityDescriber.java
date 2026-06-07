@@ -1,7 +1,7 @@
 package org.magic.api.ast.abilities.visitor.impl;
 
 import org.magic.api.ast.abilities.*;
-import org.magic.api.ast.abilities.visitor.AbilityVisitor;
+import org.magic.api.ast.interfaces.AbilityVisitor;
 
 /**
  * Concrete visitor implementation that generates human-readable descriptions of abilities.

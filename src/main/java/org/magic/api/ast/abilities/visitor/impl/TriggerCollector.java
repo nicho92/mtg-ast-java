@@ -14,7 +14,7 @@ import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.abilities.WordAbility;
-import org.magic.api.ast.abilities.visitor.AbilityVisitor;
+import org.magic.api.ast.interfaces.AbilityVisitor;
 import org.magic.api.ast.triggers.TriggerNode;
 
 /**

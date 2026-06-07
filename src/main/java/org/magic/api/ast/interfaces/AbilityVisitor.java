@@ -1,4 +1,4 @@
-package org.magic.api.ast.abilities.visitor;
+package org.magic.api.ast.interfaces;
 
 import org.magic.api.ast.abilities.*;
 
