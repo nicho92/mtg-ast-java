@@ -3,35 +3,35 @@
 [![Java](https://img.shields.io/badge/Java-25%2B-orange.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/build-Maven-blue.svg)](https://maven.apache.org/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![GitHub](https://img.shields.io/badge/GitHub-nicho92%2Fmtg--ast--java-blue)](https://github.com/nicho92/mtg-ast-java)
 
-**MTG AST Java** is a lightweight Java library for parsing _Magic: The Gathering_ oracle text into a structured abstract syntax tree (AST). It turns card text into typed Java records for abilities, triggers, costs, and effects so downstream applications can inspect and reason about card behavior programmatically.
+**MTG AST Java** is a lightweight, powerful Java library for parsing _Magic: The Gathering_ oracle text into a structured abstract syntax tree (AST). It transforms complex card abilities into typed Java records, enabling programmatic analysis and manipulation of MTG card mechanics.
 
-## Features
+## 🎯 Features
 
-- Parse multi-line oracle text with `OracleParser`.
-- Represent parsed cards with `CardAst`.
-- Detect common ability forms:
-  - Keyword abilities, including grouped keywords.
-  - Triggered abilities.
-  - Activated abilities with costs and effects.
-  - Static abilities as a fallback for unsupported text.
-  - Modal abilities with `Choose one —` style mode bullets.
-  - Replacement effects with `If ... would ..., ... instead.` text.
-  - Basic continuous power/toughness modifiers.
-- Model common game concepts with sealed interfaces and records:
-  - Costs: mana costs, tap costs, sacrifice costs.
-  - Effects: draw cards, add mana, deal damage, gain life, destroy targets, create tokens, counters, exile, return, discard, sacrifice, and unknown effects.
-  - Triggers: enters-the-battlefield, dies, upkeep, and unknown triggers.
-- Built with Maven as a reusable JAR.
+- **Comprehensive Parsing**: Parse multi-line oracle text with `OracleParser` and convert it to a fully-typed AST.
+- **Ability Detection**: Recognize and parse all major ability types:
+  - Keyword abilities (including grouped keywords)
+  - Triggered abilities
+  - Activated abilities with costs and effects
+  - Static abilities (fallback for unsupported text)
+  - Modal abilities (`Choose one —` style)
+  - Replacement effects (`If ... would ..., ... instead.`)
+  - Continuous power/toughness modifiers
+- **Structured Game Concepts**: Model using sealed interfaces and records:
+  - **Costs**: Mana costs, tap costs, sacrifice costs
+  - **Effects**: Draw cards, add mana, deal damage, gain life, destroy targets, create tokens, add counters, exile, return, discard, sacrifice, and more
+  - **Triggers**: Enters-the-battlefield, dies, upkeep, and extensible unknown triggers
+- **Production-Ready**: Built with Maven as a reusable JAR for easy integration.
 
-## Requirements
+## 📋 Requirements
 
-- Java 25 or newer, as configured by `maven.compiler.release`.
-- Apache Maven 3.9+.
+- **Java 25** or newer (configured by `maven.compiler.release`)
+- **Apache Maven 3.9+**
 
-## Installation
+## 📦 Installation
 
-Clone the repository and build the project locally:
+### Clone and Build Locally
 
 ```bash
 git clone https://github.com/nicho92/mtg-ast-java.git
@@ -39,13 +39,13 @@ cd mtg-ast-java
 mvn clean package
 ```
 
-To install the artifact into your local Maven repository:
+### Install to Local Maven Repository
 
 ```bash
 mvn clean install
 ```
 
-Then add it to another Maven project:
+### Add to Your Maven Project
 
 ```xml
 <dependency>
@@ -55,64 +55,58 @@ Then add it to another Maven project:
 </dependency>
 ```
 
-## Quick start
+## 🚀 Quick Start
 
 ```java
 import org.magic.api.ast.engine.CardAst;
 import org.magic.api.ast.engine.OracleParser;
 
-public class Exemple {
+public class Example {
 
-	public static void main() {
-		
-			String oracleText = """
-		            Flying, Ward {2}
+    public static void main(String[] args) {
+        String oracleText = """
+            Flying, Ward {2}
+            
+            Whenever another creature dies, draw a card.
+            
+            {T}: Add {G}.
+            """;
 
-		            Whenever another creature dies, draw a card.
-
-		            {T}: Add {G}.
-		            """;
-
-		        var ast = new OracleParser().toFacade("Example Card", oracleText);
-		        
-		        ast.getAllAbilities().forEach(a->{
-		        	System.out.println(a);
-		        });
-	}
-	
+        var ast = new OracleParser().toFacade("Example Card", oracleText);
+        
+        ast.getAllAbilities().forEach(System.out::println);
+    }
 }
-
 ```
 
-Example output:
-
-```text
+**Example Output:**
+```
 Example Card
-[KeywordGroupAbility[keywords=[KeywordAbility[keyword=Flying, parameter=null], KeywordAbility[keyword=Ward, parameter={2}]]], TriggeredAbility[trigger=DiesTrigger[subject=another creature], effects=[DrawCardsEffect[amount=1]]], ActivatedAbility[costs=[Tap], effects=[AddManaEffect[mana={G}]]]]
+[KeywordGroupAbility[keywords=[KeywordAbility[keyword=Flying, parameter=null], KeywordAbility[keyword=Ward, parameter={2}]]], TriggeredAbility[trigger=DiesTrigger[subject=another creature], effect[...]
 ```
 
-## Supported AST model
+## 📚 Supported AST Model
 
-### Card
-
-| Type | Description |
-| --- | --- |
-| `CardAst` | Root object containing the card name and parsed ability list. |
-
-### Abilities
+### Card Structure
 
 | Type | Description |
 | --- | --- |
-| `KeywordAbility` | A single keyword ability, optionally with a parameter such as `Ward {2}`. |
-| `KeywordGroupAbility` | A comma-separated group of keyword abilities. |
-| `TriggeredAbility` | A trigger paired with one or more effects. |
-| `ActivatedAbility` | One or more costs paired with one or more effects. |
-| `StaticAbility` | Fallback node preserving oracle text that does not match another parser. |
-| `ModalAbility` | A choice constraint paired with bullet modes and their parsed effects. |
-| `ReplacementEffectAbility` | A replacement event paired with replacement effects. |
-| `ContinuousModifierAbility` | A basic static modifier such as `Creatures you control get +1/+1.` |
+| `CardAst` | Root object containing the card name and fully-parsed ability list. |
 
-### Costs
+### Ability Types
+
+| Type | Description | Example |
+| --- | --- | --- |
+| `KeywordAbility` | A single keyword ability, optionally with a parameter. | `Flying`, `Ward {2}` |
+| `KeywordGroupAbility` | A comma-separated group of keyword abilities. | `Flying, Haste, Vigilance` |
+| `TriggeredAbility` | A trigger paired with one or more effects. | `When this enters, draw a card.` |
+| `ActivatedAbility` | One or more costs paired with one or more effects. | `{T}: Add {G}.` |
+| `StaticAbility` | Fallback node for oracle text that doesn't match other parsers. | Custom text |
+| `ModalAbility` | A choice constraint with bullet modes and parsed effects. | `Choose one — Draw a card. or Discard a card.` |
+| `ReplacementEffectAbility` | A replacement event paired with replacement effects. | `If a creature would die, ...` |
+| `ContinuousModifierAbility` | Static modifiers like power/toughness changes. | `Creatures you control get +1/+1.` |
+
+### Cost Types
 
 | Type | Example |
 | --- | --- |
@@ -120,7 +114,7 @@ Example Card
 | `TapCost` | `{T}` |
 | `SacrificeCost` | `Sacrifice a creature` |
 
-### Effects
+### Effect Types
 
 | Type | Example |
 | --- | --- |
@@ -137,7 +131,7 @@ Example Card
 | `SacrificeEffect` | `Each opponent sacrifices a creature.` |
 | `UnknownEffect` | Fallback for unsupported effect text. |
 
-### Triggers
+### Trigger Types
 
 | Type | Example |
 | --- | --- |
@@ -146,9 +140,9 @@ Example Card
 | `UpkeepTrigger` | `At the beginning of your upkeep, ...` |
 | `UnknownTrigger` | Fallback for unsupported trigger text. |
 
-## Project structure
+## 📁 Project Structure
 
-```text
+```
 src/main/java/org/magic/api/ast/
 ├── abilities/      # Ability node types and ability parsers
 ├── costs/          # Cost node types and cost parsers
@@ -156,46 +150,73 @@ src/main/java/org/magic/api/ast/
 ├── engine/         # OracleParser and CardAst entry points
 ├── factories/      # Parser factory helpers
 ├── parser/         # Parser interfaces and keyword registry
-└── triggers/       # Trigger node types
+└── triggers/       # Trigger node types and trigger parsers
 ```
 
-## Development
+## 🔧 Development
 
-Build the project:
+### Build the Project
 
 ```bash
 mvn clean package
 ```
 
-Run the sample entry point:
+### Run Tests and Sample
 
 ```bash
 mvn exec:java -Dexec.mainClass=org.magic.api.ast.main.Test
 ```
 
-> Note: the current `pom.xml` configures the compiler for Java 25. If your local JDK is older, Maven compilation will fail until you install a compatible JDK or adjust the compiler release for your environment.
+> **Note**: The `pom.xml` is configured for Java 25. If your JDK is older, either install a compatible JDK or adjust the `maven.compiler.release` property in `pom.xml`.
 
-## Roadmap ideas
+## 📅 Roadmap
 
-- Add unit tests for each parser and AST node type.
-- Expand parser coverage for replacement effects, modal choices, counters, combat restrictions, and target clauses.
-- Publish releases to a package repository.
-- Add generated API documentation.
+- [ ] Add comprehensive unit tests for all parsers and AST node types
+- [ ] Expand parser coverage for:
+  - Replacement effects with complex conditions
+  - Modal choices with nested parsing
+  - Counter mechanics and interactions
+  - Combat restrictions (e.g., `can't block`)
+  - Advanced target clauses
+- [ ] Publish releases to Maven Central or GitHub Packages
+- [ ] Generate and host API documentation
+- [ ] Add support for older MTG card text variations
+- [ ] Performance optimizations for batch parsing
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome. Please keep parser additions small and focused, and include examples or tests that show the oracle text being parsed.
+Contributions are welcome! Please follow these guidelines:
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Make your changes.
-4. Run the Maven build.
-5. Open a pull request.
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Make** your changes with focused commits
+4. **Include** examples or unit tests demonstrating your changes
+5. **Run** `mvn clean package` to verify the build
+6. **Push** to your branch and **open** a pull request
 
-## License
+### Contribution Tips
 
-This project is licensed under the Apache License, Version 2.0. See the project metadata in `pom.xml` for license details.
+- Keep parser additions small and focused
+- Test your parser with multiple card examples
+- Update relevant sections in the README
+- Follow the existing code style and structure
 
-## Disclaimer
+## 📄 License
 
-This project is an unofficial fan-made tool and is not affiliated with, endorsed by, sponsored by, or specifically approved by Wizards of the Coast LLC. _Magic: The Gathering_ and related names are trademarks of Wizards of the Coast LLC.
+This project is licensed under the **Apache License, Version 2.0**.  
+See the `pom.xml` file for complete license details.
+
+For more information, visit: [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+## ⚖️ Disclaimer
+
+This project is an **unofficial fan-made tool** and is not affiliated with, endorsed by, sponsored by, or specifically approved by Wizards of the Coast LLC.
+
+_Magic: The Gathering_ is a registered trademark of Wizards of the Coast LLC.  
+All MTG card data and mechanics are property of Wizards of the Coast LLC.
+
+This library is provided for educational and fan purposes only. Use responsibly and in accordance with applicable laws and the [Wizards of the Coast Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy).
+
+---
+
+**Need Help?** Open an [issue](https://github.com/nicho92/mtg-ast-java/issues) on GitHub or check the [discussions](https://github.com/nicho92/mtg-ast-java/discussions).
