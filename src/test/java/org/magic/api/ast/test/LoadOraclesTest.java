@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.magic.api.ast.abilities.visitor.impl.EffectCollector;
 import org.magic.api.ast.engine.OracleParser;
 
 class LoadOraclesTest {
@@ -35,9 +34,7 @@ class LoadOraclesTest {
 			System.out.println(s);
 			System.out.println();
 			
-			var ast = parser.parse("cardname", s);
-			ast.getAbilities().stream().map(ability -> ability.accept(new EffectCollector())).toList().forEach(System.out::println);
-		    
+			parser.toFacade("cardname", s).getAllAbilities().forEach(System.out::println);
 			
 			System.out.println("=========");
 		}
