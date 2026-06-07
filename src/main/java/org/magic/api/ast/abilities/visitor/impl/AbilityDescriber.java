@@ -9,7 +9,7 @@ import org.magic.api.ast.interfaces.AbilityVisitor;
  * 
  * Usage:
  * <pre>
- * AbilityDescriber describer = new AbilityDescriber();
+ * var describer = new AbilityDescriber();
  * for (AbilityNode ability : card.getAbilities()) {
  *     String description = ability.accept(describer);
  *     System.out.println(description);

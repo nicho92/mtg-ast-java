@@ -24,7 +24,7 @@ import org.magic.api.ast.interfaces.AbilityVisitor;
  * Usage:
  * <pre>
  * EffectCollector collector = new EffectCollector();
- * List<EffectNode> allEffects = card.getAbilities().stream()
+ * var allEffects = card.getAbilities().stream()
  *     .map(ability -> ability.accept(collector))
  *     .flatMap(List::stream)
  *     .collect(Collectors.toList());

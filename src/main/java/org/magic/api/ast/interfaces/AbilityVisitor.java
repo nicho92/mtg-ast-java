@@ -8,7 +8,7 @@ import org.magic.api.ast.abilities.*;
  * 
  * Usage example:
  * <pre>
- * AbilityVisitor<String> visitor = new AbilityDescriber();
+ * var visitor = new AbilityDescriber();
  * for (AbilityNode ability : card.getAbilities()) {
  *     String description = ability.accept(visitor);
  *     System.out.println(description);
@@ -90,7 +90,7 @@ public interface AbilityVisitor<T> {
      * @param ability the word ability to visit
      * @return the result of visiting this ability
      */
-	T visit(WordAbility wordAbility);
+	T visit(WordAbility ability);
 
 	  /**
      * Visit a SagaAbility node.
@@ -98,7 +98,7 @@ public interface AbilityVisitor<T> {
      * @param ability the saga ability to visit
      * @return the result of visiting this ability
      */
-	T visit(SagaAbility sagaAbility);
+	T visit(SagaAbility ability);
 
 	  /**
      * Visit a PlaneswalkerAbility node.
@@ -106,5 +106,5 @@ public interface AbilityVisitor<T> {
      * @param ability the ¨Planeswalker ability to visit
      * @return the result of visiting this ability
      */
-	T visit(PlaneswalkerAbility planeswalkerAbility);
+	T visit(PlaneswalkerAbility ability);
 }

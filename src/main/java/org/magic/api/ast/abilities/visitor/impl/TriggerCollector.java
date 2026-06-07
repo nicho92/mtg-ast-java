@@ -24,7 +24,7 @@ import org.magic.api.ast.triggers.TriggerNode;
  * Usage:
  * <pre>
  * TriggerCollector collector = new TriggerCollector();
- * List<TriggerNode> allTriggers = card.getAbilities().stream()
+ * var allTriggers = card.getAbilities().stream()
  *     .map(ability -> ability.accept(collector))
  *     .flatMap(List::stream)
  *     .collect(Collectors.toList());

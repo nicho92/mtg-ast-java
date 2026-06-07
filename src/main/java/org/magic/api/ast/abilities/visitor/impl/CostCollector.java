@@ -24,7 +24,7 @@ import org.magic.api.ast.interfaces.AbilityVisitor;
  * Usage:
  * <pre>
  * CostCollector collector = new CostCollector();
- * List<CostNode> allCosts = card.getAbilities().stream()
+ * var allCosts = card.getAbilities().stream()
  *     .map(ability -> ability.accept(collector))
  *     .flatMap(List::stream)
  *     .collect(Collectors.toList());
