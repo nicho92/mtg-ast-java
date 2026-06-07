@@ -1,5 +1,7 @@
-package org.magic.api.ast.engine;
+package org.magic.api.ast.test;
 
+import org.magic.api.ast.engine.CardAst;
+import org.magic.api.ast.engine.OracleParser;
 import org.magic.api.ast.util.CardQueryFacade;
 
 public class MainTest {

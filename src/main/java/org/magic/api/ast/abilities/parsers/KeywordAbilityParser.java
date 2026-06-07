@@ -258,8 +258,7 @@ public class KeywordAbilityParser implements AbilityParser {
 		return false;
 	}
 
-	private KeywordAbility parseKeyword(
-	        String text) {
+	private KeywordAbility parseKeyword(String text) {
 
 	    return new KeywordAbility(
 	            extractKeyword(text),
