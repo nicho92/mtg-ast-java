@@ -72,4 +72,19 @@ public class AbilityDescriber implements AbilityVisitor<String> {
         String modifierType = ability.modifier().getClass().getSimpleName();
         return String.format("Continuous Modifier: Applies %s", modifierType);
     }
+
+	@Override
+	public String visit(PlaneswalkerAbility ability) {
+		return String.format("Planeswalker [%s] : %s", ability.loyalty(),ability.effects());
+	}
+
+	@Override
+	public String visit(SagaAbility ability) {
+		return String.format("Saga [%s] : %s", ability.num(),ability.effects());
+	}
+
+	@Override
+	public String visit(WordAbility ability) {
+	    return String.format("Word: %s", ability.abilityWord());
+	}
 }

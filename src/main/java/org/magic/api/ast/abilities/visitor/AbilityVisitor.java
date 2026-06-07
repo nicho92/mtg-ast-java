@@ -82,4 +82,29 @@ public interface AbilityVisitor<T> {
      * @return the result of visiting this ability
      */
     T visit(ContinuousModifierAbility ability);
+
+    
+    /**
+     * Visit a WordAbility node.
+     * 
+     * @param ability the word ability to visit
+     * @return the result of visiting this ability
+     */
+	T visit(WordAbility wordAbility);
+
+	  /**
+     * Visit a SagaAbility node.
+     * 
+     * @param ability the saga ability to visit
+     * @return the result of visiting this ability
+     */
+	T visit(SagaAbility sagaAbility);
+
+	  /**
+     * Visit a PlaneswalkerAbility node.
+     * 
+     * @param ability the ¨Planeswalker ability to visit
+     * @return the result of visiting this ability
+     */
+	T visit(PlaneswalkerAbility planeswalkerAbility);
 }

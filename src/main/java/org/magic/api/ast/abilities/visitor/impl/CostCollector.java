@@ -2,9 +2,18 @@ package org.magic.api.ast.abilities.visitor.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.magic.api.ast.abilities.*;
+import org.magic.api.ast.abilities.ActivatedAbility;
+import org.magic.api.ast.abilities.ContinuousModifierAbility;
+import org.magic.api.ast.abilities.KeywordAbility;
+import org.magic.api.ast.abilities.KeywordGroupAbility;
+import org.magic.api.ast.abilities.ModalAbility;
+import org.magic.api.ast.abilities.PlaneswalkerAbility;
+import org.magic.api.ast.abilities.ReplacementEffectAbility;
+import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.StaticAbility;
+import org.magic.api.ast.abilities.TriggeredAbility;
+import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.visitor.AbilityVisitor;
 import org.magic.api.ast.costs.CostNode;
 
@@ -53,9 +62,8 @@ public class CostCollector implements AbilityVisitor<List<CostNode>> {
     @Override
     public List<CostNode> visit(ModalAbility ability) {
         // Modal abilities can have costs in their modes
-        return ability.modes().stream()
-            .flatMap(mode -> mode.costs().stream())
-            .collect(Collectors.toList());
+        //return ability.modes().stream().flatMap(mode -> mode..costs().stream()).collect(Collectors.toList());
+    	return new ArrayList<>();
     }
     
     @Override
@@ -67,4 +75,22 @@ public class CostCollector implements AbilityVisitor<List<CostNode>> {
     public List<CostNode> visit(ContinuousModifierAbility ability) {
         return new ArrayList<>();
     }
+
+	@Override
+	public List<CostNode> visit(WordAbility wordAbility) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CostNode> visit(SagaAbility sagaAbility) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CostNode> visit(PlaneswalkerAbility planeswalkerAbility) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -4,9 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.magic.api.ast.abilities.*;
+import org.magic.api.ast.abilities.ActivatedAbility;
+import org.magic.api.ast.abilities.ContinuousModifierAbility;
+import org.magic.api.ast.abilities.KeywordAbility;
+import org.magic.api.ast.abilities.KeywordGroupAbility;
+import org.magic.api.ast.abilities.ModalAbility;
+import org.magic.api.ast.abilities.PlaneswalkerAbility;
+import org.magic.api.ast.abilities.ReplacementEffectAbility;
+import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.StaticAbility;
+import org.magic.api.ast.abilities.TriggeredAbility;
+import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.visitor.AbilityVisitor;
-import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.effects.EffectNode;
 
 /**
@@ -72,4 +81,19 @@ public class EffectCollector implements AbilityVisitor<List<EffectNode>> {
         // Continuous modifiers don't have effects
         return new ArrayList<>();
     }
+
+	@Override
+	public List<EffectNode> visit(WordAbility ability) {
+		   return new ArrayList<>();
+	}
+
+	@Override
+	public List<EffectNode> visit(SagaAbility ability) {
+		   return new ArrayList<>(ability.effects());
+	}
+
+	@Override
+	public List<EffectNode> visit(PlaneswalkerAbility ability) {
+		   return new ArrayList<>(ability.effects());
+	}
 }

@@ -1,5 +1,10 @@
 package org.magic.api.ast.abilities;
 
-public record WordAbility(String abilityWord, AbilityNode ability) implements AbilityNode {
+import org.magic.api.ast.abilities.visitor.AbilityVisitor;
 
+public record WordAbility(String abilityWord, AbilityNode ability) implements AbilityNode {
+	@Override
+	public <T> T accept(AbilityVisitor<T> visitor) {
+		return visitor.visit(this);
+	}
 }
