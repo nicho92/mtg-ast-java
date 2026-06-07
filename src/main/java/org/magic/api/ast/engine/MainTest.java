@@ -13,7 +13,7 @@ public class MainTest {
             {T}: Add {G}.
             """;
         
-        CardAst ast = new OracleParser().parse("Example Card", oracleText);
+        CardAst ast =new OracleParser().parse("Example Card", oracleText);
       
         ast.getAbilities().stream().map(ability -> ability.accept(new AbilityDescriber())).toList().forEach(System.out::println);
     

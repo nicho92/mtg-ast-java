@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.WordAbility;
-import org.magic.api.ast.engine.OracleParser;
+import org.magic.api.ast.abilities.factory.AbilitiesFactory;
 
 public class WordAbilityParser implements AbilityParser {
 
@@ -26,7 +26,7 @@ public class WordAbilityParser implements AbilityParser {
 		var abilityWord = matcher.group(1);
 		var innerText = matcher.group(2);
 
-		var innerAbility = new OracleParser().parse("", innerText).getAbilities().get(0);
+		var innerAbility = new AbilitiesFactory().parse(innerText).get(0);
 
 		return new WordAbility(
 				abilityWord,
