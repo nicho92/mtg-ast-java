@@ -3,9 +3,9 @@ package org.magic.api.ast.util;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
-import java.util.List;
 
 import org.magic.api.ast.engine.CardAst;
+import org.magic.api.ast.interfaces.KeywordRegistry;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -31,9 +31,11 @@ public class JsonExporter {
         return gson.fromJson(json, CardAst.class);
     }
     
-    public List<String> loadMTGJsonKeywords() throws JsonSyntaxException, JsonIOException, IOException
+    public KeywordRegistry getMTGJsonRegistry() throws JsonSyntaxException, JsonIOException, IOException
     {
-    	return gson.fromJson(new InputStreamReader(URI.create("https://mtgjson.com/api/v5/Keywords.json").toURL().openStream()),JsonObject.class).get("data").getAsJsonObject().get("keywordAbilities").getAsJsonArray().asList().stream().map(je->je.getAsString()).toList();
+    	var results = gson.fromJson(new InputStreamReader(URI.create("https://mtgjson.com/api/v5/Keywords.json").toURL().openStream()),JsonObject.class).get("data").getAsJsonObject().get("keywordAbilities").getAsJsonArray().asList().stream().map(je->je.getAsString()).toList();
+    	
+    	return  ()-> results;
     }
     
 }
