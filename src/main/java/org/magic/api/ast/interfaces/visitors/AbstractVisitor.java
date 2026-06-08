@@ -10,7 +10,6 @@ import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.abilities.WordAbility;
-import org.magic.api.ast.abilities.model.Keyword;
 
 public abstract class AbstractVisitor<T> implements AbilityVisitor<T> {
 
