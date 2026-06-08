@@ -1,9 +1,7 @@
 package org.magic.api.ast.abilities.visitor.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.interfaces.visitors.AbstractVisitor;
 import org.magic.api.ast.triggers.Trigger;
@@ -27,13 +25,5 @@ public class TriggerCollector extends AbstractVisitor<List<Trigger>> {
 		// Return the trigger from triggered ability
 		return List.of(ability.trigger());
 	}
-
-	@Override
-	public List<Trigger> visit(ModalAbility ability) {
-		// Modal abilities can have triggers in their modes
-		//ability..triggers().stream()).collect(Collectors.toList());
-		return new ArrayList<>();
-	}
-
 
 }

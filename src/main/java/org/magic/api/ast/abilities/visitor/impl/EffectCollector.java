@@ -2,7 +2,6 @@ package org.magic.api.ast.abilities.visitor.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.abilities.ModalAbility;
@@ -41,7 +40,7 @@ public class EffectCollector extends AbstractVisitor<List<EffectNode>> {
 	@Override
 	public List<EffectNode> visit(ModalAbility ability) {
 		// Collect effects from all modes
-		return ability.modes().stream().flatMap(mode -> mode.effects().stream()).collect(Collectors.toList());
+		return ability.modes().stream().flatMap(mode -> mode.effects().stream()).toList();
 	}
 
 	@Override

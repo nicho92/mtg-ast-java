@@ -40,9 +40,7 @@ public class ASTFacade {
 		var result = new ArrayList<Keyword>();
 
 		card.getAbilities().stream().filter(KeywordsAbility.class::isInstance).map(a -> (KeywordsAbility) a)
-				.forEach(kga -> {
-					result.addAll(kga.keywords());
-				});
+				.forEach(kga -> result.addAll(kga.keywords()));
 
 		return result;
 	}
@@ -96,7 +94,7 @@ public class ASTFacade {
 	// ============ TRIGGER EXTRACTION ============
 
 	public List<Trigger> getAllTriggers() {
-		return getTriggeredAbilities().stream().map(ta->(Trigger)ta.trigger()).toList();
+		return getTriggeredAbilities().stream().map(ta->ta.trigger()).toList();
 	}
 
 	public List<Trigger> getTriggers(TriggerType t) {
