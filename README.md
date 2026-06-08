@@ -58,25 +58,26 @@ mvn clean install
 ## 🚀 Quick Start
 
 ```java
-import org.magic.api.ast.engine.CardAst;
-import org.magic.api.ast.engine.OracleParser;
+public class MainTest {
 
-public class Example {
+	public static void main() {
+		String oracleText = """
 
-    public static void main(String[] args) {
-        String oracleText = """
-            Flying, Ward {2}
-            
-            Whenever another creature dies, draw a card.
-            
-            {T}: Add {G}.
-            """;
+				Flying, Ward {2}, Trample
+				
+				Sacrifice two artifacts : add {W}{G}.
+				
+				{T} : Add {W} or {G} 
 
-        var ast = new OracleParser().toFacade("Example Card", oracleText);
-        
-        ast.getAllAbilities().forEach(System.out::println);
-    }
+				  """;
+
+		var ast = OracleParser.toFacade("Example Card", oracleText);
+		ast.getAllAbilities().forEach(ab->{
+				System.out.println(ab);
+		});
+	}
 }
+
 ```
 
 **Example Output:**
