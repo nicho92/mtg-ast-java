@@ -9,43 +9,39 @@ import org.magic.api.ast.costs.SacrificeCost;
 import org.magic.api.ast.interfaces.CostParser;
 import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 
-public class SacrificeCostParser implements CostParser{
+public class SacrificeCostParser implements CostParser {
 
-	private static final Pattern PATTERN = Pattern.compile("^Sacrifice\\s+(a|an|another|one|two|three)\\s+(.+)$",Pattern.CASE_INSENSITIVE);
-	
-	
+	private static final Pattern PATTERN = Pattern.compile("^Sacrifice\\s+(a|an|another|one|two|three)\\s+(.+)$",
+			Pattern.CASE_INSENSITIVE);
+
 	@Override
 	public boolean supports(String text) {
-		 return PATTERN.matcher(text).matches();
+		return PATTERN.matcher(text).matches();
 	}
 
 	@Override
 	public List<CostNode> parse(String text) {
 
-	    Matcher matcher =PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-	    if (!matcher.matches()) {
-	        return List.of();
-	    }
+		if (!matcher.matches()) {
+			return List.of();
+		}
 
-	    return List.of(
-	            new SacrificeCost(
-	            		TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim()),
-	            		parseQuantity(matcher.group(1).trim())
-	            )
-	    );
+		return List.of(new SacrificeCost(TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim()),
+				parseQuantity(matcher.group(1).trim())));
 	}
-	
+
 	private int parseQuantity(String quantity) {
 
-	    return switch (quantity.toLowerCase()) {
+		return switch (quantity.toLowerCase()) {
 
-	        case "a", "an", "one","another" -> 1;
-	        case "two" -> 2;
-	        case "three" -> 3;
+		case "a", "an", "one", "another" -> 1;
+		case "two" -> 2;
+		case "three" -> 3;
 
-	        default -> 1;
-	    };
+		default -> 1;
+		};
 	}
 
 }

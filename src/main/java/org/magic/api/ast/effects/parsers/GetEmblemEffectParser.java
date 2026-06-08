@@ -9,26 +9,21 @@ import org.magic.api.ast.interfaces.EffectParser;
 
 public class GetEmblemEffectParser implements EffectParser {
 
-private static final Pattern PATTERN =
-    Pattern.compile(
-            "You get an emblem with \"(.*?)\"",
-            Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("You get an emblem with \"(.*?)\"",
+			Pattern.CASE_INSENSITIVE);
 
-@Override
-public boolean supports(String text) {
-	return PATTERN.matcher(text).find();
-}
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).find();
+	}
 
-@Override
-public EffectNode parse(String text) {
+	@Override
+	public EffectNode parse(String text) {
 
-Matcher matcher =
-        PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-matcher.find();
+		matcher.find();
 
-return new GetEmblemEffect(
-        matcher.group(1)        
-);
-}
+		return new GetEmblemEffect(matcher.group(1));
+	}
 }

@@ -2,24 +2,24 @@ package org.magic.api.ast.util;
 
 public final class AmountParser {
 
-    private AmountParser() {
-    }
+	private AmountParser() {
+	}
 
-    public static int parse(String text) {
-    	
-        return switch (text.trim().toLowerCase()) {
-            case "a", "an", "one", "i" -> 1;
-            case "two","ii" -> 2;
-            case "three","iii" -> 3;
-            case "four","iv" -> 4;
-            case "five","v" -> 5;
-            case "six","vi" -> 6;
-            case "seven","vii" -> 7;
-            case "eight" -> 8;
-            case "nine" -> 9;
-            case "ten" -> 10;
-            case "that","many" -> 1;
-            default -> Integer.parseInt(text);
-        };
-    }
+	public static int parse(String text) {
+
+		return switch (text.trim().toLowerCase()) {
+		case "a", "an", "one", "i" -> 1;
+		case "two", "ii" -> 2;
+		case "three", "iii" -> 3;
+		case "four", "iv" -> 4;
+		case "five", "v" -> 5;
+		case "six", "vi" -> 6;
+		case "seven", "vii" -> 7;
+		case "eight" -> 8;
+		case "nine" -> 9;
+		case "ten" -> 10;
+		case "that", "many" -> 1;
+		default -> Integer.parseInt(text);
+		};
+	}
 }

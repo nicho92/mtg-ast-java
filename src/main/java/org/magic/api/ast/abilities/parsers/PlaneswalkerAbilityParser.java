@@ -10,7 +10,8 @@ import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 
 public class PlaneswalkerAbilityParser implements AbilityParser {
 
-	private static final Pattern PATTERN = Pattern.compile("^([+\u2212-]?(\\d+|X)):\\s*(.*)$", Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("^([+\u2212-]?(\\d+|X)):\\s*(.*)$",
+			Pattern.CASE_INSENSITIVE);
 
 	@Override
 	public boolean supports(String text) {
@@ -27,9 +28,8 @@ public class PlaneswalkerAbilityParser implements AbilityParser {
 		var loyaltyText = matcher.group(1);
 		var effectsText = matcher.group(3);
 
-		return new PlaneswalkerAbility(
-				loyaltyText,
-				effectsText.toLowerCase().contains("then")?new EffectSequenceParser().parse(effectsText):List.of(EffectFactory.INSTANCE.parse(effectsText))
-		);
+		return new PlaneswalkerAbility(loyaltyText,
+				effectsText.toLowerCase().contains("then") ? new EffectSequenceParser().parse(effectsText)
+						: List.of(EffectFactory.INSTANCE.parse(effectsText)));
 	}
 }

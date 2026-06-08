@@ -9,7 +9,8 @@ import org.magic.api.ast.util.AmountParser;
 
 public class SagaAbilityParser implements AbilityParser {
 
-	private static final Pattern PATTERN = Pattern.compile("^(I|II|III|IV|V|VI)\\s+[—-]\\s+(.*)$", Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("^(I|II|III|IV|V|VI)\\s+[—-]\\s+(.*)$",
+			Pattern.CASE_INSENSITIVE);
 
 	@Override
 	public boolean supports(String text) {
@@ -25,10 +26,7 @@ public class SagaAbilityParser implements AbilityParser {
 
 		var triggerText = matcher.group(2);
 
-		return new SagaAbility(
-				AmountParser.parse(matcher.group(1)),
-				new EffectSequenceParser().parse(triggerText)
-		);
+		return new SagaAbility(AmountParser.parse(matcher.group(1)), new EffectSequenceParser().parse(triggerText));
 	}
-	
+
 }

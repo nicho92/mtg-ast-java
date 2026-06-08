@@ -9,94 +9,74 @@ import org.magic.api.ast.selectors.TargetSelectorNode;
 import org.magic.api.ast.selectors.TextSelector;
 
 public class TargetSelectorFactory {
-	
-	
+
 	public static final TargetSelectorFactory INSTANCE = new TargetSelectorFactory();
 
-	private TargetSelectorFactory()
-	{
-		
+	private TargetSelectorFactory() {
+
 	}
-	
-	
+
 	public TargetSelectorNode parse(String text) {
 
-	    String lower =
-	            text.toLowerCase();
+		String lower = text.toLowerCase();
 
-	    if (lower.equals("cardname")) {
-	        return new SelfSelector();
-	    }
+		if (lower.equals("cardname")) {
+			return new SelfSelector();
+		}
 
-	    if (lower.contains("creature")) {
-	        return parseCreature(text);
-	    }
+		if (lower.contains("creature")) {
+			return parseCreature(text);
+		}
 
-	    if (lower.contains("artifact")) {
-	        return parseArtifact(text);
-	    }
+		if (lower.contains("artifact")) {
+			return parseArtifact(text);
+		}
 
-	    if (lower.contains("player") || lower.contains("opponent") || lower.contains("you")) {
-	        return parsePlayer(text);
-	    }
-	    
-	    if (lower.contains("land")) {
-	        return parseLand(text);
-	    }
-	    
-	    return new TextSelector(text);
+		if (lower.contains("player") || lower.contains("opponent") || lower.contains("you")) {
+			return parsePlayer(text);
+		}
+
+		if (lower.contains("land")) {
+			return parseLand(text);
+		}
+
+		return new TextSelector(text);
 	}
-	
+
 	private TargetSelectorNode parsePlayer(String text) {
 
-	    return new PlayerSelector(
-	            text.toLowerCase()
-	                    .contains("target")
-	    );
+		return new PlayerSelector(text.toLowerCase().contains("target"));
 	}
-	
+
 	private TargetSelectorNode parseLand(String text) {
 
-		 String lower =
-		            text.toLowerCase();
+		String lower = text.toLowerCase();
 
-		    return new LandSelector(
+		return new LandSelector(
 
-		            lower.contains("target"),
+				lower.contains("target"),
 
-		            lower.contains("another"),
+				lower.contains("another"),
 
-		            lower.contains("you control") || lower.contains("under your control")
-		            );
+				lower.contains("you control") || lower.contains("under your control"));
 	}
-	
-	
-	private TargetSelectorNode parseArtifact(
-	        String text) {
 
-	    return new ArtifactSelector(
-	            text.toLowerCase()
-	                    .contains("target")
-	    );
+	private TargetSelectorNode parseArtifact(String text) {
+
+		return new ArtifactSelector(text.toLowerCase().contains("target"));
 	}
-	
-	
-	private TargetSelectorNode parseCreature( String text) {
 
-	    String lower =
-	            text.toLowerCase();
+	private TargetSelectorNode parseCreature(String text) {
 
-	    return new CreatureSelector(
+		String lower = text.toLowerCase();
 
-	            lower.contains("target"),
+		return new CreatureSelector(
 
-	            lower.contains("another"),
+				lower.contains("target"),
 
-	            lower.contains("you control")
-	    );
+				lower.contains("another"),
+
+				lower.contains("you control"));
 	}
-	
-	
-	
+
 }
-

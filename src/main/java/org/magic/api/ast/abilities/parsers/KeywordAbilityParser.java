@@ -13,22 +13,21 @@ import org.magic.api.ast.util.JsonExporter;
 public class KeywordAbilityParser implements AbilityParser {
 
 	private KeywordRegistry registry;
-	
+
 	public KeywordAbilityParser() {
-		
+
 		try {
 			registry = new JsonExporter().getMTGJsonRegistry();
 		} catch (Exception _) {
 			registry = new DefaultKeywordRegistry();
-		} 	
-	
+		}
+
 	}
-	
+
 	public void setRegistry(KeywordRegistry registry) {
 		this.registry = registry;
 	}
-	
-	
+
 	@Override
 	public boolean supports(String text) {
 
@@ -48,26 +47,18 @@ public class KeywordAbilityParser implements AbilityParser {
 
 	private KeywordAbility parseKeyword(String text) {
 
-	    return new KeywordAbility(
-	            extractKeyword(text),
-	            extractParameter(text)
-	    );
+		return new KeywordAbility(extractKeyword(text), extractParameter(text));
 	}
-	
+
 	@Override
 	public AbilityNode parse(String text) {
 
-	    List<KeywordAbility> abilities =
-	            Arrays.stream(text.split(","))
-	                    .map(String::trim)
-	                    .filter(this::isKeyword)
-	                    .map(this::parseKeyword)
-	                    .toList();
+		List<KeywordAbility> abilities = Arrays.stream(text.split(",")).map(String::trim).filter(this::isKeyword)
+				.map(this::parseKeyword).toList();
 
-	    return new KeywordGroupAbility(
-	            abilities
-	    );
+		return new KeywordGroupAbility(abilities);
 	}
+
 	private boolean isKeyword(String text) {
 
 		return registry.orderedKeywords().stream().anyMatch(keyword -> text.equalsIgnoreCase(keyword)

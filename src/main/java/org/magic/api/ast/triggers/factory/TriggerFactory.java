@@ -24,23 +24,24 @@ public final class TriggerFactory {
 	}
 
 	public static final TriggerFactory INSTANCE = new TriggerFactory();
-	
+
 	public TriggerNode parse(String text) {
 
 		var lower = text.toLowerCase();
 
 		var locator = TargetSelectorFactory.INSTANCE.parse(text);
-		
-		if (lower.contains("enters the battlefield")) 
+
+		if (lower.contains("enters the battlefield"))
 			return new EntersBattlefieldTrigger(locator);
 
-		if (lower.contains("dies")) 
+		if (lower.contains("dies"))
 			return new DiesTrigger(locator);
 
-		if (lower.contains("beginning of your upkeep")) 
+		if (lower.contains("beginning of your upkeep"))
 			return new UpkeepTrigger();
 
-		if (lower.contains("beginning of your end step") || lower.contains("beginning of the end step") || lower.contains("beginning of each end step"))
+		if (lower.contains("beginning of your end step") || lower.contains("beginning of the end step")
+				|| lower.contains("beginning of each end step"))
 			return new EndStepTrigger();
 
 		if (lower.contains("draws a card") || lower.contains("draw a card"))
@@ -52,7 +53,7 @@ public final class TriggerFactory {
 		if (lower.contains("gains life") || lower.contains("gain life"))
 			return new GainLifeTrigger(locator);
 
-		if ( Set.of("lose life","loses life","loose life","looses life").stream().anyMatch(lower::contains))
+		if (Set.of("lose life", "loses life", "loose life", "looses life").stream().anyMatch(lower::contains))
 			return new LoseLifeTrigger(locator);
 
 		if (lower.contains("attacks") || lower.contains("attack"))
@@ -60,15 +61,13 @@ public final class TriggerFactory {
 
 		if (lower.contains("blocks") || lower.contains("block") || lower.contains("blocked"))
 			return new BlocksTrigger(locator);
-		
+
 		if (lower.contains("put into a graveyard") || lower.contains("destroy"))
 			return new PutIntoGraveyardTrigger(locator);
-		
+
 		if (lower.contains("cast this spell"))
 			return new CastTrigger(locator);
-		
-		
-		
+
 		return new UnknownTrigger(text);
 	}
 }

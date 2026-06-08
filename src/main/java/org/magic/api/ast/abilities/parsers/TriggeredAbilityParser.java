@@ -9,39 +9,29 @@ import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 import org.magic.api.ast.triggers.TriggerNode;
 import org.magic.api.ast.triggers.factory.TriggerFactory;
 
-public class TriggeredAbilityParser
-implements AbilityParser {
+public class TriggeredAbilityParser implements AbilityParser {
 
-private static final Pattern PATTERN =
-    Pattern.compile(
-            "^(When|Whenever|At)\\s+(.*?),\\s*(.*)$",
-            Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("^(When|Whenever|At)\\s+(.*?),\\s*(.*)$",
+			Pattern.CASE_INSENSITIVE);
 
-@Override
-public boolean supports(String text) {
-return PATTERN.matcher(text).matches();
-}
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).matches();
+	}
 
-@Override
-public AbilityNode parse(String text) {
+	@Override
+	public AbilityNode parse(String text) {
 
-Matcher matcher =
-        PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-matcher.find();
+		matcher.find();
 
-String triggerText =
-        matcher.group(2);
+		String triggerText = matcher.group(2);
 
-String effectText =
-        matcher.group(3);
+		String effectText = matcher.group(3);
 
-TriggerNode trigger =
-        TriggerFactory.INSTANCE.parse(triggerText);
+		TriggerNode trigger = TriggerFactory.INSTANCE.parse(triggerText);
 
-return new TriggeredAbility(
-        trigger,
-        new EffectSequenceParser().parse(effectText)
-);
-}
+		return new TriggeredAbility(trigger, new EffectSequenceParser().parse(effectText));
+	}
 }

@@ -1,5 +1,5 @@
 package org.magic.api.ast.costs;
 
-public interface CostNode{
-	
+public interface CostNode {
+
 }

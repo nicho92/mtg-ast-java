@@ -1,6 +1,5 @@
 package org.magic.api.ast.util;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,129 +16,106 @@ import org.magic.api.ast.engine.CardAst;
 import org.magic.api.ast.triggers.TriggerNode;
 
 public class ASTFacade {
-    
-    private final CardAst card;
-    
-    public ASTFacade(CardAst card) {
-        this.card = card;
-    }
-    
-    // ============ CARD INFO ============
-    
-    public String getCardName() {
-        return card.getName();
-    }
-    
-    public List<AbilityNode> getAllAbilities() {
-        return new ArrayList<>(card.getAbilities());
-    }
-    
-    // ============ ABILITY FILTERING ============
-        
-    public List<KeywordAbility> getKeywordsAbilities() {
-    	var result = new ArrayList<KeywordAbility>();
-    	
-        card.getAbilities().stream()
-            .filter(KeywordGroupAbility.class::isInstance)
-            .map(a -> (KeywordGroupAbility) a).forEach(kga->{
-            	result.addAll(kga.keywords());
-            });
-        
-        return result;
-    }
-    
-    public List<ActivatedAbility> getActivatedAbilities() {
-        return card.getAbilities().stream()
-            .filter(ActivatedAbility.class::isInstance)
-            .map(a -> (ActivatedAbility) a)
-            .toList();
-    }
-    
-    public List<TriggeredAbility> getTriggeredAbilities() {
-        return card.getAbilities().stream()
-            .filter(TriggeredAbility.class::isInstance)
-            .map(a -> (TriggeredAbility) a)
-            .toList();
-    }
-    
-    public List<StaticAbility> getStaticAbilities() {
-        return card.getAbilities().stream()
-            .filter(StaticAbility.class::isInstance)
-            .map(a -> (StaticAbility) a)
-            .toList();
-    }
-    
-    public List<ModalAbility> getModalAbilities() {
-        return card.getAbilities().stream()
-            .filter(ModalAbility.class::isInstance)
-            .map(a -> (ModalAbility) a)
-            .toList();
-    }
-    
-    // ============ COST EXTRACTION ============
-    
-    public List<CostNode> getAllCosts() {
-        return getActivatedAbilities().stream()
-            .flatMap(a -> a.costs().stream())
-            .toList();
-    }
-    
-    @SuppressWarnings("unchecked")
-  	public <T extends CostNode> List<T> getCosts(Class<T> classe) {
-        return getAllCosts().stream()
-            .filter(classe::isInstance)
-            .map(c -> (T) c)
-            .toList();
-    }
-    
-    // ============ EFFECT EXTRACTION ============
-    
-    public List<EffectNode> getAllEffects() {
-        List<EffectNode> effects = new ArrayList<>();
-        
-        getActivatedAbilities().forEach(a -> effects.addAll(a.effects()));
-        getTriggeredAbilities().forEach(a -> effects.addAll(a.effects()));
-        
-        return effects;
-    }
-    
-    @SuppressWarnings("unchecked")
+
+	private final CardAst card;
+
+	public ASTFacade(CardAst card) {
+		this.card = card;
+	}
+
+	// ============ CARD INFO ============
+
+	public String getCardName() {
+		return card.getName();
+	}
+
+	public List<AbilityNode> getAllAbilities() {
+		return new ArrayList<>(card.getAbilities());
+	}
+
+	// ============ ABILITY FILTERING ============
+
+	public List<KeywordAbility> getKeywordsAbilities() {
+		var result = new ArrayList<KeywordAbility>();
+
+		card.getAbilities().stream().filter(KeywordGroupAbility.class::isInstance).map(a -> (KeywordGroupAbility) a)
+				.forEach(kga -> {
+					result.addAll(kga.keywords());
+				});
+
+		return result;
+	}
+
+	public List<ActivatedAbility> getActivatedAbilities() {
+		return card.getAbilities().stream().filter(ActivatedAbility.class::isInstance).map(a -> (ActivatedAbility) a)
+				.toList();
+	}
+
+	public List<TriggeredAbility> getTriggeredAbilities() {
+		return card.getAbilities().stream().filter(TriggeredAbility.class::isInstance).map(a -> (TriggeredAbility) a)
+				.toList();
+	}
+
+	public List<StaticAbility> getStaticAbilities() {
+		return card.getAbilities().stream().filter(StaticAbility.class::isInstance).map(a -> (StaticAbility) a)
+				.toList();
+	}
+
+	public List<ModalAbility> getModalAbilities() {
+		return card.getAbilities().stream().filter(ModalAbility.class::isInstance).map(a -> (ModalAbility) a).toList();
+	}
+
+	// ============ COST EXTRACTION ============
+
+	public List<CostNode> getAllCosts() {
+		return getActivatedAbilities().stream().flatMap(a -> a.costs().stream()).toList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T extends CostNode> List<T> getCosts(Class<T> classe) {
+		return getAllCosts().stream().filter(classe::isInstance).map(c -> (T) c).toList();
+	}
+
+	// ============ EFFECT EXTRACTION ============
+
+	public List<EffectNode> getAllEffects() {
+		List<EffectNode> effects = new ArrayList<>();
+
+		getActivatedAbilities().forEach(a -> effects.addAll(a.effects()));
+		getTriggeredAbilities().forEach(a -> effects.addAll(a.effects()));
+
+		return effects;
+	}
+
+	@SuppressWarnings("unchecked")
 	public <T extends EffectNode> List<T> getEffects(Class<T> classe) {
-        return getAllEffects().stream()
-            .filter(classe::isInstance)
-            .map(e -> (T) e)
-            .toList();
-    }
-    
-    // ============ TRIGGER EXTRACTION ============
-    
-    public List<TriggerNode> getAllTriggers() {
-        return getTriggeredAbilities().stream()
-            .map(TriggeredAbility::trigger)
-            .toList();
-    }
-    
-    @SuppressWarnings("unchecked")
+		return getAllEffects().stream().filter(classe::isInstance).map(e -> (T) e).toList();
+	}
+
+	// ============ TRIGGER EXTRACTION ============
+
+	public List<TriggerNode> getAllTriggers() {
+		return getTriggeredAbilities().stream().map(TriggeredAbility::trigger).toList();
+	}
+
+	@SuppressWarnings("unchecked")
 	public <T extends TriggerNode> List<T> getTriggers(Class<T> classe) {
-        return getAllTriggers().stream()
-            .filter(classe::isInstance)
-            .map(t -> (T) t)
-            .toList();
-    }
-    
-    // ============ CONVENIENCE QUERIES ============
-    
-    /**
-     * Vérifie si la carte a un keyword spécifique
-     */
-    public boolean hasKeyword(String keyword) {
-        return getKeywordsAbilities().stream().anyMatch(ka->ka.keyword().equalsIgnoreCase(keyword));
-    }
-    
-    /**
-     * Vérifie si la carte a des abilities activées
-     */
-    public boolean hasActivatedAbilities() {
-        return !getActivatedAbilities().isEmpty();
-    }
+		return getAllTriggers().stream().filter(classe::isInstance).map(t -> (T) t).toList();
+	}
+
+	// ============ CONVENIENCE QUERIES ============
+
+	/**
+	 * Vérifie si la carte a un keyword spécifique
+	 */
+	public boolean hasKeyword(String keyword) {
+		return getKeywordsAbilities().stream().anyMatch(ka -> ka.keyword().equalsIgnoreCase(keyword));
+	}
+
+	/**
+	 * Vérifie si la carte a des abilities activées
+	 */
+	public boolean hasActivatedAbilities() {
+		return !getActivatedAbilities().isEmpty();
+	}
 }

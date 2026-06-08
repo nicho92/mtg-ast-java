@@ -30,11 +30,8 @@ public class ActivatedAbilityParser implements AbilityParser {
 
 		String effectPart = matcher.group(2);
 
-		List<CostNode> costs =CostFactory.INSTANCE.parse(costPart);
+		List<CostNode> costs = CostFactory.INSTANCE.parse(costPart);
 
-		return new ActivatedAbility(
-				costs,
-				new EffectSequenceParser().parse(effectPart)
-		);
+		return new ActivatedAbility(costs, new EffectSequenceParser().parse(effectPart));
 	}
 }

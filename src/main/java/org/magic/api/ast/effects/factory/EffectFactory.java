@@ -20,38 +20,27 @@ import org.magic.api.ast.interfaces.EffectParser;
 
 public class EffectFactory {
 
-    private final List<EffectParser> parsers;
+	private final List<EffectParser> parsers;
 
-    public static final EffectFactory INSTANCE = new EffectFactory();
-    
-    
-    private EffectFactory() {
+	public static final EffectFactory INSTANCE = new EffectFactory();
 
-        parsers = List.of(
-                new DrawEffectParser(),
-                new GainLifeEffectParser(),
-                new AddManaEffectParser(),
-                new DamageEffectParser(),
-                new DestroyEffectParser(),
-                new GetEmblemEffectParser(),
-                new CreateTokenEffectParser(),
-                new PutCountersEffectParser(),
-                new ExileEffectParser(),
-                new ReturnEffectParser(),
-                new DiscardEffectParser(),
-                new SacrificeEffectParser()
-        );
-    }
+	private EffectFactory() {
 
-    public EffectNode parse(String text) {
+		parsers = List.of(new DrawEffectParser(), new GainLifeEffectParser(), new AddManaEffectParser(),
+				new DamageEffectParser(), new DestroyEffectParser(), new GetEmblemEffectParser(),
+				new CreateTokenEffectParser(), new PutCountersEffectParser(), new ExileEffectParser(),
+				new ReturnEffectParser(), new DiscardEffectParser(), new SacrificeEffectParser());
+	}
 
-        for (var parser : parsers) {
+	public EffectNode parse(String text) {
 
-            if (parser.supports(text)) {
-                return parser.parse(text);
-            }
-        }
+		for (var parser : parsers) {
 
-        return new UnknownEffect(text);
-    }
+			if (parser.supports(text)) {
+				return parser.parse(text);
+			}
+		}
+
+		return new UnknownEffect(text);
+	}
 }

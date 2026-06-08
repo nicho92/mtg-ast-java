@@ -18,90 +18,83 @@ import org.magic.api.ast.abilities.parsers.WordAbilityParser;
 
 public class AbilitiesFactory {
 
-    private final List<AbilityParser> parsers;
-    public static final AbilitiesFactory INSTANCE = new AbilitiesFactory();
-    
-    private AbilitiesFactory() {
+	private final List<AbilityParser> parsers;
+	public static final AbilitiesFactory INSTANCE = new AbilitiesFactory();
 
-        parsers = List.of(
-        		new ModalAbilityParser(),
-        		new ReplacementEffectParser(),
-        		new ContinuousModifierAbilityParser(),
-        		new KeywordAbilityParser(),
-                new TriggeredAbilityParser(),
-                new PlaneswalkerAbilityParser(),
-                new ActivatedAbilityParser(),
-                new SagaAbilityParser(),
-                new WordAbilityParser()
-        );
-    }
+	private AbilitiesFactory() {
 
-    public List<AbilityNode> parse(String oracleText) {
+		parsers = List.of(new ModalAbilityParser(), new ReplacementEffectParser(),
+				new ContinuousModifierAbilityParser(), new KeywordAbilityParser(), new TriggeredAbilityParser(),
+				new PlaneswalkerAbilityParser(), new ActivatedAbilityParser(), new SagaAbilityParser(),
+				new WordAbilityParser());
+	}
 
-    	var ret = new ArrayList<AbilityNode>();
-    	
-    	if(oracleText==null || oracleText.isEmpty())
-    		return ret;
-    	
-        for (var block : parseBlocks(oracleText)) {
-            ret.add(parseLine(block));
-        }
+	public List<AbilityNode> parse(String oracleText) {
 
-        return ret;
-    }
+		var ret = new ArrayList<AbilityNode>();
 
-    private List<String> parseBlocks(String oracleText) {
+		if (oracleText == null || oracleText.isEmpty())
+			return ret;
 
-        List<String> blocks = new ArrayList<>();
-        StringBuilder currentModalBlock = null;
+		for (var block : parseBlocks(oracleText)) {
+			ret.add(parseLine(block));
+		}
 
-        for (var rawLine : oracleText.lines().toList()) {
-            var line = rawLine.trim();
+		return ret;
+	}
 
-            if (line.isBlank()) {
-                continue;
-            }
+	private List<String> parseBlocks(String oracleText) {
 
-            if (isModalHeader(line)) {
-                if (currentModalBlock != null) {
-                    blocks.add(currentModalBlock.toString());
-                }
-                currentModalBlock = new StringBuilder(line);
-            } else if (isModeLine(line) && currentModalBlock != null) {
-                currentModalBlock.append(System.lineSeparator()).append(line);
-            } else {
-                if (currentModalBlock != null) {
-                    blocks.add(currentModalBlock.toString());
-                    currentModalBlock = null;
-                }
-                blocks.add(line);
-            }
-        }
+		List<String> blocks = new ArrayList<>();
+		StringBuilder currentModalBlock = null;
 
-        if (currentModalBlock != null) {
-            blocks.add(currentModalBlock.toString());
-        }
+		for (var rawLine : oracleText.lines().toList()) {
+			var line = rawLine.trim();
 
-        return blocks;
-    }
+			if (line.isBlank()) {
+				continue;
+			}
 
-    private boolean isModalHeader(String line) {
-        return line.matches("(?i)^Choose\\s+(one|two|one or both|up to one)\\s*[—-]?$");
-    }
+			if (isModalHeader(line)) {
+				if (currentModalBlock != null) {
+					blocks.add(currentModalBlock.toString());
+				}
+				currentModalBlock = new StringBuilder(line);
+			} else if (isModeLine(line) && currentModalBlock != null) {
+				currentModalBlock.append(System.lineSeparator()).append(line);
+			} else {
+				if (currentModalBlock != null) {
+					blocks.add(currentModalBlock.toString());
+					currentModalBlock = null;
+				}
+				blocks.add(line);
+			}
+		}
 
-    private boolean isModeLine(String line) {
-        return line.startsWith("•") || line.startsWith("-") || line.startsWith("—");
-    }
+		if (currentModalBlock != null) {
+			blocks.add(currentModalBlock.toString());
+		}
 
-    private AbilityNode parseLine(String line) {
+		return blocks;
+	}
 
-        for (var parser : parsers) {
+	private boolean isModalHeader(String line) {
+		return line.matches("(?i)^Choose\\s+(one|two|one or both|up to one)\\s*[—-]?$");
+	}
 
-            if (parser.supports(line)) {
-                return parser.parse(line);
-            }
-        }
+	private boolean isModeLine(String line) {
+		return line.startsWith("•") || line.startsWith("-") || line.startsWith("—");
+	}
 
-        return new StaticAbility(line);
-    }
+	private AbilityNode parseLine(String line) {
+
+		for (var parser : parsers) {
+
+			if (parser.supports(line)) {
+				return parser.parse(line);
+			}
+		}
+
+		return new StaticAbility(line);
+	}
 }

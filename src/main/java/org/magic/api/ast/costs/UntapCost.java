@@ -2,11 +2,12 @@ package org.magic.api.ast.costs;
 
 public final class UntapCost implements CostNode {
 
-public static final UntapCost INSTANCE = new UntapCost();
+	public static final UntapCost INSTANCE = new UntapCost();
 
-private UntapCost() {}
+	private UntapCost() {
+	}
 
-@Override
+	@Override
 	public String toString() {
 		return "Untap";
 	}

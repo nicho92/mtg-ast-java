@@ -10,29 +10,29 @@ import org.magic.api.ast.interfaces.CostParser;
 
 public class ManaCostParser implements CostParser {
 
-    private static final Pattern MANA_SYMBOL = Pattern.compile("\\{([^}]+)}");
-	//private static final Pattern MANA_SYMBOL = Pattern.compile("([WUBRG])")
-	
-    @Override
-    public boolean supports(String text) {
-        return text.contains("{") && text.contains("}");
-    }
+	private static final Pattern MANA_SYMBOL = Pattern.compile("\\{([^}]+)}");
+	// private static final Pattern MANA_SYMBOL = Pattern.compile("([WUBRG])")
 
-    @Override
-    public List<CostNode> parse(String text) {
+	@Override
+	public boolean supports(String text) {
+		return text.contains("{") && text.contains("}");
+	}
 
-        var matcher = MANA_SYMBOL.matcher(text);
+	@Override
+	public List<CostNode> parse(String text) {
 
-       var symbols = new ArrayList<String>();
+		var matcher = MANA_SYMBOL.matcher(text);
 
-        while (matcher.find()) {
-            symbols.add(matcher.group(1));
-        }
+		var symbols = new ArrayList<String>();
 
-        if (symbols.isEmpty()) {
-            return List.of();
-        }
+		while (matcher.find()) {
+			symbols.add(matcher.group(1));
+		}
 
-        return List.of(new ManaCost(symbols));
-    }
+		if (symbols.isEmpty()) {
+			return List.of();
+		}
+
+		return List.of(new ManaCost(symbols));
+	}
 }

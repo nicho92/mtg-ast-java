@@ -11,26 +11,23 @@ import org.magic.api.ast.util.AmountParser;
 
 public class DiscardEffectParser implements EffectParser {
 
-    private static final Pattern PATTERN = Pattern.compile(
-            "^(You|Each opponent|Target player|Each player)?\\s+discards?\\s+(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\\d+)\\s+cards?",
-            Pattern.CASE_INSENSITIVE
-    );
+	private static final Pattern PATTERN = Pattern.compile(
+			"^(You|Each opponent|Target player|Each player)?\\s+discards?\\s+(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\\d+)\\s+cards?",
+			Pattern.CASE_INSENSITIVE);
 
-    @Override
-    public boolean supports(String text) {
-        return PATTERN.matcher(text).find();
-    }
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).find();
+	}
 
-    @Override
-    public EffectNode parse(String text) {
+	@Override
+	public EffectNode parse(String text) {
 
-        Matcher matcher = PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-        matcher.find();
+		matcher.find();
 
-        return new DiscardCardsEffect(
-                TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
-                AmountParser.parse(matcher.group(2))
-        );
-    }
+		return new DiscardCardsEffect(TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
+				AmountParser.parse(matcher.group(2)));
+	}
 }

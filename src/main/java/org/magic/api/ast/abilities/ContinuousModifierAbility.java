@@ -4,11 +4,9 @@ import org.magic.api.ast.interfaces.AbilityVisitor;
 import org.magic.api.ast.modifiers.ModifierNode;
 import org.magic.api.ast.selectors.TargetSelectorNode;
 
-public record ContinuousModifierAbility(
-        TargetSelectorNode affectedObjects,
-        ModifierNode modifier
-) implements AbilityNode {
-	
+public record ContinuousModifierAbility(TargetSelectorNode affectedObjects, ModifierNode modifier)
+		implements AbilityNode {
+
 	@Override
 	public <T> T accept(AbilityVisitor<T> visitor) {
 		return visitor.visit(this);

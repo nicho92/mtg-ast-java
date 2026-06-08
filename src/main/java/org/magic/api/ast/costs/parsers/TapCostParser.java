@@ -10,29 +10,26 @@ import org.magic.api.ast.interfaces.CostParser;
 
 public class TapCostParser implements CostParser {
 
-    private static final Pattern TAP =
-            Pattern.compile("\\{T\\}");
+	private static final Pattern TAP = Pattern.compile("\\{T\\}");
 
-    private static final Pattern UNTAP =
-            Pattern.compile("\\{Q\\}");
+	private static final Pattern UNTAP = Pattern.compile("\\{Q\\}");
 
-    @Override
-    public boolean supports(String text) {
-        return TAP.matcher(text).find()
-                || UNTAP.matcher(text).find();
-    }
+	@Override
+	public boolean supports(String text) {
+		return TAP.matcher(text).find() || UNTAP.matcher(text).find();
+	}
 
-    @Override
-    public List<CostNode> parse(String text) {
+	@Override
+	public List<CostNode> parse(String text) {
 
-        if (TAP.matcher(text).find()) {
-            return List.of(TapCost.INSTANCE);
-        }
+		if (TAP.matcher(text).find()) {
+			return List.of(TapCost.INSTANCE);
+		}
 
-        if (UNTAP.matcher(text).find()) {
-            return List.of(UntapCost.INSTANCE);
-        }
+		if (UNTAP.matcher(text).find()) {
+			return List.of(UntapCost.INSTANCE);
+		}
 
-        return List.of();
-    }
+		return List.of();
+	}
 }

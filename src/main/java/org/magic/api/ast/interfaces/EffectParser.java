@@ -4,8 +4,8 @@ import org.magic.api.ast.effects.EffectNode;
 
 public interface EffectParser {
 
-    boolean supports(String text);
+	boolean supports(String text);
 
-    EffectNode parse(String text);
+	EffectNode parse(String text);
 
 }

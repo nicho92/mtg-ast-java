@@ -10,26 +10,22 @@ import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 
 public class SacrificeEffectParser implements EffectParser {
 
-    private static final Pattern PATTERN = Pattern.compile(
-            "^(You|Each opponent|Target player|Each player)\\s+sacrifices?\\s+(.+)$",
-            Pattern.CASE_INSENSITIVE
-    );
+	private static final Pattern PATTERN = Pattern.compile(
+			"^(You|Each opponent|Target player|Each player)\\s+sacrifices?\\s+(.+)$", Pattern.CASE_INSENSITIVE);
 
-    @Override
-    public boolean supports(String text) {
-        return PATTERN.matcher(text).find();
-    }
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).find();
+	}
 
-    @Override
-    public EffectNode parse(String text) {
+	@Override
+	public EffectNode parse(String text) {
 
-        Matcher matcher = PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-        matcher.find();
+		matcher.find();
 
-        return new SacrificeEffect(
-                TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
-                TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim())
-        );
-    }
+		return new SacrificeEffect(TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
+				TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim()));
+	}
 }

@@ -22,73 +22,73 @@ import org.magic.api.ast.triggers.TriggerNode;
  * Only triggered abilities have triggers.
  * 
  * Usage:
+ * 
  * <pre>
  * TriggerCollector collector = new TriggerCollector();
- * var allTriggers = card.getAbilities().stream()
- *     .map(ability -> ability.accept(collector))
- *     .flatMap(List::stream)
- *     .collect(Collectors.toList());
+ * var allTriggers = card.getAbilities().stream().map(ability -> ability.accept(collector)).flatMap(List::stream)
+ * 		.collect(Collectors.toList());
  * </pre>
  */
 public class TriggerCollector implements AbilityVisitor<List<TriggerNode>> {
-    
-    @Override
-    public List<TriggerNode> visit(KeywordAbility ability) {
-        return new ArrayList<>();
-    }
-    
-    @Override
-    public List<TriggerNode> visit(KeywordGroupAbility ability) {
-        return new ArrayList<>();
-    }
-    
-    @Override
-    public List<TriggerNode> visit(ActivatedAbility ability) {
-        // Activated abilities don't have triggers
-        return new ArrayList<>();
-    }
-    
-    @Override
-    public List<TriggerNode> visit(TriggeredAbility ability) {
-        // Return the trigger from triggered ability
-        return List.of(ability.trigger());
-    }
-    
-    @Override
-    public List<TriggerNode> visit(StaticAbility ability) {
-        return new ArrayList<>();
-    }
-    
-    @Override
-    public List<TriggerNode> visit(ModalAbility ability) {
-        // Modal abilities can have triggers in their modes
-        //return ability.modes().stream().flatMap(mode -> mode.triggers().stream()).collect(Collectors.toList());
-    	return new ArrayList<>();
-    }
-    
-    @Override
-    public List<TriggerNode> visit(ReplacementEffectAbility ability) {
-        // Replacement effects are not the same as triggers
-        return new ArrayList<>();
-    }
-    
-    @Override
-    public List<TriggerNode> visit(ContinuousModifierAbility ability) {
-        return new ArrayList<>();
-    }
+
+	@Override
+	public List<TriggerNode> visit(KeywordAbility ability) {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<TriggerNode> visit(KeywordGroupAbility ability) {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<TriggerNode> visit(ActivatedAbility ability) {
+		// Activated abilities don't have triggers
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<TriggerNode> visit(TriggeredAbility ability) {
+		// Return the trigger from triggered ability
+		return List.of(ability.trigger());
+	}
+
+	@Override
+	public List<TriggerNode> visit(StaticAbility ability) {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<TriggerNode> visit(ModalAbility ability) {
+		// Modal abilities can have triggers in their modes
+		// return ability.modes().stream().flatMap(mode ->
+		// mode.triggers().stream()).collect(Collectors.toList());
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<TriggerNode> visit(ReplacementEffectAbility ability) {
+		// Replacement effects are not the same as triggers
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<TriggerNode> visit(ContinuousModifierAbility ability) {
+		return new ArrayList<>();
+	}
 
 	@Override
 	public List<TriggerNode> visit(WordAbility wordAbility) {
-		 return new ArrayList<>();
+		return new ArrayList<>();
 	}
 
 	@Override
 	public List<TriggerNode> visit(SagaAbility sagaAbility) {
-		 return new ArrayList<>();
+		return new ArrayList<>();
 	}
 
 	@Override
 	public List<TriggerNode> visit(PlaneswalkerAbility planeswalkerAbility) {
-		 return new ArrayList<>();
+		return new ArrayList<>();
 	}
 }

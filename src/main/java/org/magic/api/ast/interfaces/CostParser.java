@@ -6,7 +6,7 @@ import org.magic.api.ast.costs.CostNode;
 
 public interface CostParser {
 
-    boolean supports(String text);
+	boolean supports(String text);
 
-    List<CostNode> parse(String text);
+	List<CostNode> parse(String text);
 }

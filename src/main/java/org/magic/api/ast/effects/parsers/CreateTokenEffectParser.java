@@ -10,27 +10,21 @@ import org.magic.api.ast.util.AmountParser;
 
 public class CreateTokenEffectParser implements EffectParser {
 
-private static final Pattern PATTERN =
-    Pattern.compile(
-            "Create\\s+(.*?)\\s+token",
-            Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("Create\\s+(.*?)\\s+token", Pattern.CASE_INSENSITIVE);
 
-@Override
-public boolean supports(String text) {
-	return PATTERN.matcher(text).find();
-}
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).find();
+	}
 
-@Override
-public EffectNode parse(String text) {
+	@Override
+	public EffectNode parse(String text) {
 
-Matcher matcher =
-        PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-matcher.find();
+		matcher.find();
 
-return new CreateTokenEffect(
-        matcher.group(1),
-        AmountParser.parse(matcher.group(1).substring(0, matcher.group(1).indexOf(" ")).trim())
-);
-}
+		return new CreateTokenEffect(matcher.group(1),
+				AmountParser.parse(matcher.group(1).substring(0, matcher.group(1).indexOf(" ")).trim()));
+	}
 }

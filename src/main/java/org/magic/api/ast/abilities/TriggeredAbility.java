@@ -7,7 +7,7 @@ import org.magic.api.ast.interfaces.AbilityVisitor;
 import org.magic.api.ast.triggers.TriggerNode;
 
 public record TriggeredAbility(TriggerNode trigger, List<EffectNode> effects) implements AbilityNode {
-	
+
 	@Override
 	public <T> T accept(AbilityVisitor<T> visitor) {
 		return visitor.visit(this);

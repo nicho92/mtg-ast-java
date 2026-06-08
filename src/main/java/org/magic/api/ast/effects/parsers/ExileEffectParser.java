@@ -10,25 +10,20 @@ import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 
 public class ExileEffectParser implements EffectParser {
 
-    private static final Pattern PATTERN = Pattern.compile(
-            "^Exile\\s+(.+)$",
-            Pattern.CASE_INSENSITIVE
-    );
+	private static final Pattern PATTERN = Pattern.compile("^Exile\\s+(.+)$", Pattern.CASE_INSENSITIVE);
 
-    @Override
-    public boolean supports(String text) {
-        return PATTERN.matcher(text).find();
-    }
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).find();
+	}
 
-    @Override
-    public EffectNode parse(String text) {
+	@Override
+	public EffectNode parse(String text) {
 
-        Matcher matcher = PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-        matcher.find();
+		matcher.find();
 
-        return new ExileEffect(
-                TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim())
-        );
-    }
+		return new ExileEffect(TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
+	}
 }

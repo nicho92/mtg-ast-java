@@ -11,27 +11,23 @@ import org.magic.api.ast.util.AmountParser;
 
 public class PutCountersEffectParser implements EffectParser {
 
-    private static final Pattern PATTERN = Pattern.compile(
-            "^Put\\s+(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\\d+)\\s+(.+?)\\s+counters?\\s+on\\s+(.+)$",
-            Pattern.CASE_INSENSITIVE
-    );
+	private static final Pattern PATTERN = Pattern.compile(
+			"^Put\\s+(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\\d+)\\s+(.+?)\\s+counters?\\s+on\\s+(.+)$",
+			Pattern.CASE_INSENSITIVE);
 
-    @Override
-    public boolean supports(String text) {
-        return PATTERN.matcher(text).find();
-    }
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).find();
+	}
 
-    @Override
-    public EffectNode parse(String text) {
+	@Override
+	public EffectNode parse(String text) {
 
-        Matcher matcher = PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-        matcher.find();
+		matcher.find();
 
-        return new PutCountersEffect(
-                AmountParser.parse(matcher.group(1)),
-                matcher.group(2).trim(),
-                TargetSelectorFactory.INSTANCE.parse(matcher.group(3).trim())
-        );
-    }
+		return new PutCountersEffect(AmountParser.parse(matcher.group(1)), matcher.group(2).trim(),
+				TargetSelectorFactory.INSTANCE.parse(matcher.group(3).trim()));
+	}
 }

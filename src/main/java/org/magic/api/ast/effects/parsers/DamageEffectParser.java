@@ -8,30 +8,24 @@ import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.interfaces.EffectParser;
 import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 
-public class DamageEffectParser
-implements EffectParser {
+public class DamageEffectParser implements EffectParser {
 
-private static final Pattern PATTERN =
-    Pattern.compile(
-            "deal\\s+(\\d+)\\s+damage\\s+to\\s+(.+)",
-            Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("deal\\s+(\\d+)\\s+damage\\s+to\\s+(.+)",
+			Pattern.CASE_INSENSITIVE);
 
-@Override
-public boolean supports(String text) {
-return PATTERN.matcher(text).find();
-}
+	@Override
+	public boolean supports(String text) {
+		return PATTERN.matcher(text).find();
+	}
 
-@Override
-public EffectNode parse(String text) {
+	@Override
+	public EffectNode parse(String text) {
 
-Matcher matcher =
-        PATTERN.matcher(text);
+		Matcher matcher = PATTERN.matcher(text);
 
-matcher.find();
+		matcher.find();
 
-return new DealDamageEffect(
-        Integer.parseInt(matcher.group(1)),
-        TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim())
-);
-}
+		return new DealDamageEffect(Integer.parseInt(matcher.group(1)),
+				TargetSelectorFactory.INSTANCE.parse(matcher.group(2).trim()));
+	}
 }

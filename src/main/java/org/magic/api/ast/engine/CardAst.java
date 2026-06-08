@@ -7,24 +7,23 @@ import org.magic.api.ast.abilities.AbilityNode;
 
 public class CardAst {
 
-    private final String name;
+	private final String name;
 
-    private final List<AbilityNode> abilities =
-            new ArrayList<>();
+	private final List<AbilityNode> abilities = new ArrayList<>();
 
-    public CardAst(String name) {
-        this.name = name;
-    }
+	public CardAst(String name) {
+		this.name = name;
+	}
 
-    public void addAbility(AbilityNode ability) {
-        abilities.add(ability);
-    }
+	public void addAbility(AbilityNode ability) {
+		abilities.add(ability);
+	}
 
-    public List<AbilityNode> getAbilities() {
-        return abilities;
-    }
+	public List<AbilityNode> getAbilities() {
+		return abilities;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 }

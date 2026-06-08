@@ -11,47 +11,40 @@ import org.magic.api.ast.interfaces.CostParser;
 
 public class CostFactory {
 
-    private final List<CostParser> parsers;
-    public static final CostFactory INSTANCE = new CostFactory();
-    
-    
-    private CostFactory() {
+	private final List<CostParser> parsers;
+	public static final CostFactory INSTANCE = new CostFactory();
 
-        this.parsers = List.of(
-                new TapCostParser(),
-                new ManaCostParser(),
-                new SacrificeCostParser()
-        );
-    }
+	private CostFactory() {
 
-    public List<CostNode> parse(String costText) {
+		this.parsers = List.of(new TapCostParser(), new ManaCostParser(), new SacrificeCostParser());
+	}
 
-        List<CostNode> result = new ArrayList<>();
-        String[] parts = costText.split(",");
+	public List<CostNode> parse(String costText) {
 
-        for (String part : parts) {
+		List<CostNode> result = new ArrayList<>();
+		String[] parts = costText.split(",");
 
-            String normalized = part.trim();
+		for (String part : parts) {
 
-            boolean matched = false;
+			String normalized = part.trim();
 
-            for (CostParser parser : parsers) {
+			boolean matched = false;
 
-                if (parser.supports(normalized)) {
+			for (CostParser parser : parsers) {
 
-                    result.addAll(parser.parse(normalized));
-                    matched = true;
-                    break;
-                }
-            }
+				if (parser.supports(normalized)) {
 
-            if (!matched) {
-                throw new IllegalArgumentException(
-                        "Unknown cost: " + normalized
-                );
-            }
-        }
+					result.addAll(parser.parse(normalized));
+					matched = true;
+					break;
+				}
+			}
 
-        return result;
-    }
+			if (!matched) {
+				throw new IllegalArgumentException("Unknown cost: " + normalized);
+			}
+		}
+
+		return result;
+	}
 }

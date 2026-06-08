@@ -5,7 +5,7 @@ import java.util.List;
 import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.interfaces.AbilityVisitor;
 
-public record SagaAbility(int num, List<EffectNode> effects )implements AbilityNode {
+public record SagaAbility(int num, List<EffectNode> effects) implements AbilityNode {
 
 	@Override
 	public <T> T accept(AbilityVisitor<T> visitor) {

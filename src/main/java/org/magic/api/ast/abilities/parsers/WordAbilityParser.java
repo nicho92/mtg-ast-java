@@ -8,9 +8,9 @@ import org.magic.api.ast.abilities.factory.AbilitiesFactory;
 
 public class WordAbilityParser implements AbilityParser {
 
-	private static final Pattern PATTERN = Pattern.compile("^([A-Z][a-zA-Z0-9]*(?:\\s+[a-zA-Z0-9]+){0,2})\\s*[\u2014\u2013-]\\s*(.*)$");
+	private static final Pattern PATTERN = Pattern
+			.compile("^([A-Z][a-zA-Z0-9]*(?:\\s+[a-zA-Z0-9]+){0,2})\\s*[\u2014\u2013-]\\s*(.*)$");
 
-	
 	@Override
 	public boolean supports(String text) {
 		return PATTERN.matcher(text).matches();
@@ -26,11 +26,8 @@ public class WordAbilityParser implements AbilityParser {
 		var abilityWord = matcher.group(1);
 		var innerText = matcher.group(2);
 
-		var innerAbility =AbilitiesFactory.INSTANCE.parse(innerText).get(0);
+		var innerAbility = AbilitiesFactory.INSTANCE.parse(innerText).get(0);
 
-		return new WordAbility(
-				abilityWord,
-				innerAbility
-		);
+		return new WordAbility(abilityWord, innerAbility);
 	}
 }

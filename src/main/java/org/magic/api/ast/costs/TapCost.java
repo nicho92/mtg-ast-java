@@ -1,13 +1,13 @@
 package org.magic.api.ast.costs;
 
-public final class TapCost
-implements CostNode {
+public final class TapCost implements CostNode {
 
-public static final TapCost INSTANCE = new TapCost();
+	public static final TapCost INSTANCE = new TapCost();
 
-private TapCost() {}
+	private TapCost() {
+	}
 
-@Override
+	@Override
 	public String toString() {
 		return "Tap";
 	}
