@@ -1,6 +1,7 @@
 package org.magic.api.ast.abilities.visitor.impl;
 
 import org.magic.api.ast.abilities.*;
+import org.magic.api.ast.abilities.model.Keyword;
 import org.magic.api.ast.interfaces.visitors.AbilityVisitor;
 import org.magic.api.ast.interfaces.visitors.AbstractVisitor;
 
@@ -22,16 +23,16 @@ import org.magic.api.ast.interfaces.visitors.AbstractVisitor;
 public class AbilityDescriber extends AbstractVisitor<String> {
 
 	@Override
-	public String visit(KeywordAbility ability) {
+	public String visit(Keyword ability) {
 		if (ability.parameter() != null && !ability.parameter().isEmpty()) {
-			return String.format("Keyword: %s with parameter %s", ability.keyword(), ability.parameter());
+			return String.format("Keyword: %s with parameter %s", ability.name(), ability.parameter());
 		}
-		return String.format("Keyword: %s", ability.keyword());
+		return String.format("Keyword: %s", ability.name());
 	}
 
 	@Override
-	public String visit(KeywordGroupAbility ability) {
-		String keywords = ability.keywords().stream().map(KeywordAbility::keyword).reduce((a, b) -> a + ", " + b)
+	public String visit(KeywordsAbility ability) {
+		String keywords = ability.keywords().stream().map(Keyword::name).reduce((a, b) -> a + ", " + b)
 				.orElse("(empty)");
 		return String.format("Keyword Group: %s", keywords);
 	}

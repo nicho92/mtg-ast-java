@@ -1,6 +1,7 @@
 package org.magic.api.ast.interfaces.visitors;
 
 import org.magic.api.ast.abilities.*;
+import org.magic.api.ast.abilities.model.Keyword;
 
 /**
  * Visitor interface for traversing and processing ability nodes. Implements the
@@ -26,7 +27,7 @@ public interface AbilityVisitor<T> {
 	 * @param ability the keyword ability to visit
 	 * @return the result of visiting this ability
 	 */
-	T visit(KeywordAbility ability);
+	T visit(Keyword ability);
 
 	/**
 	 * Visit a KeywordGroupAbility node.
@@ -34,7 +35,7 @@ public interface AbilityVisitor<T> {
 	 * @param ability the keyword group ability to visit
 	 * @return the result of visiting this ability
 	 */
-	T visit(KeywordGroupAbility ability);
+	T visit(KeywordsAbility ability);
 
 	/**
 	 * Visit an ActivatedAbility node.

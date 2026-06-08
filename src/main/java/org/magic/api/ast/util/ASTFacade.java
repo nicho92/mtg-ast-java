@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.magic.api.ast.abilities.ActivatedAbility;
-import org.magic.api.ast.abilities.KeywordAbility;
-import org.magic.api.ast.abilities.KeywordGroupAbility;
+import org.magic.api.ast.abilities.KeywordsAbility;
 import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
+import org.magic.api.ast.abilities.model.Keyword;
 import org.magic.api.ast.engine.CardAst;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.CostNode;
@@ -36,10 +36,10 @@ public class ASTFacade {
 
 	// ============ ABILITY FILTERING ============
 
-	public List<KeywordAbility> getKeywordsAbilities() {
-		var result = new ArrayList<KeywordAbility>();
+	public List<Keyword> getKeywordsAbilities() {
+		var result = new ArrayList<Keyword>();
 
-		card.getAbilities().stream().filter(KeywordGroupAbility.class::isInstance).map(a -> (KeywordGroupAbility) a)
+		card.getAbilities().stream().filter(KeywordsAbility.class::isInstance).map(a -> (KeywordsAbility) a)
 				.forEach(kga -> {
 					result.addAll(kga.keywords());
 				});
@@ -109,7 +109,7 @@ public class ASTFacade {
 	 * Vérifie si la carte a un keyword spécifique
 	 */
 	public boolean hasKeyword(String keyword) {
-		return getKeywordsAbilities().stream().anyMatch(ka -> ka.keyword().equalsIgnoreCase(keyword));
+		return getKeywordsAbilities().stream().anyMatch(ka -> ka.name().equalsIgnoreCase(keyword));
 	}
 
 	/**

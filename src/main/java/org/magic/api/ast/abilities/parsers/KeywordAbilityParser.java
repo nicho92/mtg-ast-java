@@ -3,8 +3,8 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.Arrays;
 import java.util.List;
 
-import org.magic.api.ast.abilities.KeywordAbility;
-import org.magic.api.ast.abilities.KeywordGroupAbility;
+import org.magic.api.ast.abilities.KeywordsAbility;
+import org.magic.api.ast.abilities.model.Keyword;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.KeywordRegistry;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
@@ -40,18 +40,18 @@ public class KeywordAbilityParser implements AbilityParser {
 		return false;
 	}
 
-	private KeywordAbility parseKeyword(String text) {
+	private Keyword parseKeyword(String text) {
 
-		return new KeywordAbility(extractKeyword(text), extractParameter(text));
+		return new Keyword(extractKeyword(text), extractParameter(text));
 	}
 
 	@Override
 	public AbilityNode parse(String text) {
 
-		List<KeywordAbility> abilities = Arrays.stream(text.split(",")).map(String::trim).filter(this::isKeyword)
+		List<Keyword> abilities = Arrays.stream(text.split(",")).map(String::trim).filter(this::isKeyword)
 				.map(this::parseKeyword).toList();
 
-		return new KeywordGroupAbility(abilities);
+		return new KeywordsAbility(abilities);
 	}
 
 	private boolean isKeyword(String text) {

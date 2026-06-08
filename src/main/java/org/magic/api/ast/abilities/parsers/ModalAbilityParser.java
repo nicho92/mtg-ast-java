@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.abilities.ChoiceConstraint;
 import org.magic.api.ast.abilities.ModalAbility;
-import org.magic.api.ast.abilities.ModeNode;
+import org.magic.api.ast.abilities.model.ChoiceConstraint;
+import org.magic.api.ast.abilities.model.ModeNode;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;

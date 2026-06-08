@@ -12,6 +12,6 @@ public class MainTest {
 				  """;
 
 		var ast = new OracleParser().toFacade("Example Card", oracleText);
-		ast.getKeywordsAbilities().forEach(ka -> System.out.print(ka.keyword() + " (" + ka.parameter() + ") "));
+		ast.getKeywordsAbilities().forEach(ka -> System.out.print(ka.name() + " (" + ka.parameter() + ") "));
 	}
 }

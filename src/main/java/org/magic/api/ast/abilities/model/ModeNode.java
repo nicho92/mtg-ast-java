@@ -1,4 +1,4 @@
-package org.magic.api.ast.abilities;
+package org.magic.api.ast.abilities.model;
 
 import java.util.List;
 
