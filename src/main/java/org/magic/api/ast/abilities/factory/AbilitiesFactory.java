@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.magic.api.ast.abilities.StaticAbility;
-import org.magic.api.ast.abilities.parsers.AbilityParser;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
 import org.magic.api.ast.abilities.parsers.ContinuousModifierAbilityParser;
 import org.magic.api.ast.abilities.parsers.KeywordAbilityParser;
@@ -15,6 +14,7 @@ import org.magic.api.ast.abilities.parsers.SagaAbilityParser;
 import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
 import org.magic.api.ast.abilities.parsers.WordAbilityParser;
 import org.magic.api.ast.interfaces.AbilityNode;
+import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
 public class AbilitiesFactory {
 

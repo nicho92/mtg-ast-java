@@ -8,7 +8,7 @@ import org.magic.api.ast.costs.parsers.ManaCostParser;
 import org.magic.api.ast.costs.parsers.SacrificeCostParser;
 import org.magic.api.ast.costs.parsers.TapCostParser;
 import org.magic.api.ast.interfaces.CostNode;
-import org.magic.api.ast.interfaces.CostParser;
+import org.magic.api.ast.interfaces.parsers.CostParser;
 
 public class CostFactory {
 
@@ -32,6 +32,7 @@ public class CostFactory {
 		for (var part : parts) {
 			var normalized = part.trim();
 			boolean matched = false;
+
 			for (var parser : parsers) {
 				if (parser.supports(normalized)) {
 					result.addAll(parser.parse(normalized));

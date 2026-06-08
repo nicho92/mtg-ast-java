@@ -3,7 +3,7 @@ package org.magic.api.ast.triggers.factory;
 import java.util.Set;
 
 import org.magic.api.ast.selectors.PlayerSelector;
-import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
+import org.magic.api.ast.selectors.factory.SelectorFactory;
 import org.magic.api.ast.triggers.Trigger;
 import org.magic.api.ast.triggers.TriggerType;
 
@@ -18,7 +18,7 @@ public final class TriggerFactory {
 
 		var lower = text.toLowerCase();
 
-		var locator = TargetSelectorFactory.INSTANCE.parse(text);
+		var locator = SelectorFactory.INSTANCE.parse(text);
 
 		if (lower.contains("enters the battlefield"))
 			return new Trigger(locator, TriggerType.ENTERS_BATTLEFIELD);

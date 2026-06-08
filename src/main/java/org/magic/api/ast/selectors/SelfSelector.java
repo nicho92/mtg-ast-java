@@ -1,5 +1,7 @@
 package org.magic.api.ast.selectors;
 
-public record SelfSelector() implements TargetSelectorNode {
+import org.magic.api.ast.interfaces.SelectorNode;
+
+public record SelfSelector() implements SelectorNode {
 
 }

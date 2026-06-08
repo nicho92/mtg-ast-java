@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.factory.AbilitiesFactory;
 import org.magic.api.ast.interfaces.AbilityNode;
+import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
 public class WordAbilityParser implements AbilityParser {
 

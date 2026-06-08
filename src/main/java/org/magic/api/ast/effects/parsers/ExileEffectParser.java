@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.ExileEffect;
 import org.magic.api.ast.interfaces.EffectNode;
-import org.magic.api.ast.interfaces.EffectParser;
-import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
+import org.magic.api.ast.interfaces.parsers.EffectParser;
+import org.magic.api.ast.selectors.factory.SelectorFactory;
 
 public class ExileEffectParser implements EffectParser {
 
@@ -24,6 +24,6 @@ public class ExileEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new ExileEffect(TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
+		return new ExileEffect(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
 	}
 }

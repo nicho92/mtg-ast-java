@@ -1,7 +1,8 @@
 package org.magic.api.ast.abilities.visitor.impl;
 
 import org.magic.api.ast.abilities.*;
-import org.magic.api.ast.interfaces.AbilityVisitor;
+import org.magic.api.ast.interfaces.visitors.AbilityVisitor;
+import org.magic.api.ast.interfaces.visitors.AbstractVisitor;
 
 /**
  * Concrete visitor implementation that generates human-readable descriptions of
@@ -18,7 +19,7 @@ import org.magic.api.ast.interfaces.AbilityVisitor;
  * }
  * </pre>
  */
-public class AbilityDescriber implements AbilityVisitor<String> {
+public class AbilityDescriber extends AbstractVisitor<String> {
 
 	@Override
 	public String visit(KeywordAbility ability) {

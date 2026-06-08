@@ -1,7 +1,7 @@
 package org.magic.api.ast.effects;
 
 import org.magic.api.ast.interfaces.EffectNode;
-import org.magic.api.ast.selectors.TargetSelectorNode;
+import org.magic.api.ast.interfaces.SelectorNode;
 
-public record DiscardCardsEffect(TargetSelectorNode player, int amount) implements EffectNode {
+public record DiscardCardsEffect(SelectorNode player, int amount) implements EffectNode {
 }

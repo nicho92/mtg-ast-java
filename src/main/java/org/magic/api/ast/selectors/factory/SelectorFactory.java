@@ -1,22 +1,22 @@
 package org.magic.api.ast.selectors.factory;
 
+import org.magic.api.ast.interfaces.SelectorNode;
 import org.magic.api.ast.selectors.ArtifactSelector;
 import org.magic.api.ast.selectors.CreatureSelector;
 import org.magic.api.ast.selectors.LandSelector;
 import org.magic.api.ast.selectors.PlayerSelector;
 import org.magic.api.ast.selectors.SelfSelector;
-import org.magic.api.ast.selectors.TargetSelectorNode;
 import org.magic.api.ast.selectors.TextSelector;
 
-public class TargetSelectorFactory {
+public class SelectorFactory {
 
-	public static final TargetSelectorFactory INSTANCE = new TargetSelectorFactory();
+	public static final SelectorFactory INSTANCE = new SelectorFactory();
 
-	private TargetSelectorFactory() {
+	private SelectorFactory() {
 
 	}
 
-	public TargetSelectorNode parse(String text) {
+	public SelectorNode parse(String text) {
 
 		String lower = text.toLowerCase();
 
@@ -43,12 +43,12 @@ public class TargetSelectorFactory {
 		return new TextSelector(text);
 	}
 
-	private TargetSelectorNode parsePlayer(String text) {
+	private SelectorNode parsePlayer(String text) {
 
 		return new PlayerSelector(text.toLowerCase().contains("target"));
 	}
 
-	private TargetSelectorNode parseLand(String text) {
+	private SelectorNode parseLand(String text) {
 
 		String lower = text.toLowerCase();
 
@@ -61,12 +61,12 @@ public class TargetSelectorFactory {
 				lower.contains("you control") || lower.contains("under your control"));
 	}
 
-	private TargetSelectorNode parseArtifact(String text) {
+	private SelectorNode parseArtifact(String text) {
 
 		return new ArtifactSelector(text.toLowerCase().contains("target"));
 	}
 
-	private TargetSelectorNode parseCreature(String text) {
+	private SelectorNode parseCreature(String text) {
 
 		String lower = text.toLowerCase();
 

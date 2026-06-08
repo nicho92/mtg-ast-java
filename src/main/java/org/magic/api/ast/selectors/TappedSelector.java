@@ -1,5 +1,7 @@
 package org.magic.api.ast.selectors;
 
-public final class TappedSelector implements TargetSelectorNode {
+import org.magic.api.ast.interfaces.SelectorNode;
+
+public final class TappedSelector implements SelectorNode {
 
 }

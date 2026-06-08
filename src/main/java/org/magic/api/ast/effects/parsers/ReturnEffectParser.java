@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.ReturnEffect;
 import org.magic.api.ast.interfaces.EffectNode;
-import org.magic.api.ast.interfaces.EffectParser;
-import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
+import org.magic.api.ast.interfaces.parsers.EffectParser;
+import org.magic.api.ast.selectors.factory.SelectorFactory;
 
 public class ReturnEffectParser implements EffectParser {
 
@@ -24,6 +24,6 @@ public class ReturnEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new ReturnEffect(TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()), matcher.group(2).trim());
+		return new ReturnEffect(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()), matcher.group(2).trim());
 	}
 }

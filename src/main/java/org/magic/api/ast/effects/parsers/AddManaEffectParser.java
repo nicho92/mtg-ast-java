@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.AddManaEffect;
 import org.magic.api.ast.interfaces.EffectNode;
-import org.magic.api.ast.interfaces.EffectParser;
+import org.magic.api.ast.interfaces.parsers.EffectParser;
 
 public class AddManaEffectParser implements EffectParser {
 

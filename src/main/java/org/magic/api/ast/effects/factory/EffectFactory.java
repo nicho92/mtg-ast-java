@@ -16,7 +16,7 @@ import org.magic.api.ast.effects.parsers.PutCountersEffectParser;
 import org.magic.api.ast.effects.parsers.ReturnEffectParser;
 import org.magic.api.ast.effects.parsers.SacrificeEffectParser;
 import org.magic.api.ast.interfaces.EffectNode;
-import org.magic.api.ast.interfaces.EffectParser;
+import org.magic.api.ast.interfaces.parsers.EffectParser;
 
 public class EffectFactory {
 

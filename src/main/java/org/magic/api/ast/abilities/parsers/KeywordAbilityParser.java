@@ -7,20 +7,15 @@ import org.magic.api.ast.abilities.KeywordAbility;
 import org.magic.api.ast.abilities.KeywordGroupAbility;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.KeywordRegistry;
+import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.util.DefaultKeywordRegistry;
-import org.magic.api.ast.util.JsonExporter;
 
 public class KeywordAbilityParser implements AbilityParser {
 
 	private KeywordRegistry registry;
 
 	public KeywordAbilityParser() {
-
-		try {
-			registry = new JsonExporter().getMTGJsonRegistry();
-		} catch (Exception _) {
 			registry = new DefaultKeywordRegistry();
-		}
 
 	}
 

@@ -1,5 +1,7 @@
 package org.magic.api.ast.interfaces;
 
+import org.magic.api.ast.interfaces.visitors.AbilityVisitor;
+
 /**
  * Base interface for all ability nodes in the MTG AST. Implements the Visitor
  * pattern to support polymorphic operations.

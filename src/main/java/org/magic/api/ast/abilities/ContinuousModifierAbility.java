@@ -1,11 +1,11 @@
 package org.magic.api.ast.abilities;
 
 import org.magic.api.ast.interfaces.AbilityNode;
-import org.magic.api.ast.interfaces.AbilityVisitor;
+import org.magic.api.ast.interfaces.SelectorNode;
+import org.magic.api.ast.interfaces.visitors.AbilityVisitor;
 import org.magic.api.ast.modifiers.ModifierNode;
-import org.magic.api.ast.selectors.TargetSelectorNode;
 
-public record ContinuousModifierAbility(TargetSelectorNode affectedObjects, ModifierNode modifier)
+public record ContinuousModifierAbility(SelectorNode affectedObjects, ModifierNode modifier)
 		implements AbilityNode {
 
 	@Override

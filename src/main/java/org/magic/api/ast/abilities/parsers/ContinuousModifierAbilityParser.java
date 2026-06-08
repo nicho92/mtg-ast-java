@@ -4,8 +4,9 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.ContinuousModifierAbility;
 import org.magic.api.ast.interfaces.AbilityNode;
+import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.modifiers.PowerToughnessModifier;
-import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
+import org.magic.api.ast.selectors.factory.SelectorFactory;
 
 public class ContinuousModifierAbilityParser implements AbilityParser {
 
@@ -24,7 +25,7 @@ public class ContinuousModifierAbilityParser implements AbilityParser {
 
 		matcher.find();
 
-		return new ContinuousModifierAbility(TargetSelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
+		return new ContinuousModifierAbility(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
 				new PowerToughnessModifier(Integer.parseInt(matcher.group(2)), Integer.parseInt(matcher.group(3))));
 	}
 }

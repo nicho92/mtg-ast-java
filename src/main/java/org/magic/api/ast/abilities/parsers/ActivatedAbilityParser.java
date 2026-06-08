@@ -9,6 +9,7 @@ import org.magic.api.ast.costs.factory.CostFactory;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.CostNode;
+import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
 public class ActivatedAbilityParser implements AbilityParser {
 

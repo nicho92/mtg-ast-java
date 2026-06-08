@@ -1,4 +1,6 @@
 package org.magic.api.ast.selectors;
 
-public record SubtypeSelector(String subtype) implements TargetSelectorNode {
+import org.magic.api.ast.interfaces.SelectorNode;
+
+public record SubtypeSelector(String subtype) implements SelectorNode {
 }

@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.PutCountersEffect;
 import org.magic.api.ast.interfaces.EffectNode;
-import org.magic.api.ast.interfaces.EffectParser;
-import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
+import org.magic.api.ast.interfaces.parsers.EffectParser;
+import org.magic.api.ast.selectors.factory.SelectorFactory;
 import org.magic.api.ast.util.AmountParser;
 
 public class PutCountersEffectParser implements EffectParser {
@@ -28,6 +28,6 @@ public class PutCountersEffectParser implements EffectParser {
 		matcher.find();
 
 		return new PutCountersEffect(AmountParser.parse(matcher.group(1)), matcher.group(2).trim(),
-				TargetSelectorFactory.INSTANCE.parse(matcher.group(3).trim()));
+				SelectorFactory.INSTANCE.parse(matcher.group(3).trim()));
 	}
 }

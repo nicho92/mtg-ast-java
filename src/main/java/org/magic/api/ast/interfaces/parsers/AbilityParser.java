@@ -1,4 +1,4 @@
-package org.magic.api.ast.abilities.parsers;
+package org.magic.api.ast.interfaces.parsers;
 
 import org.magic.api.ast.interfaces.AbilityNode;
 

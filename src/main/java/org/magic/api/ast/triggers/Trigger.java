@@ -1,8 +1,8 @@
 package org.magic.api.ast.triggers;
 
-import org.magic.api.ast.selectors.TargetSelectorNode;
+import org.magic.api.ast.interfaces.SelectorNode;
 
-public record Trigger(TargetSelectorNode subject,TriggerType type)  {
+public record Trigger(SelectorNode subject,TriggerType type)  {
 	
 	
 	

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.LifeCost;
 import org.magic.api.ast.interfaces.CostNode;
-import org.magic.api.ast.interfaces.CostParser;
+import org.magic.api.ast.interfaces.parsers.CostParser;
 import org.magic.api.ast.util.AmountParser;
 
 public class LifeCostParser implements CostParser {

@@ -1,4 +1,6 @@
 package org.magic.api.ast.selectors;
 
-public record TextSelector(String oracleText) implements TargetSelectorNode {
+import org.magic.api.ast.interfaces.SelectorNode;
+
+public record TextSelector(String oracleText) implements SelectorNode {
 }
