@@ -19,8 +19,9 @@ import org.magic.api.ast.abilities.parsers.WordAbilityParser;
 public class AbilitiesFactory {
 
     private final List<AbilityParser> parsers;
-
-    public AbilitiesFactory() {
+    public static final AbilitiesFactory INSTANCE = new AbilitiesFactory();
+    
+    private AbilitiesFactory() {
 
         parsers = List.of(
         		new ModalAbilityParser(),

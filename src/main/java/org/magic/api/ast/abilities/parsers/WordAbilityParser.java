@@ -26,7 +26,7 @@ public class WordAbilityParser implements AbilityParser {
 		var abilityWord = matcher.group(1);
 		var innerText = matcher.group(2);
 
-		var innerAbility = new AbilitiesFactory().parse(innerText).get(0);
+		var innerAbility =AbilitiesFactory.INSTANCE.parse(innerText).get(0);
 
 		return new WordAbility(
 				abilityWord,

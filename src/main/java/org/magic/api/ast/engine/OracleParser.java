@@ -16,7 +16,7 @@ public class OracleParser {
 
     	var ast = new CardAst(cardName);
     	
-       new AbilitiesFactory().parse(oracleText).forEach(ast.getAbilities()::add);
+       AbilitiesFactory.INSTANCE.parse(oracleText).forEach(ast.getAbilities()::add);
        
        return ast;
     }
