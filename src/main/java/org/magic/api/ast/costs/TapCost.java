@@ -19,7 +19,7 @@ public final class TapCost implements CostNode {
 
 	@Override
 	public String toString() {
-		return type.name().toLowerCase();
+		return type.name();
 	}
 	
 	public static TapCost tap() {

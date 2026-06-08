@@ -8,7 +8,7 @@ Sacrifice three artifacts : add {W}.
 
 Flying
 
-{1}{U}, {T}, Sacrifice another creature: Draw two cards.
+{1}{G/P}, Sacrifice a creature : Draw two cards.
 
 Madness {2}
 
@@ -47,8 +47,6 @@ You may activate the loyalty abilities of Urza twice each turn rather than only 
 +1: Put a +1/+1 counter on up to one target creature. It gains indestructible until end of turn.
 −2: Whenever one or more nontoken creatures attack this turn, create that many 1/1 white Soldier creature tokens that are tapped and attacking.
 −6: You get an emblem with "At the beginning of combat on your turn, create a 1/1 white Soldier creature token, then put a +1/+1 counter on each creature you control."
-
-
 
 ===
 

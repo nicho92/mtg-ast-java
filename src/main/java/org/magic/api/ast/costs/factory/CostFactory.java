@@ -17,7 +17,8 @@ public class CostFactory {
 
 	private CostFactory() {
 
-		this.parsers = List.of(new TapCostParser(), 
+		this.parsers = List.of(
+				new TapCostParser(), 
 				new ManaCostParser(), 
 				new SacrificeCostParser(),
 				new LifeCostParser());
@@ -25,19 +26,14 @@ public class CostFactory {
 
 	public List<CostNode> parse(String costText) {
 
-		List<CostNode> result = new ArrayList<>();
-		String[] parts = costText.split(",");
+		var result = new ArrayList<CostNode>();
+		var parts = costText.split(",");
 
-		for (String part : parts) {
-
-			String normalized = part.trim();
-
+		for (var part : parts) {
+			var normalized = part.trim();
 			boolean matched = false;
-
-			for (CostParser parser : parsers) {
-
+			for (var parser : parsers) {
 				if (parser.supports(normalized)) {
-
 					result.addAll(parser.parse(normalized));
 					matched = true;
 					break;

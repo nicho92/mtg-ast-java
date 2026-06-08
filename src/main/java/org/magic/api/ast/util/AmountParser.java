@@ -15,8 +15,8 @@ public final class AmountParser {
 		case "five", "v" -> 5;
 		case "six", "vi" -> 6;
 		case "seven", "vii" -> 7;
-		case "eight" -> 8;
-		case "nine" -> 9;
+		case "eight","viii" -> 8;
+		case "nine","ix" -> 9;
 		case "ten" -> 10;
 		case "that", "many" -> 1;
 		default -> Integer.parseInt(text);
