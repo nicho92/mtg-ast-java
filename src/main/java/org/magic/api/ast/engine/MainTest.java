@@ -5,13 +5,17 @@ public class MainTest {
 	public static void main() {
 		String oracleText = """
 
-				Flying, first strike, vigilance, trample, haste.
-				Protection from black and from red
-				Ward {2}.
+				Flying, Ward {2}, Trample
+				
+				Sacrifice two artifacts : add {W}{G}.
+				
+				{T} : Add {W} or {G} 
 
 				  """;
 
-		var ast = new OracleParser().toFacade("Example Card", oracleText);
-		ast.getKeywordsAbilities().forEach(ka -> System.out.print(ka.name() + " (" + ka.parameter() + ") "));
+		var ast = OracleParser.toFacade("Example Card", oracleText);
+		ast.getActivatedAbilities().forEach(ab->{
+				System.out.println(ab.costs() + " -> " +  ab.effects());
+		});
 	}
 }

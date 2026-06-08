@@ -5,8 +5,8 @@ import org.magic.api.ast.util.ASTFacade;
 
 public class OracleParser {
 
-	public ASTFacade toFacade(String cardName, String oracleText) {
-		return new ASTFacade(parse(cardName, oracleText));
+	public static ASTFacade toFacade(String cardName, String oracleText) {
+		return new ASTFacade(new OracleParser().parse(cardName, oracleText));
 	}
 
 	public CardAst parse(String cardName, String oracleText) {
