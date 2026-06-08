@@ -34,7 +34,7 @@ class LoadOraclesTest {
 			System.out.println(s);
 			System.out.println();
 			
-			parser.toFacade("cardname", s).getAllAbilities().forEach(System.out::println);
+			parser.toFacade("cardname", s).getAllTriggers().forEach(System.out::println);
 			
 			System.out.println("=========");
 		}

@@ -13,7 +13,8 @@ import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.engine.CardAst;
-import org.magic.api.ast.triggers.TriggerNode;
+import org.magic.api.ast.triggers.Trigger;
+import org.magic.api.ast.triggers.TriggerType;
 
 public class ASTFacade {
 
@@ -94,13 +95,12 @@ public class ASTFacade {
 
 	// ============ TRIGGER EXTRACTION ============
 
-	public List<TriggerNode> getAllTriggers() {
-		return getTriggeredAbilities().stream().map(TriggeredAbility::trigger).toList();
+	public List<Trigger> getAllTriggers() {
+		return getTriggeredAbilities().stream().map(ta->(Trigger)ta.trigger()).toList();
 	}
 
-	@SuppressWarnings("unchecked")
-	public <T extends TriggerNode> List<T> getTriggers(Class<T> classe) {
-		return getAllTriggers().stream().filter(classe::isInstance).map(t -> (T) t).toList();
+	public List<Trigger> getTriggers(TriggerType t) {
+		return getAllTriggers().stream().filter(trig->trig.type()==t).toList();
 	}
 
 	// ============ CONVENIENCE QUERIES ============

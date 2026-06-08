@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
-import org.magic.api.ast.triggers.TriggerNode;
 import org.magic.api.ast.triggers.factory.TriggerFactory;
 
 public class TriggeredAbilityParser implements AbilityParser {
@@ -30,7 +29,7 @@ public class TriggeredAbilityParser implements AbilityParser {
 
 		String effectText = matcher.group(3);
 
-		TriggerNode trigger = TriggerFactory.INSTANCE.parse(triggerText);
+		var trigger = TriggerFactory.INSTANCE.parse(triggerText);
 
 		return new TriggeredAbility(trigger, new EffectSequenceParser().parse(effectText));
 	}
