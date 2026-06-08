@@ -39,6 +39,10 @@ public class AbilitiesFactory {
     public List<AbilityNode> parse(String oracleText) {
 
     	var ret = new ArrayList<AbilityNode>();
+    	
+    	if(oracleText==null || oracleText.isEmpty())
+    		return ret;
+    	
         for (var block : parseBlocks(oracleText)) {
             ret.add(parseLine(block));
         }
