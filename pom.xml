@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.nicho92</groupId>
 	<artifactId>mtg-ast-java</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.7</version>
 	<packaging>jar</packaging>
 	<name>MTG Card Analyzer</name>
 	<description>Magic Card Oracle Text AST</description>
