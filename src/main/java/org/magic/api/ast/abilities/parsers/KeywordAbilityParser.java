@@ -1,7 +1,6 @@
 package org.magic.api.ast.abilities.parsers;
 
 import java.util.Arrays;
-import java.util.List;
 
 import org.magic.api.ast.abilities.KeywordsAbility;
 import org.magic.api.ast.abilities.model.Keyword;
@@ -25,18 +24,12 @@ public class KeywordAbilityParser implements AbilityParser {
 
 	@Override
 	public boolean supports(String text) {
-
-		String[] abilities = text.split(",");
-
-		for (String ability : abilities) {
-
-			String normalized = ability.trim();
-
+		for (String ability : text.split(",")) {
+			var normalized = ability.trim();
 			if (isKeyword(normalized)) {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -48,23 +41,18 @@ public class KeywordAbilityParser implements AbilityParser {
 	@Override
 	public AbilityNode parse(String text) {
 
-		List<Keyword> abilities = Arrays.stream(text.split(",")).map(String::trim).filter(this::isKeyword)
-				.map(this::parseKeyword).toList();
+		var abilities = Arrays.stream(text.split(",")).map(String::trim).filter(this::isKeyword).map(this::parseKeyword).toList();
 
 		return new KeywordsAbility(abilities);
 	}
 
 	private boolean isKeyword(String text) {
-
-		return registry.orderedKeywords().stream().anyMatch(keyword -> text.equalsIgnoreCase(keyword)
-				|| text.toLowerCase().startsWith(keyword.toLowerCase() + " "));
+		return registry.orderedKeywords().stream().anyMatch(keyword -> text.equalsIgnoreCase(keyword) || text.toLowerCase().startsWith(keyword.toLowerCase() + " "));
 	}
 
 	private String extractKeyword(String text) {
 
-		return registry.orderedKeywords().stream().filter(
-				keyword -> text.equalsIgnoreCase(keyword) || text.toLowerCase().startsWith(keyword.toLowerCase() + " "))
-				.findFirst().orElseThrow();
+		return registry.orderedKeywords().stream().filter(keyword -> text.equalsIgnoreCase(keyword) || text.toLowerCase().startsWith(keyword.toLowerCase() + " ")).findFirst().orElseThrow();
 	}
 
 	private String extractParameter(String text) {
