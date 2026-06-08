@@ -1,8 +1,16 @@
 package org.magic.api.ast.abilities.visitor.impl;
 
-import org.magic.api.ast.abilities.*;
+import org.magic.api.ast.abilities.ActivatedAbility;
+import org.magic.api.ast.abilities.ContinuousModifierAbility;
+import org.magic.api.ast.abilities.KeywordsAbility;
+import org.magic.api.ast.abilities.ModalAbility;
+import org.magic.api.ast.abilities.PlaneswalkerAbility;
+import org.magic.api.ast.abilities.ReplacementEffectAbility;
+import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.StaticAbility;
+import org.magic.api.ast.abilities.TriggeredAbility;
+import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.model.Keyword;
-import org.magic.api.ast.interfaces.visitors.AbilityVisitor;
 import org.magic.api.ast.interfaces.visitors.AbstractVisitor;
 
 /**
@@ -21,14 +29,6 @@ import org.magic.api.ast.interfaces.visitors.AbstractVisitor;
  * </pre>
  */
 public class AbilityDescriber extends AbstractVisitor<String> {
-
-	@Override
-	public String visit(Keyword ability) {
-		if (ability.parameter() != null && !ability.parameter().isEmpty()) {
-			return String.format("Keyword: %s with parameter %s", ability.name(), ability.parameter());
-		}
-		return String.format("Keyword: %s", ability.name());
-	}
 
 	@Override
 	public String visit(KeywordsAbility ability) {
@@ -53,7 +53,7 @@ public class AbilityDescriber extends AbstractVisitor<String> {
 
 	@Override
 	public String visit(StaticAbility ability) {
-		return String.format("Static Ability: %s", ability.oracleText());
+		return String.format("Static Ability: %s", ability.text());
 	}
 
 	@Override

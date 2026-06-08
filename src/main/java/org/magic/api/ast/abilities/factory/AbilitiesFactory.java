@@ -45,7 +45,7 @@ public class AbilitiesFactory {
 
 	private List<String> parseBlocks(String oracleText) {
 
-		List<String> blocks = new ArrayList<>();
+		var blocks = new ArrayList<String>();
 		StringBuilder currentModalBlock = null;
 
 		for (var rawLine : oracleText.lines().toList()) {

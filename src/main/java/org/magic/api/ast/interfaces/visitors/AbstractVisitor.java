@@ -15,12 +15,6 @@ import org.magic.api.ast.abilities.model.Keyword;
 public abstract class AbstractVisitor<T> implements AbilityVisitor<T> {
 
 	@Override
-	public T visit(Keyword ability) {
-		
-		return null;
-	}
-
-	@Override
 	public T visit(KeywordsAbility ability) {
 		
 		return null;

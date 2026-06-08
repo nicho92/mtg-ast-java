@@ -1,6 +1,15 @@
 package org.magic.api.ast.interfaces.visitors;
 
-import org.magic.api.ast.abilities.*;
+import org.magic.api.ast.abilities.ActivatedAbility;
+import org.magic.api.ast.abilities.ContinuousModifierAbility;
+import org.magic.api.ast.abilities.KeywordsAbility;
+import org.magic.api.ast.abilities.ModalAbility;
+import org.magic.api.ast.abilities.PlaneswalkerAbility;
+import org.magic.api.ast.abilities.ReplacementEffectAbility;
+import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.StaticAbility;
+import org.magic.api.ast.abilities.TriggeredAbility;
+import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.model.Keyword;
 
 /**
@@ -20,14 +29,6 @@ import org.magic.api.ast.abilities.model.Keyword;
  * @param <T> the return type of the visitor operations
  */
 public interface AbilityVisitor<T> {
-
-	/**
-	 * Visit a KeywordAbility node.
-	 * 
-	 * @param ability the keyword ability to visit
-	 * @return the result of visiting this ability
-	 */
-	T visit(Keyword ability);
 
 	/**
 	 * Visit a KeywordGroupAbility node.
