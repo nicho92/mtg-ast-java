@@ -51,7 +51,7 @@ mvn clean install
 <dependency>
   <groupId>com.github.nicho92</groupId>
   <artifactId>mtg-ast-java</artifactId>
-  <version>0.0.7</version>
+  <version>0.0.9</version>
 </dependency>
 ```
 
