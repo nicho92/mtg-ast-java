@@ -1,6 +1,4 @@
-package org.magic.api.ast.abilities;
-
-import org.magic.api.ast.interfaces.AbilityVisitor;
+package org.magic.api.ast.interfaces;
 
 /**
  * Base interface for all ability nodes in the MTG AST. Implements the Visitor

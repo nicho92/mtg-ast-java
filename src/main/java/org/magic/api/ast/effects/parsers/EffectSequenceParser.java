@@ -3,8 +3,8 @@ package org.magic.api.ast.effects.parsers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.effects.factory.EffectFactory;
+import org.magic.api.ast.interfaces.EffectNode;
 
 public class EffectSequenceParser {
 

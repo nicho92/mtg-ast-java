@@ -3,7 +3,7 @@ package org.magic.api.ast.engine;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.magic.api.ast.abilities.AbilityNode;
+import org.magic.api.ast.interfaces.AbilityNode;
 
 public class CardAst {
 

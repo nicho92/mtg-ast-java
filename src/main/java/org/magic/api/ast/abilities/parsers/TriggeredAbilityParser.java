@@ -3,9 +3,9 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.triggers.factory.TriggerFactory;
 
 public class TriggeredAbilityParser implements AbilityParser {

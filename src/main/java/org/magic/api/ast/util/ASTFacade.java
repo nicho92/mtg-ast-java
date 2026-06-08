@@ -3,16 +3,16 @@ package org.magic.api.ast.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.abilities.KeywordAbility;
 import org.magic.api.ast.abilities.KeywordGroupAbility;
 import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
-import org.magic.api.ast.costs.CostNode;
-import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.engine.CardAst;
+import org.magic.api.ast.interfaces.AbilityNode;
+import org.magic.api.ast.interfaces.CostNode;
+import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.triggers.Trigger;
 import org.magic.api.ast.triggers.TriggerType;
 

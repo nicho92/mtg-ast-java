@@ -2,7 +2,6 @@ package org.magic.api.ast.effects.factory;
 
 import java.util.List;
 
-import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.effects.UnknownEffect;
 import org.magic.api.ast.effects.parsers.AddManaEffectParser;
 import org.magic.api.ast.effects.parsers.CreateTokenEffectParser;
@@ -16,6 +15,7 @@ import org.magic.api.ast.effects.parsers.GetEmblemEffectParser;
 import org.magic.api.ast.effects.parsers.PutCountersEffectParser;
 import org.magic.api.ast.effects.parsers.ReturnEffectParser;
 import org.magic.api.ast.effects.parsers.SacrificeEffectParser;
+import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.EffectParser;
 
 public class EffectFactory {

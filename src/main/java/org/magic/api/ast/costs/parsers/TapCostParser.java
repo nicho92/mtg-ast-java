@@ -3,9 +3,8 @@ package org.magic.api.ast.costs.parsers;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.TapCost;
-import org.magic.api.ast.costs.UntapCost;
+import org.magic.api.ast.interfaces.CostNode;
 import org.magic.api.ast.interfaces.CostParser;
 
 public class TapCostParser implements CostParser {
@@ -23,11 +22,11 @@ public class TapCostParser implements CostParser {
 	public List<CostNode> parse(String text) {
 
 		if (TAP.matcher(text).find()) {
-			return List.of(TapCost.INSTANCE);
+			return List.of(TapCost.tap());
 		}
 
 		if (UNTAP.matcher(text).find()) {
-			return List.of(UntapCost.INSTANCE);
+			return List.of(TapCost.untap());
 		}
 
 		return List.of();

@@ -15,8 +15,8 @@ import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.abilities.WordAbility;
-import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.interfaces.AbilityVisitor;
+import org.magic.api.ast.interfaces.EffectNode;
 
 /**
  * Concrete visitor implementation that collects all effects from abilities.

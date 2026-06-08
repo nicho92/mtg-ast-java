@@ -1,6 +1,6 @@
 package org.magic.api.ast.abilities.parsers;
 
-import org.magic.api.ast.abilities.AbilityNode;
+import org.magic.api.ast.interfaces.AbilityNode;
 
 public interface AbilityParser {
 

@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.ActivatedAbility;
-import org.magic.api.ast.costs.CostNode;
 import org.magic.api.ast.costs.factory.CostFactory;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.interfaces.AbilityNode;
+import org.magic.api.ast.interfaces.CostNode;
 
 public class ActivatedAbilityParser implements AbilityParser {
 

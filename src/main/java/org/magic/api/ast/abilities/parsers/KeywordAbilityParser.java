@@ -3,9 +3,9 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.Arrays;
 import java.util.List;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.KeywordAbility;
 import org.magic.api.ast.abilities.KeywordGroupAbility;
+import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.KeywordRegistry;
 import org.magic.api.ast.util.DefaultKeywordRegistry;
 import org.magic.api.ast.util.JsonExporter;

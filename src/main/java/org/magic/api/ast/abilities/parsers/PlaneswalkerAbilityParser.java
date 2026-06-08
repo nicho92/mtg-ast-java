@@ -3,10 +3,10 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
 import org.magic.api.ast.effects.factory.EffectFactory;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.interfaces.AbilityNode;
 
 public class PlaneswalkerAbilityParser implements AbilityParser {
 

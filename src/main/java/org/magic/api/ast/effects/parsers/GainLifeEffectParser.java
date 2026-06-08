@@ -3,8 +3,8 @@ package org.magic.api.ast.effects.parsers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.effects.EffectNode;
 import org.magic.api.ast.effects.GainLifeEffect;
+import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.EffectParser;
 
 public class GainLifeEffectParser implements EffectParser {

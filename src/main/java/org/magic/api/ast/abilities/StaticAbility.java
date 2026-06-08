@@ -1,5 +1,6 @@
 package org.magic.api.ast.abilities;
 
+import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.AbilityVisitor;
 
 public record StaticAbility(String oracleText) implements AbilityNode {

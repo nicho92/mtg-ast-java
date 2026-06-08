@@ -2,9 +2,9 @@ package org.magic.api.ast.abilities.parsers;
 
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.factory.AbilitiesFactory;
+import org.magic.api.ast.interfaces.AbilityNode;
 
 public class WordAbilityParser implements AbilityParser {
 

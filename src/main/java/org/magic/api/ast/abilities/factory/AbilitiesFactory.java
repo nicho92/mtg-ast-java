@@ -3,7 +3,6 @@ package org.magic.api.ast.abilities.factory;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.parsers.AbilityParser;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
@@ -15,6 +14,7 @@ import org.magic.api.ast.abilities.parsers.ReplacementEffectParser;
 import org.magic.api.ast.abilities.parsers.SagaAbilityParser;
 import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
 import org.magic.api.ast.abilities.parsers.WordAbilityParser;
+import org.magic.api.ast.interfaces.AbilityNode;
 
 public class AbilitiesFactory {
 

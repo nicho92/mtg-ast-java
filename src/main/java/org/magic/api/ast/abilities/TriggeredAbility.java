@@ -2,8 +2,9 @@ package org.magic.api.ast.abilities;
 
 import java.util.List;
 
-import org.magic.api.ast.effects.EffectNode;
+import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.AbilityVisitor;
+import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.triggers.Trigger;
 
 public record TriggeredAbility(Trigger trigger, List<EffectNode> effects) implements AbilityNode {

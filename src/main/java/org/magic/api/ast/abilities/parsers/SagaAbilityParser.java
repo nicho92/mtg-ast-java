@@ -2,9 +2,9 @@ package org.magic.api.ast.abilities.parsers;
 
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.util.AmountParser;
 
 public class SagaAbilityParser implements AbilityParser {

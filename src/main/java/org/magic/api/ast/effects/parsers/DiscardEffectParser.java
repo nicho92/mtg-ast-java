@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.DiscardCardsEffect;
-import org.magic.api.ast.effects.EffectNode;
+import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.EffectParser;
 import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 import org.magic.api.ast.util.AmountParser;

@@ -8,7 +8,7 @@ public final class AmountParser {
 	public static int parse(String text) {
 
 		return switch (text.trim().toLowerCase()) {
-		case "a", "an", "one", "i" -> 1;
+		case "a", "an", "one", "another", "i" -> 1;
 		case "two", "ii" -> 2;
 		case "three", "iii" -> 3;
 		case "four", "iv" -> 4;
