@@ -178,7 +178,7 @@ mvn exec:java -Dexec.mainClass=org.magic.api.ast.main.Test
   - Counter mechanics and interactions
   - Combat restrictions (e.g., `can't block`)
   - Advanced target clauses
-- [ ] Publish releases to Maven Central or GitHub Packages
+- [x] Publish releases to Maven Central or GitHub Packages
 - [ ] Generate and host API documentation
 - [ ] Add support for older MTG card text variations
 - [ ] Performance optimizations for batch parsing
