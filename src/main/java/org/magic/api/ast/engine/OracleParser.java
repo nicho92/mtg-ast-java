@@ -1,14 +1,14 @@
 package org.magic.api.ast.engine;
 
 import org.magic.api.ast.abilities.factory.AbilitiesFactory;
-import org.magic.api.ast.util.CardQueryFacade;
+import org.magic.api.ast.util.ASTFacade;
 
 public class OracleParser {
 
 
-    public CardQueryFacade toFacade(String cardName, String oracleText) 
+    public ASTFacade toFacade(String cardName, String oracleText) 
     {
-    	 	return new CardQueryFacade(parse(cardName, oracleText));
+    	 	return new ASTFacade(parse(cardName, oracleText));
     }
     
     

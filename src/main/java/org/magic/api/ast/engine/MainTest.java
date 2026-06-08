@@ -4,16 +4,14 @@ public class MainTest {
 
 	public static void main() {
         String oracleText = """
-You may activate the loyalty abilities of Urza twice each turn rather than only once.
-+2: Artifact, instant, and sorcery spells you cast this turn cost {2} less to cast. You gain 2 life.
-−10: You get an emblem with "At the beginning of your end step, create three 1/1 white Cat creature tokens with lifelink.".
+        		
+        		Flying, first strike, vigilance, trample, haste.
+        		Protection from black and from red
+        		Ward {2}. 
+
             """;
         
-        var ast =new OracleParser().parse("Example Card", oracleText);
-      
-        ast.getAbilities().stream().toList().forEach(System.out::println);
-    
-        
-      
+        var ast =new OracleParser().toFacade("Example Card", oracleText);
+        ast.getKeywordsAbilities().forEach(ka->System.out.print(ka.keyword() + " (" + ka.parameter()+ ") "));
     }
 }
