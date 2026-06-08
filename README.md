@@ -83,7 +83,10 @@ public class MainTest {
 **Example Output:**
 ```
 Example Card
-[KeywordGroupAbility[keywords=[KeywordAbility[keyword=Flying, parameter=null], KeywordAbility[keyword=Ward, parameter={2}]]], TriggeredAbility[trigger=DiesTrigger[subject=another creature], effect[...]
+KeywordsAbility[keywords=[Keyword[name=Flying, parameter=null], Keyword[name=Ward, parameter={2}], Keyword[name=Trample, parameter=null]]]
+ActivatedAbility[costs=[SacrificeCost[target=Artifact, qty=2]], effects=[AddManaEffect[mana={W}{G}]]]
+ActivatedAbility[costs=[TAP], effects=[AddManaEffect[mana={W} or {G}]]]
+
 ```
 
 ## 📚 Supported AST Model
