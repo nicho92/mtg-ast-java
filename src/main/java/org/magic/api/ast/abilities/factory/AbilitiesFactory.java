@@ -50,8 +50,8 @@ public class AbilitiesFactory {
         List<String> blocks = new ArrayList<>();
         StringBuilder currentModalBlock = null;
 
-        for (String rawLine : oracleText.lines().toList()) {
-            String line = rawLine.trim();
+        for (var rawLine : oracleText.lines().toList()) {
+            var line = rawLine.trim();
 
             if (line.isBlank()) {
                 continue;

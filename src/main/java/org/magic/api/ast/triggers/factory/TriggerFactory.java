@@ -5,6 +5,7 @@ import java.util.Set;
 import org.magic.api.ast.selectors.factory.TargetSelectorFactory;
 import org.magic.api.ast.triggers.AttacksTrigger;
 import org.magic.api.ast.triggers.BlocksTrigger;
+import org.magic.api.ast.triggers.CastTrigger;
 import org.magic.api.ast.triggers.DiesTrigger;
 import org.magic.api.ast.triggers.DiscardCardTrigger;
 import org.magic.api.ast.triggers.DrawCardTrigger;
@@ -62,6 +63,9 @@ public final class TriggerFactory {
 		
 		if (lower.contains("put into a graveyard") || lower.contains("destroy"))
 			return new PutIntoGraveyardTrigger(locator);
+		
+		if (lower.contains("cast this spell"))
+			return new CastTrigger(locator);
 		
 		
 		

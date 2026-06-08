@@ -1,9 +1,11 @@
 package org.magic.api.ast.abilities.parsers;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.AbilityNode;
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
+import org.magic.api.ast.effects.factory.EffectFactory;
 import org.magic.api.ast.effects.parsers.EffectSequenceParser;
 
 public class PlaneswalkerAbilityParser implements AbilityParser {
@@ -27,7 +29,7 @@ public class PlaneswalkerAbilityParser implements AbilityParser {
 
 		return new PlaneswalkerAbility(
 				loyaltyText,
-				new EffectSequenceParser().parse(effectsText)
+				effectsText.toLowerCase().contains("then")?new EffectSequenceParser().parse(effectsText):List.of(EffectFactory.INSTANCE.parse(effectsText))
 		);
 	}
 }

@@ -9,7 +9,6 @@ import org.magic.api.ast.effects.factory.EffectFactory;
 public class EffectSequenceParser {
 
      public List<EffectNode> parse(String text) {
-
         return split(text).stream()
                 .map(EffectFactory.INSTANCE::parse)
                 .toList();
@@ -17,8 +16,8 @@ public class EffectSequenceParser {
 
     private List<String> split(String text) {
 
-        List<String> effects = new ArrayList<>();
-        StringBuilder current = new StringBuilder();
+        var effects = new ArrayList<String>();
+        var current = new StringBuilder();
         int braceDepth = 0;
         int parenthesisDepth = 0;
 

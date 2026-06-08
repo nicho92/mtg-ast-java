@@ -12,7 +12,7 @@ import org.magic.api.ast.util.AmountParser;
 public class DiscardEffectParser implements EffectParser {
 
     private static final Pattern PATTERN = Pattern.compile(
-            "^(You|Each opponent|Target player|Each player)\\s+discards?\\s+(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\\d+)\\s+cards?",
+            "^(You|Each opponent|Target player|Each player)?\\s+discards?\\s+(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\\d+)\\s+cards?",
             Pattern.CASE_INSENSITIVE
     );
 

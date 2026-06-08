@@ -40,7 +40,15 @@ You may activate the loyalty abilities of Urza twice each turn rather than only 
 +1: Draw two cards, then discard a card.
 0: Create two 1/1 colorless Soldier artifact creature tokens.
 −X: Exile X nonland permanent.
-−10: Artifacts and planeswalkers you control gain indestructible until end of turn. Destroy all nonland permanents.
+−10: You get an emblem with "At the beginning of your end step, create three 1/1 white Cat creature tokens with lifelink.".
+
+===
+
++1: Put a +1/+1 counter on up to one target creature. It gains indestructible until end of turn.
+−2: Whenever one or more nontoken creatures attack this turn, create that many 1/1 white Soldier creature tokens that are tapped and attacking.
+−6: You get an emblem with "At the beginning of combat on your turn, create a 1/1 white Soldier creature token, then put a +1/+1 counter on each creature you control."
+
+
 
 ===
 
@@ -54,7 +62,12 @@ At the beginning of your end step, if you control two or more tapped creatures, 
 
 ===
 
+Annihilator 3.
 This spell can't be countered.
 When you cast this spell, take an extra turn after this one.
 Flying, protection from spells that are one or more colors, annihilator 6
 When Emrakul is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.
+Ward {2}.
+===
+
+
