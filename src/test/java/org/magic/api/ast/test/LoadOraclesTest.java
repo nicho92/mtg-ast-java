@@ -12,7 +12,7 @@ class LoadOraclesTest {
 
 	
 	
-	public List<String> loadOracle() throws Exception
+	private List<String> loadData() throws Exception
 	{
 		
 		var content =  Files.readString(Path.of(LoadOraclesTest.class.getResource("/oracles.txt").toURI()));
@@ -27,8 +27,7 @@ class LoadOraclesTest {
 	@Test
 	 void test() throws Exception
 	{
-		
-		for(var s : loadOracle())
+		for(var s : loadData())
 		{
 			System.out.println(s);
 			System.out.println();
