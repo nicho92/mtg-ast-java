@@ -20,7 +20,7 @@ public class SelectorFactory {
 
 		String lower = text.toLowerCase();
 
-		if (lower.equals("cardname")) {
+		if (lower.contains("cardname")) {
 			return new SelfSelector();
 		}
 

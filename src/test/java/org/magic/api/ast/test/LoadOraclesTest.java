@@ -27,14 +27,13 @@ class LoadOraclesTest {
 	@Test
 	 void test() throws Exception
 	{
-		var parser =  new OracleParser();
 		
 		for(var s : loadOracle())
 		{
 			System.out.println(s);
 			System.out.println();
 			
-			parser.toFacade("cardname", s).getAllAbilities().forEach(System.out::println);
+			OracleParser.toFacade("cardname", s).getAllAbilities().forEach(System.out::println);
 			
 			System.out.println("=========");
 		}
