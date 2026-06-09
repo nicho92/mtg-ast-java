@@ -10,7 +10,7 @@ import org.magic.api.ast.util.AmountParser;
 
 public class LifeCostParser implements CostParser {
 
-	private static final Pattern PATTERN = Pattern.compile("pay (.*?) life",Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN = Pattern.compile("pay (.*?) lifes?",Pattern.CASE_INSENSITIVE);
 
 	@Override
 	public boolean supports(String text) {

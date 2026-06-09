@@ -68,4 +68,8 @@ When Emrakul is put into a graveyard from anywhere, its owner shuffles their gra
 Ward {2}.
 ===
 
-pay 1 life : add {C}.
+Defender (This creature can’t attack.)
+
+Pay 1 life: This creature gets +1/+1 until end of turn.
+
+===
