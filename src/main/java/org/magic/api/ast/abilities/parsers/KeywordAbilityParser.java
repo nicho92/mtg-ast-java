@@ -62,7 +62,9 @@ public class KeywordAbilityParser implements AbilityParser {
 		if (text.length() <= keyword.length()) {
 			return null;
 		}
-
-		return text.substring(keyword.length()).trim();
+		if(text.indexOf('(')>-1)
+			return null;
+		else
+			return text.substring(keyword.length()).trim();
 	}
 }
