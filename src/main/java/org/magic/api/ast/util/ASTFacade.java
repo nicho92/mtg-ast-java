@@ -7,6 +7,7 @@ import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.abilities.ContinuousModifierAbility;
 import org.magic.api.ast.abilities.KeywordsAbility;
 import org.magic.api.ast.abilities.ModalAbility;
+import org.magic.api.ast.abilities.PlaneswalkerAbility;
 import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
@@ -79,6 +80,13 @@ public class ASTFacade {
 	public List<WordAbility> getWordAbilities() {
 		return getAbilities(WordAbility.class);
 	}
+	
+	public List<PlaneswalkerAbility> getPlaneswalkerAbilities() {
+		return getAbilities(PlaneswalkerAbility.class);
+	}
+	
+	
+	
 	
 
 	// ============ COST EXTRACTION ============
