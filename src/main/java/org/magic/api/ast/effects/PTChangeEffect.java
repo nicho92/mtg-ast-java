@@ -7,12 +7,13 @@ public record PTChangeEffect(SelectorNode target, String powerChange,String toug
 	
 	
 	Integer powerAsInt(){
-		return Integer.parseInt(powerChange);
+		return Integer.parseInt(powerChange.replace('+', ' ').trim());
 	}
 	
 	Integer toughnessAsInt() {
-		return Integer.parseInt(toughnessChange);
+		return Integer.parseInt(toughnessChange.replace('+', ' ').trim());
 	}
+	
 	
 	
 	
