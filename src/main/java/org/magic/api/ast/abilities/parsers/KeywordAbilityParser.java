@@ -43,7 +43,7 @@ public class KeywordAbilityParser implements AbilityParser {
 
 		var abilities = Arrays.stream(text.split(",")).map(String::trim).filter(this::isKeyword).map(this::parseKeyword).toList();
 
-		return new KeywordsAbility(abilities);
+		return new KeywordsAbility(text,abilities);
 	}
 
 	private boolean isKeyword(String text) {

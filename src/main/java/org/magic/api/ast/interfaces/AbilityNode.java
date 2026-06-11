@@ -17,4 +17,8 @@ public interface AbilityNode {
 	 * @return the result of the visitor's processing
 	 */
 	<T> T accept(AbilityVisitor<T> visitor);
+	
+	
+	String text();
+	
 }
