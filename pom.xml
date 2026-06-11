@@ -6,7 +6,7 @@
 	<artifactId>mtg-ast-java</artifactId>
 	<version>0.0.11</version>
 	<packaging>jar</packaging>
-	<name>MTG Card Analyzer</name>
+	<name>mtg-ast-java</name>
 	<description>Magic Card Oracle Text AST</description>
 	<url>https://github.com/nicho92/mtg-ast-java</url>
 	<properties>

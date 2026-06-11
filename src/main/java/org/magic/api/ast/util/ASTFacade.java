@@ -6,6 +6,7 @@ import java.util.List;
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.abilities.KeywordsAbility;
 import org.magic.api.ast.abilities.ModalAbility;
+import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.abilities.model.Keyword;
@@ -63,6 +64,11 @@ public class ASTFacade {
 	public List<ModalAbility> getModalAbilities() {
 		return card.getAbilities().stream().filter(ModalAbility.class::isInstance).map(a -> (ModalAbility) a).toList();
 	}
+	
+	public List<SagaAbility> getSagaAbilities() {
+		return card.getAbilities().stream().filter(SagaAbility.class::isInstance).map(a -> (SagaAbility) a).toList();
+	}
+	
 
 	// ============ COST EXTRACTION ============
 
