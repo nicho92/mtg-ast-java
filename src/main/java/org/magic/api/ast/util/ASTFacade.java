@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.magic.api.ast.abilities.ActivatedAbility;
+import org.magic.api.ast.abilities.ContinuousModifierAbility;
 import org.magic.api.ast.abilities.KeywordsAbility;
 import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
+import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.model.Keyword;
 import org.magic.api.ast.engine.CardAst;
 import org.magic.api.ast.interfaces.AbilityNode;
@@ -40,33 +42,42 @@ public class ASTFacade {
 	public List<Keyword> getKeywordsAbilities() {
 		var result = new ArrayList<Keyword>();
 
-		card.getAbilities().stream().filter(KeywordsAbility.class::isInstance).map(a -> (KeywordsAbility) a)
-				.forEach(kga -> result.addAll(kga.keywords()));
+		getAbilities(KeywordsAbility.class).forEach(kga -> result.addAll(kga.keywords()));
 
 		return result;
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public <T extends AbilityNode> List<T> getAbilities(Class<T> classe){
+		return card.getAbilities().stream().filter(classe::isInstance).map(a -> (T) a).toList();
+	}
+	
+	public List<ContinuousModifierAbility> getContinuousAbilities(){
+		return getAbilities(ContinuousModifierAbility.class);
+	}
+	
 	public List<ActivatedAbility> getActivatedAbilities() {
-		return card.getAbilities().stream().filter(ActivatedAbility.class::isInstance).map(a -> (ActivatedAbility) a)
-				.toList();
+		return getAbilities(ActivatedAbility.class);
 	}
 
 	public List<TriggeredAbility> getTriggeredAbilities() {
-		return card.getAbilities().stream().filter(TriggeredAbility.class::isInstance).map(a -> (TriggeredAbility) a)
-				.toList();
+		return getAbilities(TriggeredAbility.class);
 	}
 
 	public List<StaticAbility> getStaticAbilities() {
-		return card.getAbilities().stream().filter(StaticAbility.class::isInstance).map(a -> (StaticAbility) a)
-				.toList();
+		return getAbilities(StaticAbility.class);
 	}
 
 	public List<ModalAbility> getModalAbilities() {
-		return card.getAbilities().stream().filter(ModalAbility.class::isInstance).map(a -> (ModalAbility) a).toList();
+		return  getAbilities(ModalAbility.class);
 	}
 	
 	public List<SagaAbility> getSagaAbilities() {
-		return card.getAbilities().stream().filter(SagaAbility.class::isInstance).map(a -> (SagaAbility) a).toList();
+		return getAbilities(SagaAbility.class);
+	}
+	
+	public List<WordAbility> getWordAbilities() {
+		return getAbilities(WordAbility.class);
 	}
 	
 
