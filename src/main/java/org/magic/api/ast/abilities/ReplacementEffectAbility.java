@@ -6,7 +6,7 @@ import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.visitors.AbilityVisitor;
 
-public record ReplacementEffectAbility(String replacedEvent, List<EffectNode> replacementEffects)
+public record ReplacementEffectAbility(String text,String replacedEvent, List<EffectNode> replacementEffects)
 		implements AbilityNode {
 
 	@Override

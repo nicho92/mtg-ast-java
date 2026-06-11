@@ -29,11 +29,7 @@ class LoadOraclesTest {
 	{
 		for(var s : loadData())
 		{
-			System.out.println(s);
-			System.out.println();
-			
 			OracleParser.toFacade("cardname", s).getAllAbilities().forEach(System.out::println);
-			
 			System.out.println("=========");
 		}
 	}

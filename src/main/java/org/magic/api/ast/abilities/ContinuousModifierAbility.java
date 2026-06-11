@@ -5,7 +5,7 @@ import org.magic.api.ast.interfaces.ModifierNode;
 import org.magic.api.ast.interfaces.SelectorNode;
 import org.magic.api.ast.interfaces.visitors.AbilityVisitor;
 
-public record ContinuousModifierAbility(SelectorNode affected, ModifierNode modifier)
+public record ContinuousModifierAbility(String text,SelectorNode affected, ModifierNode modifier)
 		implements AbilityNode {
 
 	@Override

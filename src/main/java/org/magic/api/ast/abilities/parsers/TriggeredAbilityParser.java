@@ -32,6 +32,6 @@ public class TriggeredAbilityParser implements AbilityParser {
 
 		var trigger = TriggerFactory.INSTANCE.parse(triggerText);
 
-		return new TriggeredAbility(trigger, new EffectSequenceParser().parse(effectText));
+		return new TriggeredAbility(text,trigger, new EffectSequenceParser().parse(effectText));
 	}
 }

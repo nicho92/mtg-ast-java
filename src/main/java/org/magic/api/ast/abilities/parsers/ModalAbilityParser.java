@@ -38,7 +38,7 @@ public class ModalAbilityParser implements AbilityParser {
 		List<ModeNode> modes = lines.stream().skip(1).map(this::stripBullet)
 				.map(modeText -> new ModeNode(modeText, effectSequenceParser.parse(modeText))).toList();
 
-		return new ModalAbility(choiceConstraint, modes);
+		return new ModalAbility(text,choiceConstraint, modes);
 	}
 
 	private ChoiceConstraint parseChoiceConstraint(String text) {

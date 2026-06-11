@@ -24,7 +24,7 @@ public class ReplacementEffectParser implements AbilityParser {
 
 		matcher.find();
 
-		return new ReplacementEffectAbility(matcher.group(1).trim(),
+		return new ReplacementEffectAbility(text,matcher.group(1).trim(),
 				new EffectSequenceParser().parse(matcher.group(2).trim()));
 	}
 }

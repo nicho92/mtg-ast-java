@@ -27,7 +27,7 @@ public class SagaAbilityParser implements AbilityParser {
 
 		var triggerText = matcher.group(2);
 
-		return new SagaAbility(AmountParser.parse(matcher.group(1)), new EffectSequenceParser().parse(triggerText));
+		return new SagaAbility(text,AmountParser.parse(matcher.group(1)), new EffectSequenceParser().parse(triggerText));
 	}
 
 }

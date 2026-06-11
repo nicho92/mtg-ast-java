@@ -29,6 +29,6 @@ public class WordAbilityParser implements AbilityParser {
 
 		var innerAbility = AbilitiesFactory.INSTANCE.parse(innerText).get(0);
 
-		return new WordAbility(abilityWord, innerAbility);
+		return new WordAbility(text,abilityWord, innerAbility);
 	}
 }

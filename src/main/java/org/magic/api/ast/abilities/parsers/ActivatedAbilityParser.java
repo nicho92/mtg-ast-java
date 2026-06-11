@@ -23,6 +23,6 @@ public class ActivatedAbilityParser implements AbilityParser {
 		var matcher = PATTERN.matcher(text);
 		matcher.find();
 		var costs = CostFactory.INSTANCE.parse(matcher.group(1));
-		return new ActivatedAbility(costs, new EffectSequenceParser().parse(matcher.group(2)));
+		return new ActivatedAbility(text,costs, new EffectSequenceParser().parse(matcher.group(2)));
 	}
 }
