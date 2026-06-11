@@ -14,7 +14,7 @@ Madness {2}
 
 ===
 
-{T}: Add {W}
+{T}: Add {R}{G}
 If a creature would die, exile it instead.
 Sliver creatures you control get +2/+0.
 Whenever you lose life, draw a card.

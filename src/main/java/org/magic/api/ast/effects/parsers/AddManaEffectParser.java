@@ -3,6 +3,7 @@ package org.magic.api.ast.effects.parsers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.magic.api.ast.costs.parsers.ManaCostParser;
 import org.magic.api.ast.effects.AddManaEffect;
 import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
@@ -23,6 +24,6 @@ public class AddManaEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new AddManaEffect(matcher.group(1));
+		return new AddManaEffect(new ManaCostParser().parse(matcher.group(1)));
 	}
 }

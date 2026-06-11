@@ -4,35 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.magic.api.ast.costs.ManaCost;
+import org.magic.api.ast.costs.ManaValue;
+import org.magic.api.ast.costs.model.ManaSymbol;
 import org.magic.api.ast.interfaces.CostNode;
 import org.magic.api.ast.interfaces.parsers.CostParser;
 
 public class ManaCostParser implements CostParser {
 
 	private static final Pattern MANA_SYMBOL = Pattern.compile("\\{([^}]+)}");
-	// private static final Pattern MANA_SYMBOL = Pattern.compile("([WUBRG])")
 
 	@Override
 	public boolean supports(String text) {
-		return text.contains("{") && text.contains("}");
+		return MANA_SYMBOL.matcher(text).find();
 	}
 
 	@Override
 	public List<CostNode> parse(String text) {
-
 		var matcher = MANA_SYMBOL.matcher(text);
-
-		var symbols = new ArrayList<String>();
-
+		var ret = new ArrayList<ManaSymbol>();
+		
 		while (matcher.find()) {
-			symbols.add(matcher.group(1));
+			ret.add(ManaSymbol.parseByCode(matcher.group(1)));
 		}
-
-		if (symbols.isEmpty()) {
-			return List.of();
-		}
-
-		return List.of(new ManaCost(symbols));
+		return List.of(new ManaValue(ret));
 	}
+	
 }

@@ -1,7 +1,6 @@
 package org.magic.api.ast.costs.parsers;
 
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.SacrificeCost;
@@ -23,7 +22,7 @@ public class SacrificeCostParser implements CostParser {
 	@Override
 	public List<CostNode> parse(String text) {
 
-		Matcher matcher = PATTERN.matcher(text);
+		var matcher = PATTERN.matcher(text);
 
 		if (!matcher.matches()) {
 			return List.of();
