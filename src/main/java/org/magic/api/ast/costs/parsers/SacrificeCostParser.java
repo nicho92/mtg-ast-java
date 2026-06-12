@@ -21,13 +21,11 @@ public class SacrificeCostParser implements CostParser {
 
 	@Override
 	public List<CostNode> parse(String text) {
-
 		var matcher = PATTERN.matcher(text);
 
 		if (!matcher.matches()) {
 			return List.of();
 		}
-
 		return List.of(new SacrificeCost(text,SelectorFactory.INSTANCE.parse(matcher.group(2).trim()),
 				AmountParser.parse(matcher.group(1).trim())));
 	}
