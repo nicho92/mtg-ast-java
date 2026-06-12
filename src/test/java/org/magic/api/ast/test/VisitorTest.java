@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.magic.api.ast.abilities.visitor.impl.TriggerCollector;
 import org.magic.api.ast.engine.OracleParser;
 
-public class VisitorTest {
+class VisitorTest {
 	
 	@Test
 	 void test()
@@ -16,7 +16,7 @@ public class VisitorTest {
 					When Emrakul is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.
 					""";
 		
-			new OracleParser().parse("Ardent Dustspeaker", s)
+			new OracleParser().parse("Emrakul, the Aeon's end", s)
 			.getAbilities()
 			.stream()
 			.map(ab -> ab.accept(new TriggerCollector()))

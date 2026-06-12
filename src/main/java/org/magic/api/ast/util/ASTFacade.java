@@ -70,7 +70,7 @@ public class ASTFacade {
 	}
 
 	public List<ModalAbility> getModalAbilities() {
-		return  getAbilities(ModalAbility.class);
+		return  getAbilities(ModalAbility.class); 
 	}
 	
 	public List<SagaAbility> getSagaAbilities() {
@@ -85,37 +85,6 @@ public class ASTFacade {
 		return getAbilities(PlaneswalkerAbility.class);
 	}
 	
-	
-	
-	
-
-	// ============ COST EXTRACTION ============
-
-	public List<CostNode> getAllCosts() {
-		return getActivatedAbilities().stream().flatMap(a -> a.costs().stream()).toList();
-	}
-
-	@SuppressWarnings("unchecked")
-	public <T extends CostNode> List<T> getCosts(Class<T> classe) {
-		return getAllCosts().stream().filter(classe::isInstance).map(c -> (T) c).toList();
-	}
-
-	// ============ EFFECT EXTRACTION ============
-
-	public List<EffectNode> getAllEffects() {
-		List<EffectNode> effects = new ArrayList<>();
-
-		getActivatedAbilities().forEach(a -> effects.addAll(a.effects()));
-		getTriggeredAbilities().forEach(a -> effects.addAll(a.effects()));
-
-		return effects;
-	}
-
-	@SuppressWarnings("unchecked")
-	public <T extends EffectNode> List<T> getEffects(Class<T> classe) {
-		return getAllEffects().stream().filter(classe::isInstance).map(e -> (T) e).toList();
-	}
-
 	// ============ TRIGGER EXTRACTION ============
 
 	public List<Trigger> getAllTriggers() {
@@ -126,19 +95,5 @@ public class ASTFacade {
 		return getAllTriggers().stream().filter(trig->trig.type()==t).toList();
 	}
 
-	// ============ CONVENIENCE QUERIES ============
 
-	/**
-	 * Vérifie si la carte a un keyword spécifique
-	 */
-	public boolean hasKeyword(String keyword) {
-		return getKeywordsAbilities().stream().anyMatch(ka -> ka.name().equalsIgnoreCase(keyword));
-	}
-
-	/**
-	 * Vérifie si la carte a des abilities activées
-	 */
-	public boolean hasActivatedAbilities() {
-		return !getActivatedAbilities().isEmpty();
-	}
 }

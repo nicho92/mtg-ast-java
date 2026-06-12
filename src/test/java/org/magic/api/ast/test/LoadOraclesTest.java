@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.magic.api.ast.engine.OracleParser;
 
 class LoadOraclesTest {
-
-	
 	
 	private List<String> loadData() throws Exception
 	{
@@ -22,7 +20,6 @@ class LoadOraclesTest {
 	                .filter(s -> !s.isEmpty())
 	                .toList();
 	}
-	
 	
 	@Test
 	 void test() throws Exception
