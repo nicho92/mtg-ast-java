@@ -24,7 +24,7 @@ public class CreateTokenEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new CreateTokenEffect(matcher.group(2),
+		return new CreateTokenEffect(text,matcher.group(2),
 				AmountParser.parse(matcher.group(1).trim()));
 	}
 }

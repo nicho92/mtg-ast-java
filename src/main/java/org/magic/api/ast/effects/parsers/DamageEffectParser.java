@@ -25,7 +25,7 @@ public class DamageEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new DealDamageEffect(Integer.parseInt(matcher.group(1)),
+		return new DealDamageEffect(text, Integer.parseInt(matcher.group(1)),
 				SelectorFactory.INSTANCE.parse(matcher.group(2).trim()));
 	}
 }

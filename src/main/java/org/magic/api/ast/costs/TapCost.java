@@ -16,6 +16,14 @@ public final class TapCost implements CostNode {
 		return type;
 	}
 	
+	
+	@Override
+	public String text() {
+		if(getType()==TYPE.TAP)
+			return "{T}";
+		else
+			return "{Q}";
+	}
 
 	@Override
 	public String toString() {

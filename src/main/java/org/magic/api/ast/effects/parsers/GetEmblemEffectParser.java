@@ -24,6 +24,6 @@ public class GetEmblemEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new GetEmblemEffect(matcher.group(1));
+		return new GetEmblemEffect(text, matcher.group(1));
 	}
 }

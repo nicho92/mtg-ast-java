@@ -24,6 +24,6 @@ public class DestroyEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new DestroyTargetEffect(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
+		return new DestroyTargetEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
 	}
 }

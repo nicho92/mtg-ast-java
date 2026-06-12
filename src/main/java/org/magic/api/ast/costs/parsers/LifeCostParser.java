@@ -26,7 +26,7 @@ public class LifeCostParser implements CostParser {
 			return List.of();
 		}
 
-		return List.of(new LifeCost(AmountParser.parse(matcher.group(1).trim())));
+		return List.of(new LifeCost(text,AmountParser.parse(matcher.group(1).trim())));
 	}
 
 }

@@ -26,7 +26,7 @@ public class ManaCostParser implements CostParser {
 		while (matcher.find()) {
 			ret.add(ManaSymbol.parseByCode(matcher.group(1)));
 		}
-		return List.of(new ManaValue(ret));
+		return List.of(new ManaValue(text,ret));
 	}
 	
 }

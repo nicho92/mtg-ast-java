@@ -25,7 +25,7 @@ public class SacrificeEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new SacrificeEffect(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
+		return new SacrificeEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
 				SelectorFactory.INSTANCE.parse(matcher.group(2).trim()));
 	}
 }

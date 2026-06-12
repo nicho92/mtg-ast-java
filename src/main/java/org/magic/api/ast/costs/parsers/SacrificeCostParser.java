@@ -28,7 +28,7 @@ public class SacrificeCostParser implements CostParser {
 			return List.of();
 		}
 
-		return List.of(new SacrificeCost(SelectorFactory.INSTANCE.parse(matcher.group(2).trim()),
+		return List.of(new SacrificeCost(text,SelectorFactory.INSTANCE.parse(matcher.group(2).trim()),
 				AmountParser.parse(matcher.group(1).trim())));
 	}
 

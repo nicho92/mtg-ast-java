@@ -24,6 +24,6 @@ public class ExileEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new ExileEffect(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
+		return new ExileEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
 	}
 }

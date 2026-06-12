@@ -24,6 +24,6 @@ public class ReturnEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new ReturnEffect(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()), matcher.group(2).trim());
+		return new ReturnEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()), matcher.group(2).trim());
 	}
 }

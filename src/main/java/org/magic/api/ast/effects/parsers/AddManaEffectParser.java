@@ -24,6 +24,6 @@ public class AddManaEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new AddManaEffect(new ManaCostParser().parse(matcher.group(1)));
+		return new AddManaEffect(text,new ManaCostParser().parse(matcher.group(1)));
 	}
 }

@@ -27,7 +27,7 @@ public class PutCountersEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new PutCountersEffect(AmountParser.parse(matcher.group(1)), matcher.group(2).trim(),
+		return new PutCountersEffect(text, AmountParser.parse(matcher.group(1)), matcher.group(2).trim(),
 				SelectorFactory.INSTANCE.parse(matcher.group(3).trim()));
 	}
 }

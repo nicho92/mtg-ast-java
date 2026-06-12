@@ -27,7 +27,7 @@ public class DiscardEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new DiscardCardsEffect(SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
+		return new DiscardCardsEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
 				AmountParser.parse(matcher.group(2)));
 	}
 }

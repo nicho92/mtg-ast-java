@@ -24,6 +24,6 @@ public class GainLifeEffectParser implements EffectParser {
 
 		matcher.find();
 
-		return new GainLifeEffect(Integer.parseInt(matcher.group(1)));
+		return new GainLifeEffect(text, Integer.parseInt(matcher.group(1)));
 	}
 }

@@ -26,7 +26,7 @@ public class PtModificationParser implements EffectParser {
 
 		matcher.find();
 		
-		return new PTChangeEffect(SelectorFactory.INSTANCE.parse(matcher.group(1)), matcher.group(2), matcher.group(3), matcher.group(4));
+		return new PTChangeEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1)), matcher.group(2), matcher.group(3), matcher.group(4));
 	}
 
 }

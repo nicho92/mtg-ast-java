@@ -26,7 +26,7 @@ public class DrawEffectParser implements EffectParser {
 
 		String amount = matcher.group(1);
 
-		return new DrawCardsEffect(
+		return new DrawCardsEffect(text, 
 
 				switch (amount) {
 				case "a" -> 1;
