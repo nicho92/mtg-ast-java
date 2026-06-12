@@ -37,17 +37,17 @@ III — Exile target creature. Return target creature card from your graveyard t
 ===
 
 You may activate the loyalty abilities of Urza twice each turn rather than only once.
-+2: Artifact, instant, and sorcery spells you cast this turn cost {2} less to cast. You gain 2 life.
-+1: Draw two cards, then discard a card.
-0: Create two 1/1 colorless Soldier artifact creature tokens.
-−X: Exile X nonland permanent.
-−10: You get an emblem with "At the beginning of your end step, create three 1/1 white Cat creature tokens with lifelink.".
+[+2]: Artifact, instant, and sorcery spells you cast this turn cost {2} less to cast. You gain 2 life.
+[+1]: Draw two cards, then discard a card.
+[0]: Create two 1/1 colorless Soldier artifact creature tokens.
+[−X]: Exile X nonland permanent.
+[−10]: You get an emblem with "At the beginning of your end step, create three 1/1 white Cat creature tokens with lifelink.".
 
 ===
 
-+1: Put a +1/+1 counter on up to one target creature. It gains indestructible until end of turn.
-−2: Whenever one or more nontoken creatures attack this turn, create that many 1/1 white Soldier creature tokens that are tapped and attacking.
-−6: You get an emblem with "At the beginning of combat on your turn, create a 1/1 white Soldier creature token, then put a +1/+1 counter on each creature you control."
+[+1]: Put a +1/+1 counter on up to one target creature. It gains indestructible until end of turn.
+[−2]: Whenever one or more nontoken creatures attack this turn, create that many 1/1 white Soldier creature tokens that are tapped and attacking.
+[−6]: You get an emblem with "At the beginning of combat on your turn, create a 1/1 white Soldier creature token, then put a +1/+1 counter on each creature you control."
 
 ===
 

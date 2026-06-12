@@ -11,8 +11,10 @@ import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
 public class PlaneswalkerAbilityParser implements AbilityParser {
 
-	private static final Pattern PATTERN = Pattern.compile("^([+\u2212-]?(\\d+|X)):\\s*(.*)$",
-			Pattern.CASE_INSENSITIVE);
+	private static final Pattern PATTERN =Pattern.compile(
+            "^\\[([+\\-−]?(?:\\d+|X))\\]\\s*:\\s*(.+)$",
+            Pattern.DOTALL
+    );
 
 	@Override
 	public boolean supports(String text) {
@@ -27,7 +29,7 @@ public class PlaneswalkerAbilityParser implements AbilityParser {
 		matcher.find();
 
 		var loyaltyText = matcher.group(1);
-		var effectsText = matcher.group(3);
+		var effectsText = matcher.group(2);
 
 		return new PlaneswalkerAbility(text,loyaltyText,
 				effectsText.toLowerCase().contains("then") ? new EffectSequenceParser().parse(effectsText)
