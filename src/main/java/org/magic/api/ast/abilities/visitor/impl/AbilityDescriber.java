@@ -46,9 +46,8 @@ public class AbilityDescriber extends AbstractVisitor<String> {
 
 	@Override
 	public String visit(TriggeredAbility ability) {
-		int effectCount = ability.effects().size();
 		String triggerType = ability.trigger().getClass().getSimpleName();
-		return String.format("Triggered Ability: %s → %d effect(s)", triggerType, effectCount);
+		return String.format("Triggered Ability: %s → %d effect(s)", triggerType, ability.effects().size());
 	}
 
 	@Override
@@ -64,8 +63,7 @@ public class AbilityDescriber extends AbstractVisitor<String> {
 
 	@Override
 	public String visit(ReplacementEffectAbility ability) {
-		int effectCount = ability.replacementEffects().size();
-		return String.format("Replacement Effect Ability: %s → %d effect(s)", ability.replacedEvent(), effectCount);
+		return String.format("Replacement Effect Ability: %s → %d effect(s)", ability.replacedEvent(), ability.replacementEffects().size());
 	}
 
 	@Override
@@ -76,12 +74,12 @@ public class AbilityDescriber extends AbstractVisitor<String> {
 
 	@Override
 	public String visit(PlaneswalkerAbility ability) {
-		return String.format("Planeswalker [%s] : %s", ability.loyalty(), ability.effects());
+		return String.format("Planeswalker [%s]→ %d effect(s)", ability.loyalty(), ability.effects().size());
 	}
 
 	@Override
 	public String visit(SagaAbility ability) {
-		return String.format("Saga [%s] : %s", ability.num(), ability.effects());
+		return String.format("Saga [%s] → %d effect(s)", ability.num(), ability.effects().size());
 	}
 
 	@Override

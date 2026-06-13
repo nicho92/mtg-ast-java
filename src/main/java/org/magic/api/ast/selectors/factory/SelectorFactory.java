@@ -17,7 +17,7 @@ public class SelectorFactory {
 	}
 
 	public SelectorNode parse(String text) {
-
+				
 		String lower = text.toLowerCase();
 
 		if (lower.contains("cardname")) {

@@ -55,7 +55,6 @@ public class EffectSequenceParser {
 	}
 
 	private boolean isThenSeparator(String text, int index) {
-
 		return matchesSeparator(text, index, ", then ") || matchesSeparator(text, index, "; then ");
 	}
 
