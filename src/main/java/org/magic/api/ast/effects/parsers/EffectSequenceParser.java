@@ -73,7 +73,6 @@ public class EffectSequenceParser {
 	}
 
 	private void addEffect(List<String> effects, StringBuilder current) {
-
 		var effect = current.toString().trim();
 
 		if (!effect.isBlank()) {

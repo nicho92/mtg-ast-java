@@ -24,6 +24,17 @@ class VisitorTest {
 			.map(ab -> ab.accept(new EffectCollector()))
 			.filter(Objects::nonNull)
 			.forEach(System.out::println);
+			
+			System.out.println("=================");
+			
+			OracleParser.toFacade("Urza", s).getPlaneswalkerAbilities().forEach(pa->{
+				
+				System.out.println(pa.loyalty() + " " + pa.effects());
+				
+			});
+			
+			
+			
 	}
 	
 }

@@ -32,7 +32,7 @@ public class PlaneswalkerAbilityParser implements AbilityParser {
 		var effectsText = matcher.group(2);
 
 		return new PlaneswalkerAbility(text,loyaltyText,
-				effectsText.toLowerCase().contains("then") ? new EffectSequenceParser().parse(effectsText)
+				effectsText.toLowerCase().contains("then") && !effectsText.toLowerCase().startsWith("you get an emblem") ? new EffectSequenceParser().parse(effectsText)
 						: List.of(EffectFactory.INSTANCE.parse(effectsText)));
 	}
 }
