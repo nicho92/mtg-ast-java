@@ -1,4 +1,4 @@
-package org.magic.api.ast.abilities.visitor.impl;
+package org.magic.api.ast.visitor.impl;
 
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.abilities.ContinuousModifierAbility;
@@ -32,8 +32,7 @@ public class AbilityDescriber extends AbstractVisitor<String> {
 
 	@Override
 	public String visit(KeywordsAbility ability) {
-		String keywords = ability.keywords().stream().map(Keyword::name).reduce((a, b) -> a + ", " + b)
-				.orElse("(empty)");
+		String keywords = ability.keywords().stream().map(Keyword::name).reduce((a, b) -> a + ", " + b).orElse("(empty)");
 		return String.format("Keyword Group: %s", keywords);
 	}
 

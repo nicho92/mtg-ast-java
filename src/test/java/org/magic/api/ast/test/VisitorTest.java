@@ -3,8 +3,8 @@ package org.magic.api.ast.test;
 import java.util.Objects;
 
 import org.junit.jupiter.api.Test;
-import org.magic.api.ast.abilities.visitor.impl.EffectCollector;
 import org.magic.api.ast.engine.OracleParser;
+import org.magic.api.ast.visitor.impl.EffectCollector;
 
 class VisitorTest {
 	

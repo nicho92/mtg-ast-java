@@ -1,4 +1,4 @@
-package org.magic.api.ast.abilities.visitor.impl;
+package org.magic.api.ast.visitor.impl;
 
 import java.util.List;
 
