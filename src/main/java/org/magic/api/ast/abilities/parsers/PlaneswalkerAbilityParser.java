@@ -3,9 +3,9 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
-import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
+import org.magic.api.ast.util.EffectSequencerSplitter;
 
 public class PlaneswalkerAbilityParser implements AbilityParser {
 

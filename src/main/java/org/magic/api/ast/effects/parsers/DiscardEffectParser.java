@@ -1,6 +1,5 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.effects.DiscardCardsEffect;
@@ -25,7 +24,7 @@ public class DiscardEffectParser implements EffectParser {
 	@Override
 	public EffectNode parse(String text) {
 
-		Matcher matcher = PATTERN.matcher(text);
+		var matcher = PATTERN.matcher(text);
 
 		matcher.find();
 

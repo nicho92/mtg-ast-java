@@ -4,9 +4,9 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.costs.factory.CostFactory;
-import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
+import org.magic.api.ast.util.EffectSequencerSplitter;
 
 public class ActivatedAbilityParser implements AbilityParser {
 

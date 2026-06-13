@@ -4,10 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.TriggeredAbility;
-import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.triggers.factory.TriggerFactory;
+import org.magic.api.ast.util.EffectSequencerSplitter;
 
 public class TriggeredAbilityParser implements AbilityParser {
 
