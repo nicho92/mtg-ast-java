@@ -32,11 +32,11 @@ public class ModalAbilityParser implements AbilityParser {
 		var matcher = HEADER_PATTERN.matcher(lines.getFirst());
 		matcher.find();
 
-		ChoiceConstraint choiceConstraint = parseChoiceConstraint(matcher.group(1));
-		EffectSequenceParser effectSequenceParser = new EffectSequenceParser();
+		var choiceConstraint = parseChoiceConstraint(matcher.group(1));
+		var parser = new EffectSequenceParser();
 
 		List<ModeNode> modes = lines.stream().skip(1).map(this::stripBullet)
-				.map(modeText -> new ModeNode(modeText, effectSequenceParser.parse(modeText))).toList();
+				.map(modeText -> new ModeNode(modeText, parser.parse(modeText))).toList();
 
 		return new ModalAbility(text,choiceConstraint, modes);
 	}

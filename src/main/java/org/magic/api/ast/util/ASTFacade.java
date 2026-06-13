@@ -15,8 +15,6 @@ import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.model.Keyword;
 import org.magic.api.ast.engine.CardAst;
 import org.magic.api.ast.interfaces.AbilityNode;
-import org.magic.api.ast.interfaces.CostNode;
-import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.triggers.Trigger;
 import org.magic.api.ast.triggers.TriggerType;
 

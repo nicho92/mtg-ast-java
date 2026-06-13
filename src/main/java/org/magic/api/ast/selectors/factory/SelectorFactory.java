@@ -35,7 +35,7 @@ public class SelectorFactory {
 		if (lower.contains("player") || lower.contains("opponent") || lower.contains("you")) {
 			return parsePlayer(text);
 		}
-
+		
 		if (lower.contains("land")) {
 			return parseLand(text);
 		}
