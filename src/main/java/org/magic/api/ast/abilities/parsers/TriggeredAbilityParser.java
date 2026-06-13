@@ -1,6 +1,5 @@
 package org.magic.api.ast.abilities.parsers;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.TriggeredAbility;
@@ -22,16 +21,9 @@ public class TriggeredAbilityParser implements AbilityParser {
 	@Override
 	public AbilityNode parse(String text) {
 
-		Matcher matcher = PATTERN.matcher(text);
-
+		var matcher = PATTERN.matcher(text);
 		matcher.find();
-
-		String triggerText = matcher.group(2);
-
-		String effectText = matcher.group(3);
-
-		var trigger = TriggerFactory.INSTANCE.parse(triggerText);
-
-		return new TriggeredAbility(text,trigger, EffectSequencerSplitter.INSTANCE.parse(effectText));
+		var trigger = TriggerFactory.INSTANCE.parse(matcher.group(2));
+		return new TriggeredAbility(text,trigger, EffectSequencerSplitter.INSTANCE.parse(matcher.group(3)));
 	}
 }

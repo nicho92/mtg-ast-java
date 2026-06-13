@@ -26,9 +26,6 @@ public class PlaneswalkerAbilityParser implements AbilityParser {
 
 		matcher.find();
 
-		var loyaltyText = matcher.group(1);
-		var effectsText = matcher.group(2);
-
-		return new PlaneswalkerAbility(text,loyaltyText,EffectSequencerSplitter.INSTANCE.parse(effectsText));
+		return new PlaneswalkerAbility(text,matcher.group(1),EffectSequencerSplitter.INSTANCE.parse(matcher.group(2)));
 	}
 }
