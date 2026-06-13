@@ -3,7 +3,7 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.ReplacementEffectAbility;
-import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
@@ -24,6 +24,6 @@ public class ReplacementEffectParser implements AbilityParser {
 
 		matcher.find();
 
-		return new ReplacementEffectAbility(text,matcher.group(1).trim(),new EffectSequenceParser().parse(matcher.group(2).trim()));
+		return new ReplacementEffectAbility(text,matcher.group(1).trim(),EffectSequencerSplitter.INSTANCE.parse(matcher.group(2).trim()));
 	}
 }

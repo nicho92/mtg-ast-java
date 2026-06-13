@@ -3,7 +3,7 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.SagaAbility;
-import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.util.AmountParser;
@@ -27,7 +27,7 @@ public class SagaAbilityParser implements AbilityParser {
 
 		var triggerText = matcher.group(2);
 
-		return new SagaAbility(text,AmountParser.parse(matcher.group(1)), new EffectSequenceParser().parse(triggerText));
+		return new SagaAbility(text,AmountParser.parse(matcher.group(1)),EffectSequencerSplitter.INSTANCE.parse(triggerText));
 	}
 
 }

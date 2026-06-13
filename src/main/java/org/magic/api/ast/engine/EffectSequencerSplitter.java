@@ -1,4 +1,4 @@
-package org.magic.api.ast.effects.parsers;
+package org.magic.api.ast.engine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,16 @@ import java.util.List;
 import org.magic.api.ast.effects.factory.EffectFactory;
 import org.magic.api.ast.interfaces.EffectNode;
 
-public class EffectSequenceParser {
+public class EffectSequencerSplitter {
 
+	public static final EffectSequencerSplitter INSTANCE = new EffectSequencerSplitter();
+	
+	
+	private EffectSequencerSplitter()
+	{
+		
+	}
+	
 	public List<EffectNode> parse(String text) {
 		return split(text).stream().map(EffectFactory.INSTANCE::parse).toList();
 	}

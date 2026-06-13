@@ -3,7 +3,7 @@ package org.magic.api.ast.abilities.parsers;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
-import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
@@ -29,6 +29,6 @@ public class PlaneswalkerAbilityParser implements AbilityParser {
 		var loyaltyText = matcher.group(1);
 		var effectsText = matcher.group(2);
 
-		return new PlaneswalkerAbility(text,loyaltyText,new EffectSequenceParser().parse(effectsText));
+		return new PlaneswalkerAbility(text,loyaltyText,EffectSequencerSplitter.INSTANCE.parse(effectsText));
 	}
 }

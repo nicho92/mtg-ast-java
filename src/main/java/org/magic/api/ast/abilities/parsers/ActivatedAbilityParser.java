@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.ActivatedAbility;
 import org.magic.api.ast.costs.factory.CostFactory;
-import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
@@ -23,6 +23,6 @@ public class ActivatedAbilityParser implements AbilityParser {
 		var matcher = PATTERN.matcher(text);
 		matcher.find();
 		var costs = CostFactory.INSTANCE.parse(matcher.group(1));
-		return new ActivatedAbility(text,costs, new EffectSequenceParser().parse(matcher.group(2)));
+		return new ActivatedAbility(text,costs, EffectSequencerSplitter.INSTANCE.parse(matcher.group(2)));
 	}
 }

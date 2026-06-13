@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.model.ChoiceConstraint;
 import org.magic.api.ast.abilities.model.ModeNode;
-import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
@@ -33,10 +33,9 @@ public class ModalAbilityParser implements AbilityParser {
 		matcher.find();
 
 		var choiceConstraint = parseChoiceConstraint(matcher.group(1));
-		var parser = new EffectSequenceParser();
-
+	
 		List<ModeNode> modes = lines.stream().skip(1).map(this::stripBullet)
-				.map(modeText -> new ModeNode(modeText, parser.parse(modeText))).toList();
+				.map(modeText -> new ModeNode(modeText, EffectSequencerSplitter.INSTANCE.parse(modeText))).toList();
 
 		return new ModalAbility(text,choiceConstraint, modes);
 	}

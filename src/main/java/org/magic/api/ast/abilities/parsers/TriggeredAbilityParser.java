@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.TriggeredAbility;
-import org.magic.api.ast.effects.parsers.EffectSequenceParser;
+import org.magic.api.ast.engine.EffectSequencerSplitter;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.triggers.factory.TriggerFactory;
@@ -32,6 +32,6 @@ public class TriggeredAbilityParser implements AbilityParser {
 
 		var trigger = TriggerFactory.INSTANCE.parse(triggerText);
 
-		return new TriggeredAbility(text,trigger, new EffectSequenceParser().parse(effectText));
+		return new TriggeredAbility(text,trigger, EffectSequencerSplitter.INSTANCE.parse(effectText));
 	}
 }
