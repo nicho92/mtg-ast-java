@@ -1,28 +1,22 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.effects.SacrificeEffect;
 import org.magic.api.ast.interfaces.EffectNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
 import org.magic.api.ast.selectors.factory.SelectorFactory;
 
-public class SacrificeEffectParser implements EffectParser {
-
-	private static final Pattern PATTERN = Pattern.compile(
-			"^(You|Each opponent|Target player|Each player)\\s+sacrifices?\\s+(.+)$", Pattern.CASE_INSENSITIVE);
+public class SacrificeEffectParser extends AbstractParser<EffectNode> implements EffectParser {
 
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).find();
+	protected String getPattern() {
+		return "^(You|Each opponent|Target player|Each player)\\s+sacrifices?\\s+(.+)$";
 	}
-
+			
 	@Override
 	public EffectNode parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
-
-		matcher.find();
+		var matcher = match(text);
 
 		return new SacrificeEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
 				SelectorFactory.INSTANCE.parse(matcher.group(2).trim()));

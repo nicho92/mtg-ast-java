@@ -1,26 +1,25 @@
 package org.magic.api.ast.costs.parsers;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.magic.api.ast.costs.LifeCost;
 import org.magic.api.ast.interfaces.CostNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.CostParser;
 import org.magic.api.ast.util.AmountParser;
 
-public class LifeCostParser implements CostParser {
+public class LifeCostParser extends AbstractParser<List<CostNode>> implements CostParser {
 
-	private static final Pattern PATTERN = Pattern.compile("pay (.*?) lifes?",Pattern.CASE_INSENSITIVE);
-
+	
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).matches();
+	protected String getPattern() {
+		return "pay (.*?) lifes?";
 	}
-
+	
 	@Override
 	public List<CostNode> parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
+		var matcher = match(text);
 
 		if (!matcher.matches()) {
 			return List.of();

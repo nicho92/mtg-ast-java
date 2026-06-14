@@ -1,28 +1,23 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.effects.GainLifeEffect;
 import org.magic.api.ast.interfaces.EffectNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
+import org.magic.api.ast.util.AmountParser;
 
-public class GainLifeEffectParser implements EffectParser {
-
-	private static final Pattern PATTERN = Pattern.compile("^(?:You\\s+)?Gain\\s+(\\d+)\\s+life",
-			Pattern.CASE_INSENSITIVE);
+public class GainLifeEffectParser extends AbstractParser<EffectNode> implements EffectParser {
 
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).find();
+	protected String getPattern() {
+		return "^(?:You\\s+)?Gain\\s+(\\d+)\\s+life(.+)";
 	}
-
+	
 	@Override
 	public EffectNode parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
+		var matcher = match(text);
 
-		matcher.find();
-
-		return new GainLifeEffect(text, Integer.parseInt(matcher.group(1)));
+		return new GainLifeEffect(text, AmountParser.parse(matcher.group(1)));
 	}
 }

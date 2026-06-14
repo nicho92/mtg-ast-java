@@ -67,6 +67,7 @@ When you cast this spell, take an extra turn after this one.
 Flying, protection from spells that are one or more colors, annihilator 6
 When Emrakul is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.
 Ward {2}.
+
 ===
 
 Defender (This creature can’t attack.)
@@ -74,3 +75,10 @@ Defender (This creature can’t attack.)
 Pay 1 life: This creature gets +1/+1 until end of turn.
 
 ===
+
+Defender
+
+{1}{B}: Lightning Bolt deals 3 damage to any target.
+
+
+

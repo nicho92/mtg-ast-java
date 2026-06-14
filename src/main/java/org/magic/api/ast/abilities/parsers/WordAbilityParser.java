@@ -1,28 +1,24 @@
 package org.magic.api.ast.abilities.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.abilities.WordAbility;
 import org.magic.api.ast.abilities.factory.AbilitiesFactory;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 
-public class WordAbilityParser implements AbilityParser {
+public class WordAbilityParser extends AbstractParser<AbilityNode> implements AbilityParser {
 
-	private static final Pattern PATTERN = Pattern
-			.compile("^([A-Z][a-zA-Z0-9]*(?:\\s+[a-zA-Z0-9]+){0,2})\\s*[\u2014\u2013-]\\s*(.*)$");
-
+	
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).matches();
+	protected String getPattern() {
+		return "^([A-Z][a-zA-Z0-9]*(?:\\s+[a-zA-Z0-9]+){0,2})\\s*[\u2014\u2013-]\\s*(.*)$";
 	}
-
+	
+	
 	@Override
 	public AbilityNode parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
-
-		matcher.find();
+		var matcher = match(text);
 
 		var abilityWord = matcher.group(1);
 		var innerText = matcher.group(2);

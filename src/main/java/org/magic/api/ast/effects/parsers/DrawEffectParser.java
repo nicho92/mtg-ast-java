@@ -1,39 +1,21 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.effects.DrawCardsEffect;
 import org.magic.api.ast.interfaces.EffectNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
+import org.magic.api.ast.util.AmountParser;
 
-public class DrawEffectParser implements EffectParser {
-
-	private static final Pattern PATTERN = Pattern.compile("^Draw\\s+(a|two|three|\\d+)\\s+card",
-			Pattern.CASE_INSENSITIVE);
-
-	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).find();
-	}
+public class DrawEffectParser extends AbstractParser<EffectNode>  implements EffectParser {
 
 	@Override
 	public EffectNode parse(String text) {
+		var matcher = match(text);
+		return new DrawCardsEffect(text, AmountParser.parse( matcher.group(1)));
+	}
 
-		var matcher = PATTERN.matcher(text);
-
-		matcher.find();
-
-		String amount = matcher.group(1);
-
-		return new DrawCardsEffect(text, 
-
-				switch (amount) {
-				case "a" -> 1;
-				case "two" -> 2;
-				case "three" -> 3;
-				default -> Integer.parseInt(amount);
-				}
-
-		);
+	@Override
+	protected String getPattern() {
+		return "^Draw\\s+(a|two|three|\\d+)\\s+cards?$";
 	}
 }

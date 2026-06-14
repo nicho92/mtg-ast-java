@@ -13,8 +13,7 @@ import org.magic.api.ast.util.EffectSequencerSplitter;
 
 public class ModalAbilityParser implements AbilityParser {
 
-	private static final Pattern HEADER_PATTERN = Pattern
-			.compile("^Choose\\s+(one|two|one or both|up to one)\\s*[—-]?$", Pattern.CASE_INSENSITIVE);
+	private static final Pattern HEADER_PATTERN = Pattern.compile("^Choose\\s+(one|two|one or both|up to one)\\s*[—-]?$", Pattern.CASE_INSENSITIVE);
 
 	@Override
 	public boolean supports(String text) {

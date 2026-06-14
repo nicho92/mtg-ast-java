@@ -1,28 +1,23 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.effects.ExileEffect;
 import org.magic.api.ast.interfaces.EffectNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
 import org.magic.api.ast.selectors.factory.SelectorFactory;
 
-public class ExileEffectParser implements EffectParser {
+public class ExileEffectParser extends AbstractParser<EffectNode> implements EffectParser {
 
-	private static final Pattern PATTERN = Pattern.compile("^Exile\\s+(.+)$", Pattern.CASE_INSENSITIVE);
-
+	
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).find();
+	protected String getPattern() {
+		return "^Exile\\s+(.+)$";
 	}
-
+	
 	@Override
 	public EffectNode parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
-
-		matcher.find();
-
+		var matcher = match(text);
 		return new ExileEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()));
 	}
 }

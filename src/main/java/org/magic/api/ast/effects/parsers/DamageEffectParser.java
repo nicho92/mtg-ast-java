@@ -1,30 +1,25 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.effects.DealDamageEffect;
 import org.magic.api.ast.interfaces.EffectNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
 import org.magic.api.ast.selectors.factory.SelectorFactory;
+import org.magic.api.ast.util.AmountParser;
 
-public class DamageEffectParser implements EffectParser {
-
-	private static final Pattern PATTERN = Pattern.compile("deal\\s+(\\d+)\\s+damage\\s+to\\s+(.+)",
-			Pattern.CASE_INSENSITIVE);
+public class DamageEffectParser extends AbstractParser<EffectNode> implements EffectParser {
 
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).find();
+	protected String getPattern() {
+		return "^(.+?)\\s+deals?\\s+(\\d+)\\s+damage\\s+to\\s+(.+?)\\.?$";
 	}
-
+	
 	@Override
 	public EffectNode parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
+		var matcher = match(text);
 
-		matcher.find();
-
-		return new DealDamageEffect(text, Integer.parseInt(matcher.group(1)),
-				SelectorFactory.INSTANCE.parse(matcher.group(2).trim()));
+		return new DealDamageEffect(text, SelectorFactory.INSTANCE.parse(matcher.group(1).trim()), AmountParser.parse(matcher.group(2)),
+				SelectorFactory.INSTANCE.parse(matcher.group(3).trim()));
 	}
 }

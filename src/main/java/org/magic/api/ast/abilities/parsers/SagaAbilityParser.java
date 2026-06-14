@@ -1,30 +1,24 @@
 package org.magic.api.ast.abilities.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.abilities.SagaAbility;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.util.AmountParser;
 import org.magic.api.ast.util.EffectSequencerSplitter;
 
-public class SagaAbilityParser implements AbilityParser {
+public class SagaAbilityParser extends AbstractParser<AbilityNode> implements AbilityParser {
 
-	private static final Pattern PATTERN = Pattern.compile("^(I|II|III|IV|V|VI)\\s+[—-]\\s+(.*)$",
-			Pattern.CASE_INSENSITIVE);
 
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).matches();
+	protected String getPattern() {
+		return "^(I|II|III|IV|V|VI)\\s+[—-]\\s+(.*)$";
 	}
-
+	
 	@Override
 	public AbilityNode parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
-
-		matcher.find();
-
+		var matcher = match(text);
 		var triggerText = matcher.group(2);
 
 		return new SagaAbility(text,AmountParser.parse(matcher.group(1)),EffectSequencerSplitter.INSTANCE.parse(triggerText));

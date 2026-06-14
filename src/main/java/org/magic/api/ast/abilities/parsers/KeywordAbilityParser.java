@@ -9,13 +9,12 @@ import org.magic.api.ast.interfaces.KeywordRegistry;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.util.DefaultKeywordRegistry;
 
-public class KeywordAbilityParser implements AbilityParser {
+public class KeywordAbilityParser  implements AbilityParser {
 
 	private KeywordRegistry registry;
 
 	public KeywordAbilityParser() {
 			registry = new DefaultKeywordRegistry();
-
 	}
 
 	public void setRegistry(KeywordRegistry registry) {

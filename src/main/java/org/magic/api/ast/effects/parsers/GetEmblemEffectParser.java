@@ -1,27 +1,21 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.effects.GetEmblemEffect;
 import org.magic.api.ast.interfaces.EffectNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
 
-public class GetEmblemEffectParser implements EffectParser {
-
-	private static final Pattern PATTERN = Pattern.compile("You get an emblem with \"(.*?)\"",Pattern.CASE_INSENSITIVE);
+public class GetEmblemEffectParser  extends AbstractParser<EffectNode> implements EffectParser {
 
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).find();
+	protected String getPattern() {
+		return "^You get an emblem with \"(.*?)\"[.!]?$";
 	}
-
+	
 	@Override
 	public EffectNode parse(String text) {
 
-		var matcher = PATTERN.matcher(text);
-
-		matcher.find();
-
+		var matcher = match(text);
 		return new GetEmblemEffect(text, matcher.group(1));
 	}
 }

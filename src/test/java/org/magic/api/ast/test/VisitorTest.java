@@ -21,6 +21,7 @@ class VisitorTest {
 [−10]: You get an emblem with "At the beginning of your end step, create three 1/1 white Cat creature tokens with lifelink.".
 					""";
 		
+			
 			new OracleParser().parse("Urza", s)
 			.getAbilities()
 			.stream()
@@ -31,13 +32,8 @@ class VisitorTest {
 			System.out.println("=================");
 			
 			OracleParser.toFacade("Urza", s).getPlaneswalkerAbilities().forEach(pa->{
-				
 				System.out.println(pa.loyalty() + " " + pa.effects());
-				
 			});
-			
-			
-			
 	}
 	
 }

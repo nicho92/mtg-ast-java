@@ -1,30 +1,22 @@
 package org.magic.api.ast.effects.parsers;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.magic.api.ast.effects.CreateTokenEffect;
 import org.magic.api.ast.interfaces.EffectNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
 import org.magic.api.ast.util.AmountParser;
 
-public class CreateTokenEffectParser implements EffectParser {
-
-	private static final Pattern PATTERN = Pattern.compile("Create (.*?) (.*?) token", Pattern.CASE_INSENSITIVE);
+public class CreateTokenEffectParser extends AbstractParser<EffectNode> implements EffectParser {
 
 	@Override
-	public boolean supports(String text) {
-		return PATTERN.matcher(text).find();
+	protected String getPattern() {
+		return "Create (.*?) (.*?) tokens?[.!]?";
 	}
-
+	
 	@Override
 	public EffectNode parse(String text) {
 
-		Matcher matcher = PATTERN.matcher(text);
-
-		matcher.find();
-
-		return new CreateTokenEffect(text,matcher.group(2),
-				AmountParser.parse(matcher.group(1).trim()));
+		var matcher = match(text);
+		return new CreateTokenEffect(text,matcher.group(2),AmountParser.parse(matcher.group(1).trim()));
 	}
 }

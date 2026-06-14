@@ -28,14 +28,13 @@ public class EffectFactory {
 	private EffectFactory() {
 
 		parsers = List.of(new DrawEffectParser(), new GainLifeEffectParser(), new AddManaEffectParser(),
-				new DamageEffectParser(), new DestroyEffectParser(), new GetEmblemEffectParser(),
-				new CreateTokenEffectParser(), new PutCountersEffectParser(), new ExileEffectParser(),
-				new ReturnEffectParser(), new DiscardEffectParser(), new SacrificeEffectParser(), 
-				new PtModificationParser());
+								new DamageEffectParser(), new DestroyEffectParser(), new GetEmblemEffectParser(),
+								new CreateTokenEffectParser(), new PutCountersEffectParser(), new ExileEffectParser(),
+								new ReturnEffectParser(), new DiscardEffectParser(), new SacrificeEffectParser(), 
+								new PtModificationParser());
 	}
 
-	public EffectNode parse(String text) {
-
+	public  EffectNode parse(String text) {
 		for (var parser : parsers) {
 
 			if (parser.supports(text)) {
