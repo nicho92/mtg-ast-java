@@ -20,7 +20,6 @@ public class ContinuousModifierAbilityParser extends AbstractParser<AbilityNode>
 
 		var matcher = match(text);
 
-		return new ContinuousModifierAbility(text,SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),
-				new PowerToughnessModifier(Integer.parseInt(matcher.group(2)), Integer.parseInt(matcher.group(3))));
+		return new ContinuousModifierAbility(text,SelectorFactory.INSTANCE.parse(matcher.group(1).trim()),new PowerToughnessModifier(Integer.parseInt(matcher.group(2)), Integer.parseInt(matcher.group(3))));
 	}
 }

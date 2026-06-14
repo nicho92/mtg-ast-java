@@ -12,7 +12,6 @@ import org.magic.api.ast.effects.parsers.DrawEffectParser;
 import org.magic.api.ast.effects.parsers.ExileEffectParser;
 import org.magic.api.ast.effects.parsers.GainLifeEffectParser;
 import org.magic.api.ast.effects.parsers.GetEmblemEffectParser;
-import org.magic.api.ast.effects.parsers.PtModificationParser;
 import org.magic.api.ast.effects.parsers.PutCountersEffectParser;
 import org.magic.api.ast.effects.parsers.ReturnEffectParser;
 import org.magic.api.ast.effects.parsers.SacrificeEffectParser;
@@ -30,8 +29,7 @@ public class EffectFactory {
 		parsers = List.of(new DrawEffectParser(), new GainLifeEffectParser(), new AddManaEffectParser(),
 								new DamageEffectParser(), new DestroyEffectParser(), new GetEmblemEffectParser(),
 								new CreateTokenEffectParser(), new PutCountersEffectParser(), new ExileEffectParser(),
-								new ReturnEffectParser(), new DiscardEffectParser(), new SacrificeEffectParser(), 
-								new PtModificationParser());
+								new ReturnEffectParser(), new DiscardEffectParser(), new SacrificeEffectParser());
 	}
 
 	public  EffectNode parse(String text) {
