@@ -2,6 +2,8 @@ package org.magic.api.ast.effects.factory;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.magic.api.ast.effects.UnknownEffect;
 import org.magic.api.ast.effects.parsers.AddManaEffectParser;
 import org.magic.api.ast.effects.parsers.CreateTokenEffectParser;
@@ -23,7 +25,9 @@ public class EffectFactory {
 	private final List<EffectParser> parsers;
 
 	public static final EffectFactory INSTANCE = new EffectFactory();
+	protected Logger logger = LogManager.getLogger(getClass());
 
+	
 	private EffectFactory() {
 
 		parsers = List.of(new DrawEffectParser(), new GainLifeEffectParser(), new AddManaEffectParser(),
@@ -39,7 +43,7 @@ public class EffectFactory {
 				return parser.parse(text);
 			}
 		}
-
+		logger.warn("No EffectsParser found for {}",text);
 		return new UnknownEffect(text);
 	}
 }
