@@ -1,40 +1,41 @@
 package org.magic.api.ast.abilities.parsers;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Pattern;
 
 import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.model.ChoiceConstraint;
 import org.magic.api.ast.abilities.model.ModeNode;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.util.EffectSequencerSplitter;
 
-public class ModalAbilityParser implements AbilityParser {
+public class ModalAbilityParser extends AbstractParser<AbilityNode>  implements AbilityParser {
 
-	private static final Pattern HEADER_PATTERN = Pattern.compile("^Choose\\s+(one|two|one or both|up to one)\\s*[—-]?$", Pattern.CASE_INSENSITIVE);
-
+	@Override
+	protected String getPattern() {
+		return "^Choose\\s+(one|two|one or both|up to one)\\s*[—-]?$";
+	}
+	
+	
 	@Override
 	public boolean supports(String text) {
 
-		String firstLine = text.lines().findFirst().orElse("").trim();
+		var firstLine = text.lines().findFirst().orElse("").trim();
 
-		return HEADER_PATTERN.matcher(firstLine).matches();
+		return super.supports(firstLine);
 	}
 
 	@Override
 	public AbilityNode parse(String text) {
 
-		List<String> lines = text.lines().map(String::trim).filter(line -> !line.isBlank()).toList();
+		var lines = text.lines().map(String::trim).filter(line -> !line.isBlank()).toList();
 
-		var matcher = HEADER_PATTERN.matcher(lines.getFirst());
-		matcher.find();
+		var matcher = match(lines.getFirst());
 
 		var choiceConstraint = parseChoiceConstraint(matcher.group(1));
 	
-		List<ModeNode> modes = lines.stream().skip(1).map(this::stripBullet)
-				.map(modeText -> new ModeNode(modeText, EffectSequencerSplitter.INSTANCE.parse(modeText))).toList();
+		var modes = lines.stream().skip(1).map(this::stripBullet).map(modeText -> new ModeNode(modeText, EffectSequencerSplitter.INSTANCE.parse(modeText))).toList();
 
 		return new ModalAbility(text,choiceConstraint, modes);
 	}

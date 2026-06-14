@@ -16,6 +16,6 @@ public class DrawEffectParser extends AbstractParser<EffectNode>  implements Eff
 
 	@Override
 	protected String getPattern() {
-		return "^Draw\\s+(a|two|three|\\d+)\\s+cards?$";
+		return "^Draw\\s+(a|two|three|\\d+)\\s+cards?.?$";
 	}
 }
