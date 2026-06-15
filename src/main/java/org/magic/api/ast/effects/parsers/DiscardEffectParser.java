@@ -22,7 +22,7 @@ public class DiscardEffectParser extends AbstractParser<EffectNode> implements E
 
 		var matcher = match(text);
 
-		SelectorNode selector = new PlayerSelector(false);
+		SelectorNode selector = new PlayerSelector(false,true);
 		
 		if(matcher.group(1)!=null)
 			selector = SelectorFactory.INSTANCE.parse(matcher.group(1).trim());

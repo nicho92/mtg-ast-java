@@ -18,6 +18,6 @@ public class TurnEffectParser extends AbstractParser<EffectNode> implements Effe
 	public EffectNode parse(String text) {
 
 		var matcher = match(text);
-		return new ExtraTurnEffect(text,AmountParser.parse(matcher.group(1)), new PlayerSelector(text.contains("target")));
+		return new ExtraTurnEffect(text,AmountParser.parse(matcher.group(1)), new PlayerSelector(text.contains("target"),true));
 	}
 }

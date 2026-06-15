@@ -45,7 +45,7 @@ public class EffectFactory {
 				return parser.parse(text);
 			}
 		}
-		logger.warn("No EffectsParser found for {}",text);
+		logger.warn("No EffectsParser found for \"{}\"",text);
 		return new UnknownEffect(text);
 	}
 }

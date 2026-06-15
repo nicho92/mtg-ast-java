@@ -26,10 +26,10 @@ public final class TriggerFactory {
 			return new Trigger(locator,TriggerType.DIES);
 
 		if (lower.contains("beginning of your upkeep"))
-			return new Trigger(new PlayerSelector(false),TriggerType.BEGINNING_OF_UPKEEP);
+			return new Trigger(new PlayerSelector(false,true),TriggerType.BEGINNING_OF_UPKEEP);
 
 		if (lower.contains("beginning of your end step") || lower.contains("beginning of the end step")|| lower.contains("beginning of each end step"))
-			return new Trigger(new PlayerSelector(false),TriggerType.BEGINNING_OF_END_STEP);
+			return new Trigger(new PlayerSelector(false,true),TriggerType.BEGINNING_OF_END_STEP);
 		
 		if (lower.contains("draws a card") || lower.contains("draw a card"))
 			return new Trigger(locator,TriggerType.DRAW_CARD);

@@ -45,12 +45,12 @@ public class SelectorFactory {
 
 	private SelectorNode parsePlayer(String text) {
 
-		return new PlayerSelector(text.toLowerCase().contains("target"));
+		return new PlayerSelector(text.toLowerCase().contains("target"),text.toLowerCase().contains("you"));
 	}
 
 	private SelectorNode parseLand(String text) {
 
-		String lower = text.toLowerCase();
+		var lower = text.toLowerCase();
 
 		return new LandSelector(
 
@@ -68,7 +68,7 @@ public class SelectorFactory {
 
 	private SelectorNode parseCreature(String text) {
 
-		String lower = text.toLowerCase();
+		var lower = text.toLowerCase();
 
 		return new CreatureSelector(
 
