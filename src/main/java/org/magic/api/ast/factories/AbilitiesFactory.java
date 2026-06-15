@@ -3,6 +3,8 @@ package org.magic.api.ast.factories;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
 import org.magic.api.ast.abilities.parsers.ContinuousModifierAbilityParser;
@@ -20,7 +22,10 @@ public class AbilitiesFactory {
 
 	private final List<AbilityParser> parsers;
 	public static final AbilitiesFactory INSTANCE = new AbilitiesFactory();
+	protected Logger logger = LogManager.getLogger(getClass());
 
+	
+	
 	private AbilitiesFactory() {
 
 		parsers = List.of(new ModalAbilityParser(), new ReplacementEffectParser(),
@@ -39,7 +44,6 @@ public class AbilitiesFactory {
 		for (var block : parseBlocks(oracleText)) {
 			ret.add(parseLine(block));
 		}
-
 		return ret;
 	}
 
@@ -74,7 +78,9 @@ public class AbilitiesFactory {
 		if (currentModalBlock != null) {
 			blocks.add(currentModalBlock.toString());
 		}
-
+		
+		logger.debug("Parsing text {} as {} blocks",oracleText,blocks.size());
+		
 		return blocks;
 	}
 
@@ -94,7 +100,7 @@ public class AbilitiesFactory {
 				return parser.parse(line);
 			}
 		}
-
+		logger.warn("no abiliy parser found for \"{}\". Return Static One",line);
 		return new StaticAbility(line);
 	}
 }
