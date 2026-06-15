@@ -14,7 +14,7 @@ public abstract class AbstractParser<T> implements ASTParser<T> {
 	@Override
 	public boolean supports(String text) {
 		var find = pattern.matcher(text).matches();
-		logger.debug("parsing {} with {} -> {}" , text, getPattern(),find);
+		logger.trace("parsing {} with {} -> {}" , text, getPattern(),find);
 		return find;
 		
 	}
