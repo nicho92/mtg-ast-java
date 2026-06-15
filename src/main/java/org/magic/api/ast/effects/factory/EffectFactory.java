@@ -17,6 +17,7 @@ import org.magic.api.ast.effects.parsers.GetEmblemEffectParser;
 import org.magic.api.ast.effects.parsers.PutCountersEffectParser;
 import org.magic.api.ast.effects.parsers.ReturnEffectParser;
 import org.magic.api.ast.effects.parsers.SacrificeEffectParser;
+import org.magic.api.ast.effects.parsers.TurnEffectParser;
 import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
 
@@ -33,7 +34,8 @@ public class EffectFactory {
 		parsers = List.of(new DrawEffectParser(), new GainLifeEffectParser(), new AddManaEffectParser(),
 								new DamageEffectParser(), new DestroyEffectParser(), new GetEmblemEffectParser(),
 								new CreateTokenEffectParser(), new PutCountersEffectParser(), new ExileEffectParser(),
-								new ReturnEffectParser(), new DiscardEffectParser(), new SacrificeEffectParser());
+								new ReturnEffectParser(), new DiscardEffectParser(), new SacrificeEffectParser(),
+								new TurnEffectParser());
 	}
 
 	public  EffectNode parse(String text) {
