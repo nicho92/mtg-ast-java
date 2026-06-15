@@ -76,9 +76,13 @@ Pay 1 life: This creature gets +1/+1 until end of turn.
 
 ===
 
-Defender
-
 {1}{B}: Lightning Bolt deals 3 damage to any target.
+
+===
+
+You may look at the top card of your library any time.
+You may play lands and spells from the top of your library. 
+{T}: Add {U}.
 
 
 

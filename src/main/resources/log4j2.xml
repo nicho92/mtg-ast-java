@@ -2,7 +2,7 @@
 <Configuration xmlns:xi="http://www.w3.org/2001/XInclude" packages="org.magic.api.ast" status="error">
 
 <Properties>
-   	<Property name="defaultLayoutPattern">%d{yyyy-MM-dd HH:mm:ss} [%-5p] %c %L - %m%n</Property>
+   	<Property name="defaultLayoutPattern">%d{yyyy-MM-dd HH:mm:ss} [%-5p] %c{1} - %m%n</Property>
   </Properties>
  	
   <Appenders>
