@@ -1,10 +1,10 @@
 package org.magic.api.ast.effects.parsers;
 
 import org.magic.api.ast.effects.SacrificeEffect;
+import org.magic.api.ast.factories.SelectorFactory;
 import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.EffectParser;
-import org.magic.api.ast.selectors.factory.SelectorFactory;
 
 public class SacrificeEffectParser extends AbstractParser<EffectNode> implements EffectParser {
 

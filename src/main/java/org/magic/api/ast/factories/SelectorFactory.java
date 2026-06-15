@@ -1,4 +1,4 @@
-package org.magic.api.ast.selectors.factory;
+package org.magic.api.ast.factories;
 
 import org.magic.api.ast.interfaces.SelectorNode;
 import org.magic.api.ast.selectors.ArtifactSelector;

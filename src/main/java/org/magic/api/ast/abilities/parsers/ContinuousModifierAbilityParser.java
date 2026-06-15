@@ -1,11 +1,11 @@
 package org.magic.api.ast.abilities.parsers;
 
 import org.magic.api.ast.abilities.ContinuousModifierAbility;
+import org.magic.api.ast.factories.SelectorFactory;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.modifiers.PowerToughnessModifier;
-import org.magic.api.ast.selectors.factory.SelectorFactory;
 
 public class ContinuousModifierAbilityParser extends AbstractParser<AbilityNode> implements AbilityParser {
 

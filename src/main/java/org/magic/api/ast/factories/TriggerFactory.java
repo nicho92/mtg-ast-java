@@ -1,9 +1,8 @@
-package org.magic.api.ast.triggers.factory;
+package org.magic.api.ast.factories;
 
 import java.util.Set;
 
 import org.magic.api.ast.selectors.PlayerSelector;
-import org.magic.api.ast.selectors.factory.SelectorFactory;
 import org.magic.api.ast.triggers.Trigger;
 import org.magic.api.ast.triggers.TriggerType;
 

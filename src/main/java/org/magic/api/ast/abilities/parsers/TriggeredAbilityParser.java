@@ -1,10 +1,10 @@
 package org.magic.api.ast.abilities.parsers;
 
 import org.magic.api.ast.abilities.TriggeredAbility;
+import org.magic.api.ast.factories.TriggerFactory;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.interfaces.parsers.AbstractParser;
-import org.magic.api.ast.triggers.factory.TriggerFactory;
 import org.magic.api.ast.util.EffectSequencerSplitter;
 
 public class TriggeredAbilityParser extends AbstractParser<AbilityNode> implements AbilityParser {

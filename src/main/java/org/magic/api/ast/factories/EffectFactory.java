@@ -1,4 +1,4 @@
-package org.magic.api.ast.effects.factory;
+package org.magic.api.ast.factories;
 
 import java.util.List;
 

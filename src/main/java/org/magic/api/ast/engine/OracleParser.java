@@ -1,6 +1,6 @@
 package org.magic.api.ast.engine;
 
-import org.magic.api.ast.abilities.factory.AbilitiesFactory;
+import org.magic.api.ast.factories.AbilitiesFactory;
 import org.magic.api.ast.util.ASTFacade;
 
 public class OracleParser {

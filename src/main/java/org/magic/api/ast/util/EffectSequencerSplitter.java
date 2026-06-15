@@ -3,7 +3,7 @@ package org.magic.api.ast.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.magic.api.ast.effects.factory.EffectFactory;
+import org.magic.api.ast.factories.EffectFactory;
 import org.magic.api.ast.interfaces.EffectNode;
 
 public class EffectSequencerSplitter {

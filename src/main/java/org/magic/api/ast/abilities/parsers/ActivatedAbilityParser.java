@@ -1,7 +1,7 @@
 package org.magic.api.ast.abilities.parsers;
 
 import org.magic.api.ast.abilities.ActivatedAbility;
-import org.magic.api.ast.costs.factory.CostFactory;
+import org.magic.api.ast.factories.CostFactory;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 import org.magic.api.ast.interfaces.parsers.AbstractParser;
