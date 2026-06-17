@@ -7,6 +7,7 @@ import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
 import org.magic.api.ast.abilities.ReplacementEffectAbility;
 import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.SpellAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.abilities.WordAbility;
@@ -73,5 +74,8 @@ public abstract class AbstractVisitor<T> implements AbilityVisitor<T> {
 		return null;
 	}
 
-	
+	@Override
+	public T visit(SpellAbility ability) {
+		return null;
+	}
 }

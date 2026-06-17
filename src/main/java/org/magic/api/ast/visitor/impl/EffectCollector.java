@@ -8,6 +8,7 @@ import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
 import org.magic.api.ast.abilities.ReplacementEffectAbility;
 import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.SpellAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.interfaces.EffectNode;
 import org.magic.api.ast.interfaces.visitors.AbstractVisitor;
@@ -57,5 +58,10 @@ public class EffectCollector extends AbstractVisitor<List<EffectNode>> {
 	@Override
 	public List<EffectNode> visit(PlaneswalkerAbility ability) {
 		return new ArrayList<>(ability.effects());
+	}
+
+	@Override
+	public List<EffectNode> visit(SpellAbility ability) {
+		return List.of(ability.effect());
 	}
 }

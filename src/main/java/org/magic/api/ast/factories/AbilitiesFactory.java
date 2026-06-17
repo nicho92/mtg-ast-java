@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.magic.api.ast.abilities.SpellAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.parsers.ActivatedAbilityParser;
 import org.magic.api.ast.abilities.parsers.ContinuousModifierAbilityParser;
@@ -15,6 +16,7 @@ import org.magic.api.ast.abilities.parsers.ReplacementEffectParser;
 import org.magic.api.ast.abilities.parsers.SagaAbilityParser;
 import org.magic.api.ast.abilities.parsers.TriggeredAbilityParser;
 import org.magic.api.ast.abilities.parsers.WordAbilityParser;
+import org.magic.api.ast.effects.UnknownEffect;
 import org.magic.api.ast.interfaces.AbilityNode;
 import org.magic.api.ast.interfaces.parsers.AbilityParser;
 
@@ -100,7 +102,17 @@ public class AbilitiesFactory {
 				return parser.parse(line);
 			}
 		}
-		logger.warn("no abiliy parser found for \"{}\". Return Static One",line);
-		return new StaticAbility(line);
+		
+		var spells = EffectFactory.INSTANCE.parse(line);
+		if (spells instanceof UnknownEffect)
+		{
+			logger.warn("no abiliy parser found for \"{}\". Return Static One",line);
+			return new StaticAbility(line);
+		}
+		else
+		{
+			return new SpellAbility(line, spells);
+		}
+		
 	}
 }

@@ -7,6 +7,7 @@ import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
 import org.magic.api.ast.abilities.ReplacementEffectAbility;
 import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.SpellAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.abilities.WordAbility;
@@ -84,5 +85,10 @@ public class AbilityDescriber extends AbstractVisitor<String> {
 	@Override
 	public String visit(WordAbility ability) {
 		return String.format("Word: %s", ability.abilityWord());
+	}
+
+	@Override
+	public String visit(SpellAbility ability) {
+		return String.format("Spell → %s", ability.effect());
 	}
 }

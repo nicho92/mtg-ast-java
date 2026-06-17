@@ -7,6 +7,7 @@ import org.magic.api.ast.abilities.ModalAbility;
 import org.magic.api.ast.abilities.PlaneswalkerAbility;
 import org.magic.api.ast.abilities.ReplacementEffectAbility;
 import org.magic.api.ast.abilities.SagaAbility;
+import org.magic.api.ast.abilities.SpellAbility;
 import org.magic.api.ast.abilities.StaticAbility;
 import org.magic.api.ast.abilities.TriggeredAbility;
 import org.magic.api.ast.abilities.WordAbility;
@@ -108,4 +109,13 @@ public interface AbilityVisitor<T> {
 	 * @return the result of visiting this ability
 	 */
 	T visit(PlaneswalkerAbility ability);
+
+	
+	/**
+	 * Visit a SpellAbility node.
+	 * 
+	 * @param ability the ¨Effects ability to visit
+	 * @return the result of visiting this ability
+	 */
+	T visit(SpellAbility ability);
 }
