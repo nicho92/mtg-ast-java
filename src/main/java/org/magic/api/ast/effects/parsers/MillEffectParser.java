@@ -17,7 +17,7 @@ public class MillEffectParser extends AbstractParser<EffectNode> implements Effe
     @Override
     public EffectNode parse(String text) {
         var matcher = match(text);
-        
+  
         var amount =  matcher.group("amount1") != null
                 ? matcher.group("amount1")
                         : matcher.group("amount2");

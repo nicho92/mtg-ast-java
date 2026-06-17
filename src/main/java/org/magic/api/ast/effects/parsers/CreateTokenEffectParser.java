@@ -10,7 +10,7 @@ public class CreateTokenEffectParser extends AbstractParser<EffectNode> implemen
 
 	@Override
 	protected String getPattern() {
-		return "Create (.*?) (.*?) tokens?[.!]?";
+		return "Create (that many|.*?) (.*?) tokens?[.!]?";
 	}
 	
 	@Override
