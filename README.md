@@ -3,7 +3,6 @@
 [![Java](https://img.shields.io/badge/Java-25%2B-orange.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/build-Maven-blue.svg)](https://maven.apache.org/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![GitHub](https://img.shields.io/badge/GitHub-nicho92%2Fmtg--ast--java-blue)](https://github.com/nicho92/mtg-ast-java)
 
 **MTG AST Java** is a lightweight, powerful Java library for parsing *Magic: The Gathering* oracle text into a structured abstract syntax tree (AST). It transforms complex card abilities into strongly-typed Java records, enabling programmatic analysis, traversal, and manipulation of MTG card mechanics.
 
