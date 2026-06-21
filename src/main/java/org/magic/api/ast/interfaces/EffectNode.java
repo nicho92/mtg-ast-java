@@ -10,6 +10,7 @@ import org.magic.api.ast.effects.ExileEffect;
 import org.magic.api.ast.effects.ExtraTurnEffect;
 import org.magic.api.ast.effects.GainLifeEffect;
 import org.magic.api.ast.effects.GetEmblemEffect;
+import org.magic.api.ast.effects.LoseLifeEffect;
 import org.magic.api.ast.effects.MillEffect;
 import org.magic.api.ast.effects.PutCountersEffect;
 import org.magic.api.ast.effects.ReturnEffect;
@@ -20,7 +21,7 @@ public sealed interface EffectNode permits
 AddManaEffect, CreateTokenEffect, DealDamageEffect, DestroyTargetEffect, 
 DiscardCardsEffect, DrawCardsEffect, ExileEffect, ExtraTurnEffect, 
 GainLifeEffect, GetEmblemEffect, MillEffect, PutCountersEffect, 
-ReturnEffect, SacrificeEffect, UnknownEffect 
+ReturnEffect, SacrificeEffect, UnknownEffect ,LoseLifeEffect
 {
 String text();
 }
