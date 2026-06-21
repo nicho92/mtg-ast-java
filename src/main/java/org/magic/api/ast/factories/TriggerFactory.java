@@ -19,7 +19,7 @@ public final class TriggerFactory {
 
 		var locator = SelectorFactory.INSTANCE.parse(text);
 
-		if (lower.contains("enters the battlefield"))
+		if (lower.contains("enters"))
 			return new Trigger(locator, TriggerType.ENTERS_BATTLEFIELD);
 
 		if (lower.contains("dies"))

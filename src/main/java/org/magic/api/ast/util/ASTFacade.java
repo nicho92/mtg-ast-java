@@ -83,6 +83,7 @@ public class ASTFacade {
 		return getAbilities(PlaneswalkerAbility.class);
 	}
 	
+	
 	// ============ TRIGGER EXTRACTION ============
 
 	public List<Trigger> getAllTriggers() {
