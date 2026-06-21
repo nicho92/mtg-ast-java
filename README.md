@@ -346,4 +346,4 @@ This library is provided for educational and fan purposes only. Use responsibly 
 
 ---
 
-**Need Help?** Open an [issue](https://github.com/nicho92/mtg-ast-java/issues) on GitHub or check the [discussions](https://github.com/nicho92/mtg-ast-java/discussions).
+**Need Help?** Open an [issue](https://github.com/nicho92/mtg-ast-java/issues) on GitHub.
