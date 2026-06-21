@@ -1,10 +1,10 @@
 module org.magic.api.ast {
     
-    // Dépendances requises
+    //  Required Dependencies
     requires org.apache.logging.log4j;
     requires com.google.gson;
     
-    // Accès public pour les utilisateurs de l'API
+    // public access
     exports org.magic.api.ast.engine;
     exports org.magic.api.ast.interfaces;
     exports org.magic.api.ast.interfaces.visitors;
@@ -19,7 +19,7 @@ module org.magic.api.ast {
     exports org.magic.api.ast.modifiers;
     exports org.magic.api.ast.util;
     
-    // Autoriser Gson à faire de la réflexion sur vos records/modèles
+    // allow Gson reflections
     opens org.magic.api.ast.engine to com.google.gson;
     opens org.magic.api.ast.abilities to com.google.gson;
     opens org.magic.api.ast.abilities.model to com.google.gson;
