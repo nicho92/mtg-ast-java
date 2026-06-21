@@ -7,20 +7,24 @@ import java.util.regex.Pattern;
 import org.magic.api.ast.costs.ManaValue;
 import org.magic.api.ast.costs.model.ManaSymbol;
 import org.magic.api.ast.interfaces.CostNode;
+import org.magic.api.ast.interfaces.parsers.AbstractParser;
 import org.magic.api.ast.interfaces.parsers.CostParser;
 
-public class ManaCostParser implements CostParser {
+public class ManaCostParser extends AbstractParser<List<CostNode>> implements CostParser {
 
-	private static final Pattern MANA_SYMBOL = Pattern.compile("\\{([^}]+)}");
-
+	@Override
+	protected String getPattern() {
+		return "\\{([^}]+)}";
+	}
+	
 	@Override
 	public boolean supports(String text) {
-		return MANA_SYMBOL.matcher(text).find();
+		 return Pattern.compile(getPattern(),Pattern.CASE_INSENSITIVE).matcher(text).find();
 	}
-
+	
 	@Override
 	public List<CostNode> parse(String text) {
-		var matcher = MANA_SYMBOL.matcher(text);
+		var matcher = match(text);
 		var ret = new ArrayList<ManaSymbol>();
 		
 		while (matcher.find()) {
