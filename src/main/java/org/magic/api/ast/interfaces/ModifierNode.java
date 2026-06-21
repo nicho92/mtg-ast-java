@@ -1,4 +1,6 @@
 package org.magic.api.ast.interfaces;
 
-public interface ModifierNode  {
+import org.magic.api.ast.modifiers.PowerToughnessModifier;
+
+public sealed interface ModifierNode  permits PowerToughnessModifier{
 }
