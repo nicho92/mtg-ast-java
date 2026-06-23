@@ -20,6 +20,6 @@ public class ActivatedAbilityParser extends AbstractParser<AbilityNode>  impleme
 
 		var matcher = match(text);
 		var costs = CostFactory.INSTANCE.parse(matcher.group(1));
-		return new ActivatedAbility(text,costs, EffectSequencerSplitter.INSTANCE.parse(matcher.group(2)));
+		return new ActivatedAbility(matcher.group(2),costs, EffectSequencerSplitter.INSTANCE.parse(matcher.group(2)));
 	}
 }
