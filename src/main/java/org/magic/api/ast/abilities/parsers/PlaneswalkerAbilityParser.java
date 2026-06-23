@@ -18,6 +18,6 @@ public class PlaneswalkerAbilityParser extends AbstractParser<AbilityNode> imple
 
 		var matcher = match(text);
 
-		return new PlaneswalkerAbility(text,matcher.group(1),EffectSequencerSplitter.INSTANCE.parse(matcher.group(2)));
+		return new PlaneswalkerAbility(matcher.group(2),matcher.group(1),EffectSequencerSplitter.INSTANCE.parse(matcher.group(2)));
 	}
 }
