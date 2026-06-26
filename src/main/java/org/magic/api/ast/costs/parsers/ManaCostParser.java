@@ -24,8 +24,11 @@ public class ManaCostParser extends AbstractParser<List<CostNode>> implements Co
 	
 	@Override
 	public List<CostNode> parse(String text) {
-		var matcher = match(text);
 		var ret = new ArrayList<ManaSymbol>();
+		var matcher = match(text);
+		//get first result because match call find().
+		
+		ret.add(ManaSymbol.parseByCode(matcher.group(1)));
 		
 		while (matcher.find()) {
 			ret.add(ManaSymbol.parseByCode(matcher.group(1)));
