@@ -26,8 +26,8 @@ public class ManaCostParser extends AbstractParser<List<CostNode>> implements Co
 	public List<CostNode> parse(String text) {
 		var ret = new ArrayList<ManaSymbol>();
 		var matcher = match(text);
-		//get first result because match call find().
 		
+		//get first result because match call find().
 		ret.add(ManaSymbol.parseByCode(matcher.group(1)));
 		
 		while (matcher.find()) {
