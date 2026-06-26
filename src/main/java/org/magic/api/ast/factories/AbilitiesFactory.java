@@ -30,10 +30,9 @@ public class AbilitiesFactory {
 	
 	private AbilitiesFactory() {
 
-		parsers = List.of(new ModalAbilityParser(), new ReplacementEffectParser(),
-				new ContinuousModifierAbilityParser(), new KeywordAbilityParser(), new TriggeredAbilityParser(),
-				new PlaneswalkerAbilityParser(), new ActivatedAbilityParser(), new SagaAbilityParser(),
-				new WordAbilityParser());
+		parsers = List.of(new ModalAbilityParser(), new PlaneswalkerAbilityParser(),new SagaAbilityParser(), new ReplacementEffectParser(),
+				new KeywordAbilityParser(), new TriggeredAbilityParser(),new ActivatedAbilityParser(), 
+				new ContinuousModifierAbilityParser(), new WordAbilityParser());
 	}
 
 	public List<AbilityNode> parse(String oracleText) {
