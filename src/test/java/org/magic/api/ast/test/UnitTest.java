@@ -31,9 +31,6 @@ class UnitTest {
 			    System.out.println("Coûts de la capacité :");
 			    for (var cost : ability.costs()) {
 			        switch (cost) {
-			            // Pour TapCost (qui est une classe standard)
-			            case TapCost tap -> 
-			                System.out.println(" Tap - : " + tap.getType());
 			            // Déstructuration directe des records
 			            case SacrificeCost( _, var target, int qty) -> 
 			                System.out.println("  - Sacrifier : " + qty + " x " + target);
@@ -41,21 +38,25 @@ class UnitTest {
 			                System.out.println("  - Points de vie à payer : " + qty + " PV");
 			            case ManaValue( _, var manaList) -> 
 			                System.out.println("  - Coût en mana : " + manaList);
+				            // Pour TapCost (qui est une classe standard)
+				        case TapCost tap -> 
+				             System.out.println("  - " + tap.getType());
+
 			        }
 			    }
 			    System.out.println("Effets de la capacité :");
 			    for (var effect : ability.effects()) {
 			        switch (effect) {
-			            case DrawCardsEffect(var _, int amount) -> 
+			            case DrawCardsEffect( _, int amount) -> 
 			                System.out.println("  - Piocher : " + amount + " carte(s)");
-			            case DealDamageEffect(var _, var _, int amount, var target) -> 
+			            case DealDamageEffect(_, _, int amount, var target) -> 
 			                System.out.println("  - Dégâts : " + amount + " blessures à " + target);
-			            case MillEffect(var _, int amount) -> 
+			            case MillEffect(_, int amount) -> 
 			                System.out.println("  - Meule : " + amount + " carte(s)");
-			            case DestroyTargetEffect(var _, var target) -> 
+			            case DestroyTargetEffect( _, var target) -> 
 			                System.out.println("  - Détruire : " + target);
-			            case CreateTokenEffect(String _, String tokenDescription, int quantity)->   
-			            System.out.println("  - Creation de "+ quantity + "token : " + tokenDescription);
+			            case CreateTokenEffect(_, String tokenDescription, int quantity)->   
+			            System.out.println("  - Creation de "+ quantity + " token : " + tokenDescription);
 			            case UnknownEffect(var txt) -> System.out.println("  - Effet non typé : " + txt);    
 			            
 					default -> System.out.println("Unexpected value: " + effect);
