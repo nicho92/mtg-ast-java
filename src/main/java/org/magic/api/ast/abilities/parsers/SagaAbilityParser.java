@@ -21,7 +21,7 @@ public class SagaAbilityParser extends AbstractParser<AbilityNode> implements Ab
 		var matcher = match(text);
 		var triggerText = matcher.group(2);
 
-		return new SagaAbility(text,AmountParser.parse(matcher.group(1)),EffectSequencerSplitter.INSTANCE.parse(triggerText));
+		return new SagaAbility(triggerText,AmountParser.parse(matcher.group(1)),EffectSequencerSplitter.INSTANCE.parse(triggerText));
 	}
 
 }
