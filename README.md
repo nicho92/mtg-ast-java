@@ -285,7 +285,7 @@ mvn clean package
 ### Run Tests and Samples
 
 ```bash
-mvn exec:java -Dexec.mainClass=org.magic.api.ast.main.Test
+mvn exec:java -Dexec.mainClass=org.magic.api.ast.test.LoadOracleTest
 ```
 
 ---
