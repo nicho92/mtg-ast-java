@@ -32,6 +32,8 @@ public enum ManaSymbol {
 
 	X("X"),
 	
+	ENERGY("E"),
+	
 	NUMERIC("");
 	
 	private String data;
